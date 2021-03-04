@@ -1,0 +1,1720 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"e",
+				"exec"
+			],
+			[
+				"json",
+				"json_decode"
+			],
+			[
+				"exte",
+				"extension_loaded"
+			],
+			[
+				"bor",
+				"border-color\tproperty"
+			],
+			[
+				"Re",
+				"Recipes"
+			],
+			[
+				"Recipes",
+				"RecipesController"
+			],
+			[
+				"ma",
+				"margin-left\tproperty"
+			],
+			[
+				"margin",
+				"margin-right\tproperty"
+			],
+			[
+				"rec",
+				"recipe_id"
+			],
+			[
+				"isNu",
+				"is_numeric"
+			],
+			[
+				"recipe",
+				"recipe_id"
+			],
+			[
+				"bac",
+				"background-image\tproperty"
+			],
+			[
+				"pa",
+				"padding-right\tproperty"
+			],
+			[
+				"aut",
+				"author_id"
+			],
+			[
+				"in",
+				"inline-block\tdisplay"
+			],
+			[
+				"con",
+				"align-content\tproperty"
+			],
+			[
+				"al",
+				"align-content\tproperty"
+			],
+			[
+				"text",
+				"text-align\tproperty"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"unit",
+				"unit_id"
+			],
+			[
+				"un",
+				"unit"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"over",
+				"overflow-y\tproperty"
+			],
+			[
+				"ext",
+				"extends"
+			],
+			[
+				"tex",
+				"text-align\tproperty"
+			],
+			[
+				"U",
+				"Url"
+			],
+			[
+				"col",
+				"color\tproperty"
+			],
+			[
+				"font",
+				"font-weight\tproperty"
+			],
+			[
+				"ro",
+				"row-reverse\tflex-direction"
+			],
+			[
+				"fle",
+				"flex-direction\tproperty"
+			],
+			[
+				"background-",
+				"background-position\tproperty"
+			],
+			[
+				"co",
+				"cover\tbackground-size"
+			],
+			[
+				"back",
+				"background-image\tproperty"
+			],
+			[
+				"mar",
+				"margin\tproperty"
+			],
+			[
+				"create",
+				"createURL"
+			],
+			[
+				"contatc",
+				"contacts"
+			],
+			[
+				"Blog_t",
+				"Blogs_to_area"
+			],
+			[
+				"crea",
+				"created"
+			],
+			[
+				"sess",
+				"session_commit"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"fo",
+				"form\tTag"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"va",
+				"vacancy"
+			],
+			[
+				"ex",
+				"extends"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"base",
+				"baseUrl"
+			],
+			[
+				"vaca",
+				"vacancy_id"
+			],
+			[
+				"vac",
+				"vacancy_id"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"vacan",
+				"vacancy-"
+			],
+			[
+				"u",
+				"user"
+			],
+			[
+				"margin-",
+				"margin-right\tproperty"
+			],
+			[
+				"area",
+				"area_id"
+			],
+			[
+				"m",
+				"margin-left\tproperty"
+			],
+			[
+				"em",
+				"email"
+			],
+			[
+				"cu",
+				"cubinet"
+			],
+			[
+				"max-",
+				"max-width\tproperty"
+			],
+			[
+				"b",
+				"bold\tfont-weight"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"key",
+				"keywords"
+			],
+			[
+				"paddin",
+				"padding\tproperty"
+			],
+			[
+				"find",
+				"findAllByAttributes"
+			],
+			[
+				"blog",
+				"blog_id"
+			],
+			[
+				"parent",
+				"parent_cat"
+			],
+			[
+				"tra",
+				"transition\tproperty"
+			],
+			[
+				"pare",
+				"parent_cat"
+			],
+			[
+				"Blog",
+				"BlogCats"
+			],
+			[
+				"field",
+				"fieldId"
+			],
+			[
+				"file",
+				"file_name"
+			],
+			[
+				"cat",
+				"cat_id"
+			],
+			[
+				"is_",
+				"is_numeric"
+			],
+			[
+				"border-co",
+				"border-color\tproperty"
+			],
+			[
+				"int",
+				"intval"
+			],
+			[
+				"fl",
+				"flex-flow\tproperty"
+			],
+			[
+				"bord",
+				"border-radius\tproperty"
+			],
+			[
+				"wr",
+				"flex-wrap\tproperty"
+			],
+			[
+				"dir",
+				"dirname"
+			],
+			[
+				"pre",
+				"preg_split"
+			],
+			[
+				"pi",
+				"pieces"
+			],
+			[
+				"sc",
+				"script"
+			],
+			[
+				"rende",
+				"renderPartial"
+			],
+			[
+				"is_nu",
+				"is_numeric"
+			],
+			[
+				"min",
+				"min-height\tproperty"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"t",
+				"title"
+			],
+			[
+				"qu",
+				"queryAll"
+			],
+			[
+				"preg",
+				"preg_match_all"
+			],
+			[
+				"type",
+				"type_id"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"Sitre",
+				"SiteController"
+			],
+			[
+				"stop",
+				"stopPart"
+			],
+			[
+				"city",
+				"city_id"
+			],
+			[
+				"Resume",
+				"Resume"
+			],
+			[
+				"ds",
+				"display\tproperty"
+			],
+			[
+				"pasr",
+				"partStopped"
+			],
+			[
+				"wid",
+				"width\tproperty"
+			],
+			[
+				"marg",
+				"margin\tproperty"
+			],
+			[
+				"a_ti",
+				"a_tindex"
+			],
+			[
+				"set",
+				"setIndex"
+			],
+			[
+				"site",
+				"sitemap"
+			],
+			[
+				"Ad",
+				"AdminLog"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"str_s",
+				"str_split"
+			],
+			[
+				"html",
+				"htmlspecialchars"
+			],
+			[
+				"Tit",
+				"TitleConditions"
+			],
+			[
+				"Va",
+				"Vacancy"
+			],
+			[
+				"def",
+				"defaultText"
+			],
+			[
+				"strto",
+				"mb_strtolower"
+			],
+			[
+				"sub",
+				"subscribe"
+			],
+			[
+				"n",
+				"none\tcursor"
+			],
+			[
+				"show",
+				"showChar"
+			],
+			[
+				"imn",
+				"important"
+			],
+			[
+				"padd",
+				"padding\tproperty"
+			],
+			[
+				"font-si",
+				"font-size\tproperty"
+			],
+			[
+				"add",
+				"addslashes"
+			],
+			[
+				"strip",
+				"strip_tags"
+			],
+			[
+				"h",
+				"head\tTag"
+			],
+			[
+				"ca",
+				"category"
+			],
+			[
+				"pub",
+				"is_published"
+			],
+			[
+				"vi",
+				"vids"
+			],
+			[
+				"uis",
+				"user_id"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"par",
+				"parsuser"
+			],
+			[
+				"exp",
+				"explode"
+			],
+			[
+				"has",
+				"hasClass"
+			],
+			[
+				"ha",
+				"handle"
+			],
+			[
+				"wi",
+				"width\tproperty"
+			],
+			[
+				"fon",
+				"font-size\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "frontend/views/layouts/main.php",
+			"settings":
+			{
+				"buffer_size": 2332,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "backend/views/site/parse.php",
+			"settings":
+			{
+				"buffer_size": 490,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "common/models/Parser.php",
+			"settings":
+			{
+				"buffer_size": 7823,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "common/models/schemes/gk-paginator.json",
+			"settings":
+			{
+				"buffer_size": 347,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "\t\t\t\"cats\": {\n\t\t\t\t\"items\": {\n\t\t\t\t\t\"selector\": \"div.blockrec a\",\n\t\t\t\t\t\"fields\": {\n\t\t\t\t\t\t\"link\": {\n\t\t\t\t\t\t\t\"attr\": \"href\", \n\t\t\t\t\t\t\t\"parser\": {\n\t\t\t\t\t\t\t\t\"scheme\": \"gk-paginator\",\n\t\t\t\t\t\t\t\t\"url\": \"'https://grandkulinar.ru'.$data['value']\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}",
+			"settings":
+			{
+				"buffer_size": 265,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "common/models/schemes/gk-recipe.json",
+			"settings":
+			{
+				"buffer_size": 542,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "grandkulinar"
+			}
+		},
+		{
+			"file": "common/models/schemes/gk-items.json",
+			"settings":
+			{
+				"buffer_size": 385,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "backend/controllers/SiteController.php",
+			"settings":
+			{
+				"buffer_size": 2406,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/fabpot/goutte/Goutte/Client.php",
+			"settings":
+			{
+				"buffer_size": 7014,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/symfony/dom-crawler/Crawler.php",
+			"settings":
+			{
+				"buffer_size": 34900,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "common/config/main.php",
+			"settings":
+			{
+				"buffer_size": 428,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "backend/views/site/login.php",
+			"settings":
+			{
+				"buffer_size": 878,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "backend/views/site/index.php",
+			"settings":
+			{
+				"buffer_size": 652,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "backend/views/layouts/main.php",
+			"settings":
+			{
+				"buffer_size": 2182,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/OpenServer/domains/recipes-dev.com/yii-application",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/web",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/schemes",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/symfony",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/symfony/dom-crawler"
+	],
+	"file_history":
+	[
+		"/C/Users/vmaya/AppData/LocalLow/DefaultCompany/CRYPTO_VIRT/Player.log",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Parser.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/composer.json",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/Component.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/BaseHtml.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/messages/ru/app.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/layouts/search-block.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/SiteController.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Recipes.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/index.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/RecipesController.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/foundList.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/signup.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/Html.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/login.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/css/site.css",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/LoginForm.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/config/main.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/addRecipe.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/Editstage.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Stages.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/BaseModelWithImage.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/ActiveRecord.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Rates.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/widgets/ImageControl.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers/Utils.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/Recipe.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/_item.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/layouts/main.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-bootstrap/src/NavBar.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/index.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/widgets/ActiveField.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Ingredients.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/web/View.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-bootstrap/src/ActiveForm.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/symfony/dom-crawler/Crawler.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/UploadImage.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/widgets/IngredientList.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/widgets/ActiveForm.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/Module.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/web/UploadedFile.php",
+		"/D/documents/numbers.js",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Units.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/codeception/codeception/package/bin",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/codeception/codeception/codecept",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/Yii.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/BaseYii.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-bootstrap/src/Html.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/deleteRecipe.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/ArrayHelper.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-jui/InputWidget.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-jui/AutoComplete.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/kartik-v/yii2-krajee-base/src/InputWidget.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/RecipesCats.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/ActiveQuery.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/User.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/RecipesToCats.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/Command.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/IngredientsToRecipe.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/BaseActiveRecord.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/web/assets/c9d0ad24/jquery.js",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/Query.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/config/params-local.php",
+		"/C/WebServers/home/dev.oformi-foto.ru/www/ss/ssutils.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers/utils.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/config/main-local.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/behaviors/TimestampBehavior.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/Model.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/codeception/codeception/src/Codeception/Lib/Interfaces/ActiveRecord.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/codeception/codeception/src/Codeception/Lib/Interfaces/ORM.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/ActiveRecordInterface.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/RecipesToCats",
+		"/C/WebServers/home/dev.rabota7.local/www/framework/web/widgets/CActiveForm.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/views/activeRecordLog/_form.php",
+		"/C/WebServers/home/dev.rabota7.local/www/framework/web/helpers/CHtml.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/views/activeRecordLog/_search.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/models/Region.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/controllers/ResumeController.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/models/Article.php",
+		"/C/WebServers/home/dev.rabota7.local/www/tmp/exim test result.txt",
+		"/D/install/BlueScreenView/readme.txt",
+		"/C/Windows/setupact.log",
+		"/C/Windows/bootstat.dat",
+		"/C/Windows/Minidump/010218-22978-01.dmp",
+		"/D/sounds/Аудио книги/Robin hood/download.bat",
+		"/D/Unity/roomEditor_shd/Assets/data/users/dce61cab468809dda8652a4be182e3aa/task.json",
+		"/D/Unity/roomEditor_shd/bin/readme.txt",
+		"/D/Unity/roomEditor_shd/Assets/data/ProtectSystems.json",
+		"/D/Unity/roomEditor_shd/data/protectSystems.json",
+		"/D/Unity/roomEditor_shd/Assets/data/ProtectSource.json",
+		"/D/Unity/roomEditor_shd/data/data.json",
+		"/W/svidanie74.ru/public_html/configuration.php",
+		"/W/svidanie74.ru/public_html/templates/ja_stark/css/template.css",
+		"/W/svidanie74.ru/public_html/templates/index.html",
+		"/C/Users/vmaya/Downloads/addresses.csv",
+		"/C/WebServers/home/dev.rabota7.local/www/feed.xml",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/models/FeedbackForm.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/controllers/SiteController.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/components/WebUser.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/views/site/feedback.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/extensions/formSpamBotBlocker.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/config/main-rabota7.ru.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/config/main-dev.rabota7.local.php",
+		"/C/Users/vmaya/AppData/Local/Temp/Rar$DRa0.717/action.php",
+		"/C/Users/vmaya/AppData/Local/Temp/Rar$DIa0.042/example.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/views/area/_form.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/extensions/fsbb.php",
+		"/C/WebServers/home/dev.rabota7.local/www/framework/base/CModel.php",
+		"/C/WebServers/home/dev.rabota7.local/www/framework/web/CHttpSession.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/views/vacancies/_viewone.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/views/vacancies/full.php",
+		"/C/Users/vmaya/Downloads/worker.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/controllers/BannersController.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/extensions/ProjectActiveForm.php",
+		"/C/Users/vmaya/AppData/Local/Temp/Rar$DIa0.229/fsbb.php",
+		"/C/Users/vmaya/AppData/Local/Temp/Rar$DIa0.915/readme.txt",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/models/Banner.php",
+		"/D/documents/камера HD 1920x1080р 30FPS/Driver/readme.txt",
+		"/C/Users/vmaya/Downloads/FreeFlyCamera.cs",
+		"/D/Unity/Components/CablePulling/Assets/Scripts/AxisHandle/AxisControl.cs",
+		"/D/Unity/Components/CablePulling/Assets/Scripts/Cables/Curves/BasePoints.cs",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/sql/createfeed.sql",
+		"/C/WebServers/home/tree.com/www/project.sublime-project",
+		"/C/Users/vmaya/Downloads/oshibki_OSCS_terrain_Olga_14_10_20.txt",
+		"/D/Unity/OCSC_terrain_tmp/errors logs/oshibki_OSCS_terrain_Olga_13_10_20_chast_2.txt",
+		"/D/Unity/OCSC_terrain_tmp/errors logs/oshibki_OSCS_terrain_Olga_13_10_20.txt",
+		"/C/Users/vmaya/Downloads/oshibki_OSCS_terrain_Olga_13_10_20.txt"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 107.0,
+		"where_history":
+		[
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\config",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\vendor",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\vagrant",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\backend",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\common",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\console",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\environments",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\vendor",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\common",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\vendor\\yiisoft\\yii2\\widgets",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\common\\models",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\config",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\config",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\vendor",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\framework",
+			"W:\\svidanie74.ru\\public_html\\templates\\ja_stark",
+			"W:\\svidanie74.ru\\public_html\\templates\\ja_stark\\html",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\framework\\web",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\models",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\vacancies",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\components",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\vacancies",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\webroot\\js",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\framework",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\framework",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\components",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\models",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\config",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\contacts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\models",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\models",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\models",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\framework",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\components",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\models",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\framework",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\webroot\\js",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\models",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\webroot\\css",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\components",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\components",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\config",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\blog",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\vacancies",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\webroot\\js",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\vacancies",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\blog",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\vacancies",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\models",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\banners",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\blog",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected",
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\blog"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"print_r",
+			"parser",
+			"json_decode",
+			"parseBegin",
+			"body",
+			"resfreshIteration",
+			"refreshPeriod",
+			");",
+			"each(",
+			"filter",
+			"getDocument",
+			"$document",
+			"add(",
+			"$this->nodes",
+			"add(",
+			"request(",
+			"cache",
+			"field",
+			"input(",
+			"input",
+			"Login",
+			"login",
+			"a {",
+			"a",
+			".card-title a",
+			"param",
+			"search",
+			"holder",
+			"navbar",
+			"search-group",
+			"name",
+			"headerContent",
+			"brandLabel",
+			"link",
+			"'a'",
+			"navbar-header",
+			"stages",
+			"ingredients",
+			"ul",
+			"ui",
+			"$method",
+			"Html",
+			"hiddent",
+			"cat_id",
+			"img",
+			"isAttributeRequired",
+			"toRoute",
+			"container",
+			"wrapper",
+			"Theme",
+			"theme",
+			"\"",
+			"app.php",
+			"child",
+			"(min-width: 1200px)",
+			"ingredients",
+			"ingridients",
+			"unit-input",
+			"Guest",
+			"cook_level",
+			"cook_detail",
+			"ingredients-container",
+			"form-control",
+			"Unit",
+			"saveIngredients",
+			"$id",
+			".ingredients-container td input",
+			"ingredient_ids",
+			"ArrayHelper",
+			"saveRelations",
+			"new_ingredient",
+			"registerJs(",
+			"JsExpression",
+			":recipe_id",
+			"JsExpression",
+			"\\",
+			"js",
+			":recipe_id",
+			"Command",
+			"ArrayHelper",
+			"toArray",
+			"$app->user",
+			"find",
+			"Ingredients",
+			"$item->",
+			"name",
+			"category_ids",
+			"rating-stars",
+			"card-title",
+			"user",
+			"$app->request",
+			"one(",
+			"sum(",
+			".recipes .recipe-content",
+			".recipe-content",
+			"image",
+			"categories",
+			"recipe",
+			"column-one",
+			"description",
+			"@media",
+			".recipe-item img",
+			"media",
+			".recipe-content",
+			"column",
+			".recipe-item img",
+			"recipe-detail",
+			"bootstrap",
+			"en-US",
+			"en",
+			"ById",
+			"Pk",
+			"By",
+			"SaveRelationsBehavior",
+			"TimestampBehavior",
+			"setAttributes",
+			"setAttribute",
+			"setAttributes",
+			"getAllTree",
+			"activeLabelEx",
+			"->label",
+			"label",
+			"name",
+			"field",
+			"foreach",
+			"\\n",
+			"YiiMailMessage",
+			"mail"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"li",
+			"\\\"",
+			"','",
+			"a",
+			"1240px",
+			"SC adapter with rig 2",
+			"SC adapter with rig 1",
+			"href=\"<?=Blog::baseCityURL('",
+			"contacts-",
+			"contacts",
+			"id",
+			"contacts_to_area",
+			"contacts",
+			"id",
+			"vacancies",
+			"",
+			"response",
+			"responded",
+			"order_asc",
+			"(2018,",
+			"(2016,",
+			"./index_files",
+			"$condition",
+			"BlogCats",
+			"blog_id",
+			"Blog",
+			"IMAGE",
+			"blog",
+			"Blog",
+			"blog",
+			"Blog",
+			"blog",
+			"",
+			"<?=$city['name'];?>",
+			"$city['name']",
+			"\\\"",
+			"logo.webp",
+			"sprite-1.webp",
+			"stat_resume_cnt",
+			"",
+			"]]>",
+			" ",
+			"tlist",
+			"",
+			"$data",
+			"",
+			"function() ",
+			"function()",
+			"\"",
+			"<vacancy>",
+			",",
+			"','",
+			"vakansii.pro",
+			"$image",
+			"<?=$favicon_urlpath?>",
+			"/",
+			"amp-img",
+			"img-amp",
+			"<?",
+			"li",
+			"$model",
+			".jobnews.pro",
+			".jobnews.pro$",
+			"vacansii_com",
+			"metaphone",
+			",",
+			"",
+			"\\n",
+			"wings",
+			"\"",
+			"'",
+			"160px",
+			"file-upload-block",
+			"loadResult",
+			"[",
+			"<?=$area_yandex_counter;?>",
+			"v",
+			"vs",
+			"cat_id",
+			"\"",
+			"'",
+			"profToSubcat",
+			"name",
+			".zt-button",
+			"checked",
+			"open",
+			"name",
+			"\"name\"",
+			"\"pId\"",
+			"\"id\"",
+			"80px",
+			"60px",
+			"40px",
+			"selected",
+			"|",
+			"$def_city",
+			"model",
+			"<?",
+			"\"",
+			"\\n",
+			"CHAR(9), '",
+			"'",
+			"98031",
+			"t2.",
+			"t1.",
+			"t1"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "frontend/views/layouts/main.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2332,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1301,
+								1301
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 209.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "backend/views/site/parse.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 490,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								79,
+								79
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "common/models/Parser.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7823,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3523,
+								3523
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1570.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "common/models/schemes/gk-paginator.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 347,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								338,
+								338
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "common/models/schemes/gk-recipe.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 542,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								161,
+								161
+							]
+						],
+						"settings":
+						{
+							"auto_name": "grandkulinar",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "common/models/schemes/gk-items.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 385,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								148,
+								148
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "backend/controllers/SiteController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2406,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2301,
+								2301
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1501.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "vendor/fabpot/goutte/Goutte/Client.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7014,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								599,
+								599
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "vendor/symfony/dom-crawler/Crawler.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 34900,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14256,
+								14264
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1380.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "common/config/main.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 428,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								406,
+								406
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "backend/views/site/login.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 878,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								428,
+								494
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "backend/views/site/index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 652,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								617,
+								617
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "backend/views/layouts/main.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2182,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1046,
+								1046
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 399.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 71.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 224.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 32.0
+	},
+	"pinned_build_system": "",
+	"project": "project.sublime-project",
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 592.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 313.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

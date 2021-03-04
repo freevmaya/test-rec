@@ -1,0 +1,19 @@
+{
+	"name": "gk-recipe",
+	"version": "1",
+	"body": {
+		"items": {
+			"selector": "div[itemtype=\"http://schema.org/Recipe\"]",
+			"fields": {
+				"name": "h1[itemprop=\"name\"]",
+				"image": {"attr": "src", "selector": "div.centr img"},
+				"description": "p[itemprop=\"description\"]",
+				"cook_time": "span[itemprop=\"totalTime\"]",
+				"portion": "span[itemprop=\"recipeYield\"]",
+				"stages": "li[itemprop=\"recipeInstructions\"]",
+				"ingredients": "li[itemprop=\"recipeIngredient\"]",
+				"subcats": "div.subcat_full a"
+			}
+		}
+	}
+}

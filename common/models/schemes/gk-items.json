@@ -1,0 +1,21 @@
+{
+	"name": "gk-items",
+	"version": "1",
+	"body": {
+		"fields": {
+			"list": {
+				"selector": "div[itemtype=\"http://schema.org/ItemListElement\"]",
+				"items": {
+					"selector": "div.shortstory",
+					"fields": {
+						"link": {"attr": "href", "selector": "a", "parser": {
+								"scheme": "gk-recipe",
+								"url": "$item['value'][0]"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

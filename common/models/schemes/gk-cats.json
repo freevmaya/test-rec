@@ -1,0 +1,17 @@
+{
+	"name": "gk-cats",
+	"version": "1",
+	"body": {
+		"fields": {			
+			"cats": {
+				"selector": "div.blockrec a",
+				"attr": "href",
+				"parser": {
+					"scheme": "gk-paginator",
+					"method": "ParseLinks",
+					"baseUrl": "https://grandkulinar.ru"
+				}
+			}
+		}
+	}
+}

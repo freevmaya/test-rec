@@ -1,0 +1,473 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: "\e151";
+}
+
+a.desc:after {
+    content: "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view td {
+    white-space: nowrap;
+}
+
+.grid-view .filters input,
+.grid-view .filters select {
+    min-width: 50px;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+}
+
+@media(max-width:1200px) {
+    .recipes .recipe-content {
+        flex-direction: column;
+    }
+
+    .recipe-item .image {
+        width: 100% !important;
+    }
+
+    .recipe-item .card-title {
+        text-align: center !important;
+    }
+}
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 15px;
+    }
+
+    .recipes .column-one {
+        flex: 0 2 100%;
+        margin-right: 0 !important;
+    }
+
+    .recipes {
+        flex-direction: column-reverse;
+    }
+
+    .recipes .column-two {
+        width: 100% !important;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+
+a {
+    color: #60016D;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.recipes {
+    width: 100%;
+    display: flex;
+}
+
+.recipes > div {
+}
+
+.recipes .column-one {
+    flex: 0 2 100%;
+    margin-right: 1em;
+}
+
+.recipes .column-two {
+    width: 380px;
+    background: #00000005;
+    flex: 0 1 auto;
+}
+
+.recipes .column-two {
+    padding: 0.5em;
+}
+
+.recipes .item > .item a {
+    color: gray;
+    padding: 5px 8px;
+    border: 1px solid lightgray;
+}
+
+.recipes .item > .item a.btn-primary {
+    color: white;
+}
+
+.recipes .column-two > .item > .head a {
+    display: inline-block;
+    padding: 0.4em 1em;
+    font-size: 1.5em;
+} 
+
+.recipes .column-two > .item .item {
+    display: inline-block;
+    margin: 2px 1px;
+    line-height: 2em;
+}
+
+.recipe-item.full .recipe-content {
+    flex-direction: column;
+}
+
+
+.recipes-list {}
+
+.recipe-item {
+    margin: 1em;
+}
+
+.recipe-item .image {
+    width: 360px;
+    height: 360px;
+    flex: 0 0 360px;
+}
+
+.recipe-content {
+    display: flex;
+}
+
+.recipe-item .recipe-detail {
+    flex: 0 1 100%;
+    padding: 10px; 
+}
+
+.recipe-item.full .image {
+    width: 100% !important;
+}
+
+.card {
+    position: relative;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin: 1em 0;
+}
+
+.card-title {
+    margin: 0px 20px 20px;
+}
+
+.full .card-title {
+    margin: 0px 20px 0px !important;
+}
+
+.card-title a {
+    color: #586500;
+}
+
+.card .image {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    background-size: cover;
+    background-position: center;
+}
+
+.recipe-detail .cook_detail {
+    margin: 1em 0px;
+}
+
+.recipe-detail .cook_detail > div {
+    margin: 0.3em;
+}
+
+.recipe-detail span {
+    font-weight: bold;
+}
+
+.recipes form img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.full .rating-container .rating-stars {
+    float: right;
+}
+
+.rating-md {
+    font-size: 22px;
+}
+
+.add-ingredient {
+    display: flex;
+}
+
+.add-ingredient input.form-control {
+    width: calc(100% - 35px) !important;
+}
+
+.recipe-detail .ingredients {
+    margin: 10px;
+}
+
+.recipe-detail .ingredients > div {
+    padding: 0 0.5em;
+    display: inline-block;
+}
+
+.form-group .ingredients {
+    margin-bottom: 15px;
+    min-width: 450px;
+}
+
+.ingredients .alert {
+    margin-top: 15px;
+    display: none;
+}
+
+.units-help {
+    padding: 10px 20px !important;
+}
+
+.units-help li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#recipes-ingredient_ids {
+    height: 200px;
+}
+
+.ingredients-container {
+    height: 12em;
+    margin-bottom: 15px;
+    padding: 0px;
+}
+
+.ingredients-container > .wrapper {
+    overflow-y: scroll;
+    height: 100%;
+    padding: 10px;
+}
+
+.ingredients-container td {    
+    text-align: left !important;
+}
+
+.ingredients-container td:first-child {
+    min-width: 250px;
+}
+
+.ingredients-container td {
+    padding: 4px;
+    cursor: pointer;
+    text-align: right;
+}
+
+.ingredients .unit-select {
+    display: none;
+    width: 50px;
+    height: 24px;
+    border: none;
+    background-color: #00000000;
+    text-align-last: right;
+}
+
+.ingredients .unit-input {
+    padding-right: 16px;
+}
+
+.ingredients .unit-select option {
+}
+
+.ingredients-container tr:hover td {
+    background-color: #eee;
+}
+
+.ingredients-container .ningre {
+    background-color: #eee;
+    transition: 0.5s background-color;
+}
+
+.ingredients-container table {
+    width: 100%;
+}
+
+.ingredients-container button,
+.ingredients-container button:hover,
+.ingredients-container button:active {
+    outline: none;
+    border: none;
+}
+
+.ingredients-container .remove {
+    width: 24px;
+}
+
+.ingredients-container td input {
+    width: 4em;
+    text-align: right;
+    border: 1px solid #00000000;
+}
+
+.ingredients-container tr:hover td input {
+    border: 1px solid gray;
+}
+
+.form-group .stages {
+    width: 450px;
+}
+
+.stages h3 {
+    text-align: center;
+    color: #885938;
+}
+
+.stages h4 {
+    margin-left: 10px;
+}
+
+.form-group .stage {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.form-group .stages > div {
+    margin-top: 10px;
+    max-height: 800px;
+    overflow-y: scroll;
+}
+
+#new_stages_button {
+    float: right;
+}
+
+.stage p {
+    margin-top: 15px;
+}
+
+.navbar {
+    background-color: #6900ffb0;
+    border-color: #6e38a7;
+}
+
+.navbar .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar .navbar-nav > .active > a {
+    background-color: #7300c1;
+}
+
+.container > .navbar-header {
+    margin-left: 0px !important;
+}
+
+.navbar-header .search-group {
+    margin: 7px 0 0 0;
+}
+
+.search-group {
+    display: flex;
+}
+
+#search-input {
+    border-radius: 4px 0 0 4px !important;;
+    border: 1px solid #80808000;
+}
+
+.search-group button {
+    border-radius: 0px 4px 4px 0 !important;
+}
+
+.search-group span,
+.search-group button {
+    outline: none !important;
+}

@@ -1,0 +1,20 @@
+{
+	"name": "gk-paginator",
+	"version": "1",
+	"body": {
+		"fields": {			
+			"paginator": {
+				"selector": "div.basenavi .navigation",
+				"items": {
+					"fields": {
+								"link": {"attr": "href", "selector": "a", "parser": {
+												"scheme": "gk-items",
+												"url": "$item['value']"
+											}
+								}
+					}
+				}
+			}
+		}
+	}
+}
