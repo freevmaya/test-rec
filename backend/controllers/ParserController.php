@@ -7,6 +7,9 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\Parser;
+use common\models\Recipes;
+use common\models\RecipesCats;
+use common\models\Ingredients;
 
 /**
  * Site controller
@@ -37,6 +40,71 @@ class ParserController extends Controller
 
         return $this->render('index', [
             'model' => $model
+        ]);
+    }
+
+    public function actionAppend()
+    {
+        $model = new Parser();
+
+        $countLimit = 1;
+
+        if ($post = Yii::$app->request->post('Parser')) {
+            $model->scheme = $post['scheme'];
+
+            $list = Parser::find()->where(['scheme'=>$model->scheme, 'state'=>'active'])->all();
+            $count = 3;
+            foreach ($list as $item) {
+                $recipe = json_decode($item->result)[0];
+                if (isset($recipe->image)) {
+                    $file = pathinfo($recipe->image);
+                    $cats = RecipesCats::check($recipe->subcats);
+                    $ingredients = $recipe->ingredients ? Ingredients::check($recipe->ingredients) : false;
+
+
+                    $imageBody = false;
+                    $fileName = md5($file['filename']).'.'.$file['extension'];
+                    $filePath = \Yii::$app->params['recipeImagesPath'].'/'.$fileName;
+                    if (!file_exists($filePath)) {
+                        if ($imageBody = file_get_contents($recipe->image))
+                            file_put_contents($filePath, $imageBody);
+                    } else $imageBody = true;
+
+                    if ($imageBody) {
+                        $new = new Recipes();
+                        $new->created = date('Y-m-d h:i:s');
+                        $new->lang = 'ru';
+                        $new->author_id = Yii::$app->user->id;
+                        $new->name = $recipe->name;
+                        $new->description = $recipe->description;
+                        $new->image = $fileName;
+                        $new->cook_time = intval($recipe->cook_time);
+                        $new->portion = $recipe->portion;
+                        $new->category_ids = $cats;
+//                        print_r($ingredients);
+                        if ($new->save()) {
+                            $item->state = 'processed';
+                            $item->save();
+
+                            if ($ingredients) $new->saveIngredients($ingredients['values'], $ingredients['units']);
+                            if ($recipe->stages) $new->saveStages($recipe->stages);
+                        } else {
+                           $item->state = 'deferred';
+                           $item->save();
+                        }
+                        $count++;
+                        if ($count >= $countLimit) break;
+                    } else {
+                       $item->state = 'deferred';
+                       $item->save();
+                    }
+                }
+            }
+        }
+
+        return $this->render('append', [
+            'model' => $model,
+            'recipe' => $recipe
         ]);
     }
 }

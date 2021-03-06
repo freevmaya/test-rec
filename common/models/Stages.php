@@ -36,6 +36,16 @@ class Stages extends BaseModelWithImage
     public function getImagePath() {
         return 'uploads/stages/';
     }
+
+    public static function parseName(&$text) {
+        $name = null;
+        $pos = mb_strpos($text, ':');
+        if (($pos !== false) && ($pos < 128)) {
+            $name = mb_substr($text, 0, $pos - 1);
+            $text = mb_substr($text, $pos + 1);
+        }
+        return $name;
+    }
 }
 
 ?>

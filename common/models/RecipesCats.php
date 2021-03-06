@@ -35,6 +35,22 @@ class RecipesCats extends ActiveRecord
 
  		return $result;
     }
+
+    public static function check($cats) {
+        $result = [];
+        foreach ($cats as $catName) {
+            if ($cat = RecipesCats::find()->where(['name'=>$catName])->one())
+                $result[] = $cat->id;
+            else {
+                $cat = new RecipesCats();
+                $cat->name = $catName;
+                $cat->save();
+                $result[] = $cat->id;
+            }
+        }
+
+        return $result;
+    }
 }
 
 ?>

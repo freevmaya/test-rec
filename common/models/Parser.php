@@ -15,6 +15,7 @@ class Parser extends ActiveRecord
     private static $refreshPeriod = 3 * 24 * 60 * 60; // Трое суток
     private static $maxRefreshCount = 20;
     private static $resfreshIteration;
+    private static $schemes = [];
 
     public static $States = ['active', 'processed', 'archived', 'removed'];
 
@@ -57,9 +58,15 @@ class Parser extends ActiveRecord
     }
 
     public static function getScheme($name) {
+
+        if (isset(Parser::$schemes[$name])) 
+            return Parser::$schemes[$name];
+        
         $fileName = dirname(__FILE__).'/schemes/'.$name.'.json';
+
         if (file_exists($fileName)) {
             $data = json_decode(file_get_contents($fileName));
+            Parser::$schemes[$name] = $data;
             return $data;
         } else return null;
     }

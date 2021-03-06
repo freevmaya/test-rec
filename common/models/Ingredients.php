@@ -5,6 +5,7 @@ use Yii;
 use yii\base\Model;
 use yii\db\ActiveRecord;
 use common\helpers\Utils;
+use common\models\Units;
 
 class Ingredients extends ActiveRecord
 {
@@ -32,6 +33,30 @@ class Ingredients extends ActiveRecord
 
     public function getUnit() {
         return $this->hasOne(Units::className(), ['id' => 'unit_id']);
+    }
+
+    public static function check($list, $checkUnit = 'checkDefault') {
+        $result = ['values'=>[], 'units'=>[]];
+        foreach ($list as $checkFull) {
+            $checkName = '';
+            $count = 0;
+            $unit = Units::$checkUnit($checkFull, $checkName, $count);
+            //echo $checkFull."\n";
+            //print_r($unit);
+            if ($checkName && $unit) {
+                if (!($ingre = Ingredients::find()->where(['name'=>$checkName])->one())) {
+                    $ingre = new Ingredients();
+                    $ingre->name = $checkName;
+                    $ingre->unit_id = $unit['id'];
+                    $ingre->author_id = Yii::$app->user->id;
+                    $ingre->save();
+                }
+                $result['values'][$ingre->id] = $count;
+                $result['units'][$ingre->id] = $unit['id'];
+            }
+        }
+
+        return $result;
     }
 
     public static function Add($list) {

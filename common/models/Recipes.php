@@ -9,6 +9,8 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\Query;
 use yii\data\ActiveDataProvider;
 
+use common\models\Stages;
+
 class Recipes extends BaseModelWithImage
 {
     public static $levels = ['Очень просто', 'Просто', 'Специалист', 'Сложно'];
@@ -55,7 +57,7 @@ class Recipes extends BaseModelWithImage
 
     public function getRates()
     {
-        return Rates::avg($this->id);
+        return $this->id ? Rates::avg($this->id) : 0;
     }
 
     public function setRates($value)
@@ -76,6 +78,30 @@ class Recipes extends BaseModelWithImage
     {
         return $this->hasMany(Stages::className(), ['recipe_id'=>'id']);
     }
+
+    public function saveStages($stages) {
+        if ($this->id) {
+            if (is_array($stages)) {
+                foreach ($stages as $text) {
+                    $name = Stages::parseName($text);
+
+                    $stage = new Stages();
+                    $stage->recipe_id = $this->id;
+                    $stage->name = $name;
+                    $stage->text = $text;
+                    $stage->save();
+                }
+            } else if (is_string($stages)) {
+                $name = Stages::parseName($stages);
+
+                $stage = new Stages();
+                $stage->recipe_id = $this->id;
+                $stage->name = $name;
+                $stage->text = $stages;
+                $stage->save();
+            }
+        }
+    }
     
     public function getIngredients() {
         return $this->hasMany(Ingredients::className(), ['id' => 'ingredient_id'])
@@ -83,31 +109,38 @@ class Recipes extends BaseModelWithImage
     }
     
     public function saveIngredients($values, $units) {
-        $result = [];
-        foreach ($values as $id=>$value) 
-            if ($value != 0) {
-                $unit_id = 1;
-                if ($units[$id]) {
-                    if ($unit = Units::find()->where("name LIKE '{$units[$id]}%' OR short LIKE '{$units[$id]}%'")->one())
-                        $unit_id = $unit->id;
-                }
- 
-                if (is_numeric($id)) {
-                    $result[] = "({$this->id}, {$id}, {$unit_id}, {$value})";
-                }
-                else {
-                    $item = new Ingredients();
-                    $item->author_id = Yii::$app->user->id;
-                    $item->unit_id = $unit_id;
-                    $item->name = $id;
-                    $item->save();
-                    $result[] = "({$this->id}, {$item->id}, {$unit_id}, {$value})";
+        if ($this->id) {
+            $result = [];
+            foreach ($values as $id=>$value) {
+                $value = floatval(str_replace(',', '.', $value));
+                if ($value != 0) {
+                    $unit_id = 1;
+                    if ($units[$id]) {
+                        if (is_numeric($units[$id])) $unit_id = $units[$id];
+                        else {
+                            if ($unit = Units::find()->where("name LIKE '{$units[$id]}%' OR short LIKE '{$units[$id]}%'")->one())
+                                $unit_id = $unit->id;
+                        }
+                    }
+     
+                    if (is_numeric($id)) {
+                        $result[] = "({$this->id}, {$id}, {$unit_id}, {$value})";
+                    }
+                    else {
+                        $item = new Ingredients();
+                        $item->author_id = Yii::$app->user->id;
+                        $item->unit_id = $unit_id;
+                        $item->name = $id;
+                        $item->save();
+                        $result[] = "({$this->id}, {$item->id}, {$unit_id}, {$value})";
+                    }
                 }
             }
 
-        Yii::$app->db->createCommand('DELETE FROM ingredients_to_recipe WHERE recipe_id='.$this->id)->execute();
-        $command = Yii::$app->db->createCommand('INSERT ingredients_to_recipe (recipe_id, ingredient_id, unit_id, value) VALUES '.implode(",", $result));
-        return $command->execute();
+            Yii::$app->db->createCommand('DELETE FROM ingredients_to_recipe WHERE recipe_id='.$this->id)->execute();
+            $command = Yii::$app->db->createCommand('INSERT ingredients_to_recipe (recipe_id, ingredient_id, unit_id, value) VALUES '.implode(",", $result));
+            return $command->execute();
+        }
     }
     
     public function getIngredientValues() {
