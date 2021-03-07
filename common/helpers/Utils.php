@@ -87,5 +87,34 @@ class Utils
 		}
 		return false;
 	}
+
+	private static function taformat($value) {
+		return sprintf("%'.02d", count($value) ? $value[0] : 0);
+	}
+
+    public static function timeParseRUS($value) {
+
+        $value = mb_strtolower($value);
+        $value = preg_replace("/(год|г\.)/", 'year', $value);
+        $value = preg_replace("/(месяц|мес\.)/", 'month', $value);
+        $value = preg_replace("/(неделя|нед\.)/", 'week', $value);
+        $value = preg_replace("/(день|д\.)/", 'day', $value);
+        $value = preg_replace("/(час|ч\.)/", 'hour', $value);
+        $value = preg_replace("/(минута|минуты|минут|мин\.|мин\s+|м\.)/", 'minutes', $value);
+        $value = preg_replace("/(секунда|секунд|сек\.|сек)/", 'seconds', $value);
+
+        $hour = [];
+        preg_match("/(\d+)\s?hour/", $value, $hour);
+        $minutes = [];
+        preg_match("/(\d+)\s?minutes/", $value, $minutes);
+        $seconds = [];
+        preg_match("/(\d+)\s?seconds/", $value, $seconds);
+
+        $result = 
+        		Utils::taformat($hour).':'.
+        		Utils::taformat($minutes).':'.
+        		Utils::taformat($seconds);
+        return $result;
+    }
 }
 ?>

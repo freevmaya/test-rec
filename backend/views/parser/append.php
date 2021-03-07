@@ -1,8 +1,10 @@
 <?
 use yii\helpers\Html;
+use common\helpers\Utils;
 use yii\bootstrap\ActiveForm;
 $this->title = 'Parser';
 ?>
+<?=Utils::timeParseRUS('25 мин.');?>
 <div class="col-lg-5">
 	<h1><?= Html::encode($this->title) ?></h1>
 	<?php $form = ActiveForm::begin(['id' => 'parser-form']); ?>

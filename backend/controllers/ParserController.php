@@ -80,7 +80,7 @@ class ParserController extends Controller
                         $new->name          = $recipe->name;
                         $new->description   = $recipe->description;
                         $new->image         = $fileName;
-                        $new->cook_time     = intval($recipe->cook_time);
+                        $new->cook_time     = Utils::timeParseRUS($recipe->cook_time);
                         $new->portion       = $recipe->portion;
                         $new->category_ids  = $cats;
                         $new->parser_id     = $item->pid;
