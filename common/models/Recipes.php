@@ -210,11 +210,6 @@ class Recipes extends BaseModelWithImage
     	];
 	}
 
-    public static function tableName()
-    {
-        return 'recipes';
-    }
-
     public static function UrlImage($item) {
         return Url::base(true).'/uploads/'.$item['image'];
     }
