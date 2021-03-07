@@ -216,14 +216,14 @@ class Recipes extends BaseModelWithImage
 
     public static function search($key) {
 //        return Recipes::find()->where("name LIKE :key", [':key'=>"%{$key}%"])->all();
-        $query = (new Query())->from('Recipes');
+        $query = (new Query())->from('recipes');
 
         $query->where("name LIKE :key", [':key'=>"%{$key}%"]);
 
 /*
         if ($cat_id = Yii::$app->request->get('cat_id')) {
             $cat = (new RecipesCats())->findOne(['id'=>$cat_id]);
-            $query = $query->join('INNER JOIN', '`recipes_to_cats` rtc ON rtc.recipe_id=`Recipes`.id');
+            $query = $query->join('INNER JOIN', '`recipes_to_cats` rtc ON rtc.recipe_id=`recipes`.id');
 
             if ($cat->parent_id) 
                 $query = $query->where('rtc.recipe_cat_id='.$cat_id);
@@ -232,7 +232,7 @@ class Recipes extends BaseModelWithImage
             }
         }*/
 
-        $query = $query->select('`Recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`Recipes`.id) AS rates');
+        $query = $query->select('`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates');
 
         return new ActiveDataProvider([
             'query' => $query,
