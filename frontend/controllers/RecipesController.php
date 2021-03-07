@@ -25,7 +25,7 @@ use yii\db\Query;
 class RecipesController extends Controller {
     public function actionIndex()
     {
-	   $query = (new Query())->from('Recipes');
+	   $query = (new Query())->from('recipes');
 
         if ($cat_id = Yii::$app->request->get('cat_id')) {
             $cat = (new RecipesCats())->findOne(['id'=>$cat_id]);
