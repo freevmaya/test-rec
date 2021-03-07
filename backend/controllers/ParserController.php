@@ -47,6 +47,7 @@ class ParserController extends Controller
     public function actionAppend()
     {
         $model = new Parser();
+        $recipe = null;
 
         $countLimit = 1;
 

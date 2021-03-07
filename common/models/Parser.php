@@ -127,6 +127,7 @@ class Parser extends ActiveRecord
             //echo "Parse $url, $scheme\n";
             $id = md5($url.$scheme.$schemeData->version);
             $now = strtotime("now");
+            $result = false;
 
             if (!($model = Parser::findOne(['id'=>$id]))) {
                 if (Parser::$resfreshIteration < Parser::$maxRefreshCount) {
