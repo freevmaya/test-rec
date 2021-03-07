@@ -10,8 +10,8 @@ use yii\web\Controller;
 use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\Recipes;
-use common\models\RecipesCats;
+use common\models\recipes;
+use common\models\recipesCats;
 use common\models\UploadImage;
 use common\models\Ingredients;
 use common\models\Stages;
@@ -20,16 +20,16 @@ use yii\data\ActiveDataProvider;
 use yii\db\Query;
 
 /**
- * Recipes controller
+ * recipes controller
  */
-class RecipesController extends Controller {
+class recipesController extends Controller {
     public function actionIndex()
     {
 	   $query = (new Query())->from('recipes');
 
         if ($cat_id = Yii::$app->request->get('cat_id')) {
-            $cat = (new RecipesCats())->findOne(['id'=>$cat_id]);
-            $query = $query->join('INNER JOIN', '`recipes_to_cats` rtc ON rtc.recipe_id=`Recipes`.id');
+            $cat = (new recipesCats())->findOne(['id'=>$cat_id]);
+            $query = $query->join('INNER JOIN', '`recipes_to_cats` rtc ON rtc.recipe_id=`recipes`.id');
 
             if ($cat->parent_id) 
                 $query = $query->where('rtc.recipe_cat_id='.$cat_id);
@@ -38,7 +38,7 @@ class RecipesController extends Controller {
             }
         }
 
-        $query = $query->select('`Recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`Recipes`.id) AS rates');
+        $query = $query->select('`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates');
 
 
         $dataProvider = new ActiveDataProvider([
@@ -49,22 +49,22 @@ class RecipesController extends Controller {
         ]);
 
         return $this->render('index', [
-            "cats"=>RecipesCats::getAllTree(),
+            "cats"=>recipesCats::getAllTree(),
             "dataProvider"=>$dataProvider
         ]);
     }
 
     public function actionItem($id) {
-    	$model = Recipes::findOne(['id'=>$id]);
+    	$model = recipes::findOne(['id'=>$id]);
     	if(\Yii::$app->request->isAjax){
-    		$model->attributes = Yii::$app->request->post('Recipes');
+    		$model->attributes = Yii::$app->request->post('recipes');
     		if ($model->validate()) {
     			$model->save();
     			return true;
     		}
 	        return false;
 	    }
-    	return $this->render('Recipe', ['model'=>$model, 'cats'=>RecipesCats::getAllTree()]);
+    	return $this->render('Recipe', ['model'=>$model, 'cats'=>recipesCats::getAllTree()]);
     }
 
     public function actionEditstage($id, $recipe_id) {
@@ -82,7 +82,7 @@ class RecipesController extends Controller {
     }
 
     public function actionDelete($id) {
-    	$model = Recipes::findOne(['id'=>$id]);
+    	$model = recipes::findOne(['id'=>$id]);
     	if (isset($_POST['recipe-delete'])) {
     		$model->delete();
     		$this->redirect(['recipes/index']);
@@ -92,12 +92,12 @@ class RecipesController extends Controller {
     }
 
     public function actionEdit($id = null) {
-    	if ($id) $model = Recipes::findOne(['id'=>$id]); 
-    	else $model = new Recipes();
+    	if ($id) $model = recipes::findOne(['id'=>$id]); 
+    	else $model = new recipes();
 
 	    if(Yii::$app->request->isPost){
 
-	        $post = Yii::$app->request->post('Recipes');
+	        $post = Yii::$app->request->post('recipes');
 
         	$model->attributes = $post;
 
