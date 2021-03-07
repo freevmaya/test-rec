@@ -26,7 +26,7 @@ else $addRecipeLink = Url::toRoute(['/recipes/edit', 'cat_id'=>\Yii::$app->reque
 
 		<div class="card">
 			<div class="recipe-item card-body full">
-				<h3 class="card-title"><a href="<?=$link?>"><?=$model['name']?></a></h3>
+				<h3 class="card-title"><?=$model['name']?></h3>
 				<div class="recipe-content">
 					<?php 
 					$form_id = 'recipe-rates-form-'.$model->id;
