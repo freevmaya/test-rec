@@ -15,6 +15,11 @@ class Recipes extends BaseModelWithImage
 {
     public static $levels = ['Очень просто', 'Просто', 'Специалист', 'Сложно'];
 
+    public static function tableName()
+    {
+        return 'recipes';
+    }
+
 	public function rules()
 	{
         return  [
