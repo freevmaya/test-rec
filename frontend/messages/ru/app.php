@@ -41,6 +41,7 @@ return [
 	'Please fill out the following fields to signup'=>'Пожалуйста, заполните следующие поля, чтобы зарегистрироваться',
 	'reset it'=>'сбросить его',
 	'Resend'=>'Отправить',
+	'source'=>'Источник',
 	'LoginForm'=>[
 		'username'=>'Имя пользователя',
 		'password'=>'Пароль',

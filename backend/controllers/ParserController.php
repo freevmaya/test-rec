@@ -10,6 +10,7 @@ use common\models\Parser;
 use common\models\Recipes;
 use common\models\RecipesCats;
 use common\models\Ingredients;
+use common\helpers\Utils;
 
 /**
  * Site controller
@@ -72,15 +73,16 @@ class ParserController extends Controller
 
                     if ($imageBody) {
                         $new = new Recipes();
-                        $new->created = date('Y-m-d h:i:s');
-                        $new->lang = 'ru';
-                        $new->author_id = Yii::$app->user->id;
-                        $new->name = $recipe->name;
-                        $new->description = $recipe->description;
-                        $new->image = $fileName;
-                        $new->cook_time = intval($recipe->cook_time);
-                        $new->portion = $recipe->portion;
-                        $new->category_ids = $cats;
+                        $new->created       = date('Y-m-d h:i:s');
+                        $new->lang          = Utils::getLang();
+                        $new->author_id     = Yii::$app->user->id;
+                        $new->name          = $recipe->name;
+                        $new->description   = $recipe->description;
+                        $new->image         = $fileName;
+                        $new->cook_time     = intval($recipe->cook_time);
+                        $new->portion       = $recipe->portion;
+                        $new->category_ids  = $cats;
+                        $new->parser_id     = $item->pid;
 //                        print_r($ingredients);
                         if ($new->save()) {
                             $item->state = 'processed';
@@ -89,8 +91,9 @@ class ParserController extends Controller
                             if ($ingredients) $new->saveIngredients($ingredients['values'], $ingredients['units']);
                             if ($recipe->stages) $new->saveStages($recipe->stages);
                         } else {
-                           $item->state = 'deferred';
-                           $item->save();
+                            \Yii::error($new->getErrors());
+                            //$item->state = 'deferred';
+                            //$item->save();
                         }
                         $count++;
                         if ($count >= $countLimit) break;

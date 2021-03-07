@@ -471,3 +471,6 @@ a:hover {
 .search-group button {
     outline: none !important;
 }
+.navbar-inverse .btn-link {
+    color: white;
+}

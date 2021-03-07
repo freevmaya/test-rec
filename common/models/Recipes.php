@@ -18,11 +18,11 @@ class Recipes extends BaseModelWithImage
 	public function rules()
 	{
         return  [
-        	[['name', 'description', 'cook_time', 'portion'/*, 'categories'*/], 'required'],
+        	[['name', 'description', 'cook_time'/*, 'categories'*/], 'required'],
             [['category_ids'], 'each', 'rule' => ['integer']],
             [['rates'], 'number'],
-        	[['portion', 'cook_level'], 'integer'],
-        	[['id', 'author_id', 'active'], 'safe', 'on'=>'search']
+        	[['cook_level', 'parser_id'], 'integer'],
+        	[['id', 'author_id', 'parser_id', 'active'], 'safe', 'on'=>'search']
         ];
 	}
 
@@ -44,7 +44,8 @@ class Recipes extends BaseModelWithImage
             'categories' => array(self::MANY_MANY, 'RecipesCats', 'recipes_to_cats(recipe_id, recipe_cat_id)'),
             'ingredients' => array(self::MANY_MANY, 'RecipesCats', 'ingredients_to_recipe(recipe_id, ingredient_id)'),
             'stages'=>array(self::HAS_MANY, 'Stages', 'recipe_id'),
-            'author'=>array(self::BELONGS_TO, 'User', 'author_id')/*,
+            'author'=>array(self::BELONGS_TO, 'User', 'author_id'),
+            'parser'=>array(self::BELONGS_TO, 'Parser', 'parser_id')/*,
             'areas' => array(self::MANY_MANY, 'Area', 'blog_to_area(blog_id, area_id)'),
             'blogs_to_area' => array(self::HAS_MANY, 'Blogs_to_area', 'blog_id'),
             'blog_to_cats' => array(self::HAS_MANY, 'blog_to_cats', 'blog_id')*/
@@ -162,6 +163,10 @@ class Recipes extends BaseModelWithImage
 
     public function getAuthor() {
         return $this->hasOne(User::className(), ['id' => 'author_id']);
+    }
+
+    public function getParser() {
+        return $this->hasOne(Parser::className(), ['pid' => 'parser_id']);
     }
 
     public function transactions()

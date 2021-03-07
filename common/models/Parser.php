@@ -35,7 +35,7 @@ class Parser extends ActiveRecord
         return [
             [['url', 'version', 'scheme', 'result'], 'required'],
             [['id', 'last', 'scheme', 'result'], 'string'],
-            [['version'], 'integer']
+            [['pid', 'version'], 'integer']
         ];
     }
 
