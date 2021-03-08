@@ -90,7 +90,10 @@ class Units extends ActiveRecord
             $countStr = $matches[0];
             $fraction = explode('/', $countStr);
             if (count($fraction) > 1) {
-                $count = intval($fraction[0]) / intval($fraction[1]);
+                $d = intval($fraction[1]);
+                if ($d != 0)
+                    $count = intval($fraction[0]) / $d;
+                else $count = floatval(str_replace(',', '.', $countStr));
             } else $count = floatval(str_replace(',', '.', $countStr));
 
             $unitStr = false;

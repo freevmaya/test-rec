@@ -71,7 +71,7 @@ class ParserController extends Controller
                         $new = new Recipes();
                         $new->created       = date('Y-m-d h:i:s');
                         $new->lang          = Utils::getLang();
-                        $new->author_id = Yii::$app->user->id ? Yii::$app->user->id : $author_id;
+                        $new->author_id     = $author_id;
                         $new->name          = $recipe->name;
                         $new->description   = $recipe->description;
                         $new->image         = $fileName;
