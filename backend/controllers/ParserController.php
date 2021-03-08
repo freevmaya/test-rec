@@ -44,7 +44,7 @@ class ParserController extends Controller
         ]);
     }
 
-    public function actionAppendjson($scheme, $count_limit = 1) {
+    public function actionAppendjson($scheme, $count_limit = 1, $author_id = 2) {
         $passList = [];
 
         if ($scheme) {
@@ -71,9 +71,7 @@ class ParserController extends Controller
                         $new = new Recipes();
                         $new->created       = date('Y-m-d h:i:s');
                         $new->lang          = Utils::getLang();
-                        if (Yii::$app->user->id)
-                            $new->author_id     = Yii::$app->user->id;
-                        
+                        $new->author_id = Yii::$app->user->id ? Yii::$app->user->id : $author_id;
                         $new->name          = $recipe->name;
                         $new->description   = $recipe->description;
                         $new->image         = $fileName;
