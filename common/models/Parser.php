@@ -18,7 +18,7 @@ class Parser extends ActiveRecord
     private static $passed = [];    
     private static $schemes = [];
 
-    public static $States = ['active', 'processed', 'archived', 'removed'];
+    public static $States = ['active', 'processed', 'archived', 'removed', 'deferred'];
 
     public static function tableName()
     {
@@ -150,7 +150,7 @@ class Parser extends ActiveRecord
                 } else return $model;
             } else {
                 if ($model->state == 'active') {
-                    return $model;
+                    $result = json_decode($model->result, true);
                     /* Пока не обновлять существующие записи
                     if ($now <= strtotime($model->last) + Parser::$refreshPeriod)
                         $result = json_decode($model->result, true);
