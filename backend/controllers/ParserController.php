@@ -26,9 +26,9 @@ class ParserController extends Controller
         } else return null;
     }
 
-    private function parseBegin($url, $scheme) {
-        Parser::$resfreshIteration = 0;
-        return Parser::parseNext($url, $scheme);
+    public function actionParser_json($url, $scheme) {
+        Parser::parseBegin($url, $scheme);
+        return json_encode(Parser::getPassed());
     }
 
     public function actionIndex()

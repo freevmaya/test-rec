@@ -15,6 +15,7 @@ class Parser extends ActiveRecord
     private static $refreshPeriod = 3 * 24 * 60 * 60; // Трое суток
     private static $maxRefreshCount = 20;
     private static $resfreshIteration;
+    private static $passed = [];    
     private static $schemes = [];
 
     public static $States = ['active', 'processed', 'archived', 'removed'];
@@ -71,8 +72,13 @@ class Parser extends ActiveRecord
         } else return null;
     }
 
+    public static function getPassed() {
+        return Parser::$passed;
+    }
+
     public static function parseBegin($url, $scheme) {
         Parser::$resfreshIteration = 0;
+        Parser::$passed = [];
         return Parser::parseNext($url, $scheme);
     }
 
@@ -137,8 +143,10 @@ class Parser extends ActiveRecord
                     $model->scheme = $scheme;
                     $model->id = $id;
                     $model->version = $schemeData->version;
-                    if ($result = $model->parse())
+                    if ($result = $model->parse()) {
                         $model->save();
+                        Parser::$passed[] = $model->pid;
+                    }
                 } else return $model;
             } else {
                 if ($model->state == 'active') {
@@ -146,8 +154,10 @@ class Parser extends ActiveRecord
                         $result = json_decode($model->result, true);
                     else if (Parser::$resfreshIteration < Parser::$maxRefreshCount) {
                         Parser::$resfreshIteration++;
-                        if ($result = $model->parse());
+                        if ($result = $model->parse()) {
                             $model->save();
+                            Parser::$passed[] = $model->pid;
+                        }
                     } else return $model;
                 }
             }
