@@ -17,10 +17,10 @@ $this->title = 'Parser';
 
     <?php ActiveForm::end(); ?>
 </div>
-<?if ($recipe) {?>
+<?if ($list) {?>
 <div class="col-lg-5">
 	<pre>
-	<?= print_r($recipe)?>
+	<?= print_r($list)?>
 	</pre>
 </div>
 <?}?>

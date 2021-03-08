@@ -44,18 +44,13 @@ class ParserController extends Controller
         ]);
     }
 
-    public function actionAppend()
-    {
-        $model = new Parser();
-        $recipe = null;
+    public function actionAppendjson($scheme, $count_limit = 1) {
+        $passList = [];
 
-        $countLimit = 1;
+        if ($scheme) {
 
-        if ($post = Yii::$app->request->post('Parser')) {
-            $model->scheme = $post['scheme'];
-
-            $list = Parser::find()->where(['scheme'=>$model->scheme, 'state'=>'active'])->all();
-            $count = 3;
+            $list = Parser::find()->where(['scheme'=>$scheme, 'state'=>'active'])->all();
+            $count = 0;
             foreach ($list as $item) {
                 $recipe = json_decode($item->result)[0];
                 if (isset($recipe->image)) {
@@ -91,13 +86,15 @@ class ParserController extends Controller
 
                             if ($ingredients) $new->saveIngredients($ingredients['values'], $ingredients['units']);
                             if ($recipe->stages) $new->saveStages($recipe->stages);
+
+                            $passList[] = $item->pid;
                         } else {
                             \Yii::error($new->getErrors());
                             //$item->state = 'deferred';
                             //$item->save();
                         }
                         $count++;
-                        if ($count >= $countLimit) break;
+                        if ($count >= $count_limit) break;
                     } else {
                        $item->state = 'deferred';
                        $item->save();
@@ -106,9 +103,23 @@ class ParserController extends Controller
             }
         }
 
+        return json_encode($passList);
+    }
+
+    public function actionAppend()
+    {
+        $list = null;
+        $model = new Parser();
+        $countLimit = 1;
+
+        if ($post = Yii::$app->request->post('Parser')) {
+            $list = $this->actionAppendjson($post['scheme']);
+            $model->scheme = $post['scheme'];
+        }
+
         return $this->render('append', [
             'model' => $model,
-            'recipe' => $recipe
+            'list' => $list
         ]);
     }
 }
