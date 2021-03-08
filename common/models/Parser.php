@@ -150,6 +150,8 @@ class Parser extends ActiveRecord
                 } else return $model;
             } else {
                 if ($model->state == 'active') {
+                    return $model;
+                    /* Пока не обновлять существующие записи
                     if ($now <= strtotime($model->last) + Parser::$refreshPeriod)
                         $result = json_decode($model->result, true);
                     else if (Parser::$resfreshIteration < Parser::$maxRefreshCount) {
@@ -159,6 +161,7 @@ class Parser extends ActiveRecord
                             Parser::$passed[] = $model->pid;
                         }
                     } else return $model;
+                    */
                 }
             }
 
