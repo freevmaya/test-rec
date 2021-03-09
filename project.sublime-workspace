@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"stat",
+				"static"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"preg",
+				"preg_match"
+			],
+			[
+				"mb_lo",
+				"mb_strtolower"
+			],
+			[
 				"ut",
 				"unit"
 			],
@@ -50,10 +66,6 @@
 			[
 				"e",
 				"exec"
-			],
-			[
-				"json",
-				"json_decode"
 			],
 			[
 				"exte",
@@ -388,10 +400,6 @@
 				"queryAll"
 			],
 			[
-				"preg",
-				"preg_match_all"
-			],
-			[
 				"type",
 				"type_id"
 			],
@@ -506,14 +514,6 @@
 			[
 				"strip",
 				"strip_tags"
-			],
-			[
-				"h",
-				"head\tTag"
-			],
-			[
-				"ca",
-				"category"
 			]
 		]
 	},
@@ -523,25 +523,51 @@
 			"file": "backend/controllers/ParserController.php",
 			"settings":
 			{
-				"buffer_size": 3960,
+				"buffer_size": 4288,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "frontend/views/recipes/_item.php",
+			"file": "common/models/Parser.php",
 			"settings":
 			{
-				"buffer_size": 2009,
+				"buffer_size": 9939,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "frontend/views/recipes/Recipe.php",
+			"file": "backend/controllers/CronController.php",
 			"settings":
 			{
-				"buffer_size": 4612,
+				"buffer_size": 980,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "common/models/schemes/gk-items.json",
+			"settings":
+			{
+				"buffer_size": 385,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 649,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "backend/views/parser/append.php",
+			"settings":
+			{
+				"buffer_size": 625,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -556,10 +582,28 @@
 			}
 		},
 		{
-			"file": "common/models/Recipes.php",
+			"file": "common/models/Units.php",
 			"settings":
 			{
-				"buffer_size": 8488,
+				"buffer_size": 3340,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "common/models/schemes/gk-paginator.json",
+			"settings":
+			{
+				"buffer_size": 347,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "common/helpers/Utils.php",
+			"settings":
+			{
+				"buffer_size": 3512,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -569,6 +613,7 @@
 			"settings":
 			{
 				"buffer_size": 3842,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -596,41 +641,6 @@
 			{
 				"buffer_size": 2125,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "[{\"name\":\"Грибной суп с тмином\",\"image\":\"https:\\/\\/grandkulinar.ru\\/uploads\\/posts\\/2019-03\\/1552497570_gribnoj-sup-s-tminom.jpg\",\"description\":\"Основные ингредиенты этого лёгкого супа – шампиньоны, морковь и тмин, который в сочетании с грибами придаёт ему потрясающий вкус. Тмин предварительно обжаривается в сливочном масле, чтобы лучше раскрылся его аромат, а затем к небу добавляются остальные ингредиенты, всё заливается куриным бульоном и несколько минут варится до мягкости моркови. Подавайте суп с ложкой сметаны, маринованным в винном уксусе луком и тостами из зернового хлеба пумперникеля.\",\"cook_time\":\"30 мин. \",\"portion\":\"4\",\"stages\":[\"В кастрюле на среднем огне растопите сливочное масло. Добавьте тмин и жарьте до появления аромата, около 1 минуты. Добавьте грибы и готовьте, помешивая, пока они не начнут темнеть, около 5 минут. Добавьте 1\\/4 ч. л. соли, поперчите по вкусу.\",\"Добавьте морковь и бульон, накройте крышкой и доведите до кипения. Снимите крышку и варите, пока морковь не станет мягкой, 10-12 минут. Посолите и поперчите по вкусу.\",\"Тем временем в миске смешайте лук, уксус и щепотку соли и оставьте мариноваться, пока варится суп. Поджарьте хлеб.\",\"Разлейте суп по тарелкам, добавьте сметану и маринованный лук. Подавайте с тостами.\"],\"ingredients\":\n\n\n[\"300 гр. шампиньонов, тонко нарезанных\",\"3 средние моркови, разрезанные вдоль на 4 части и нарезанные на куски по 2,5 см.\",\"2 ст. л. (30 гр.) сливочного масла\",\"1\\/4 ч. л. тмина\",\"4 ст. слабосолёного куриного бульона\",\"1 небольшая красная луковица, нарезанная мелкими кубиками\",\"1 ст. л. красного винного уксуса\",\"4 ломтика пумперникеля\",\"1\\/3 ст. сметаны\"],\"subcats\":[\"рецепт\",\"Здоровое питание\",\"Полезные ужины\",\"Калорийность готовых блюд\",\"Вегетарианские блюда\",\"Быстрые закуски\",\"Ужин\",\"Супы\",\"Овощные супы\",\"Фуд Нетворк - рецепты\"]}]",
-			"settings":
-			{
-				"buffer_size": 1821,
-				"line_ending": "Windows",
-				"name": "[{\"name\":\"Грибной суп с тмином\",\"image\":\"https:\\/\\"
-			}
-		},
-		{
-			"file": "backend/views/parser/append.php",
-			"settings":
-			{
-				"buffer_size": 566,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "common/models/Parser.php",
-			"settings":
-			{
-				"buffer_size": 9433,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "common/helpers/Utils.php",
-			"settings":
-			{
-				"buffer_size": 2413,
 				"line_ending": "Windows"
 			}
 		}
@@ -667,46 +677,37 @@
 	},
 	"expanded_folders":
 	[
-		"/E/OpenServer/domains/recipes-dev.com/yii-application",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/messages",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/messages/ru",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/css"
 	],
 	"file_history":
 	[
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Recipes.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Parser.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/Recipe.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers/Utils.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/.gitignore",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/config/params-local.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/_item.php",
+		"/C/Users/vmaya/Desktop/Admin command LINUX.txt",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/BaseModelWithImage.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/css/site.css",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/ActiveRecord.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Units.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers/Utils.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/config/main.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/config/main.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/controllers/ParserController.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/parser/append.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/parser/index.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Parser.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/RecipesCats.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Rates.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/config/params.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/config/params.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/_item.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Recipes.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/layouts/main.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/schemes/gk-paginator.json",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/schemes/gk-items.json",
 		"/D/documents/numbers.js",
-		"/C/Users/vmaya/Desktop/Admin command LINUX.txt",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/schemes/gk-cats.json",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/site/index.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/schemes/gk-recipe.json",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/.gitignore",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/site/parse.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/controllers/schemes/gk-paginator.json",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/layouts/main.php",
@@ -733,7 +734,6 @@
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/Editstage.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Stages.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/widgets/ImageControl.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/Recipe.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-bootstrap/src/NavBar.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/index.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/widgets/ActiveField.php",
@@ -764,7 +764,6 @@
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/BaseActiveRecord.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/web/assets/c9d0ad24/jquery.js",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/Query.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/config/params-local.php",
 		"/C/WebServers/home/dev.oformi-foto.ru/www/ss/ssutils.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers/utils.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/config/main-local.php",
@@ -954,6 +953,30 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"processed",
+			"deferred",
+			"active",
+			"ParseLinks",
+			"checkDefault",
+			"check",
+			"refreshPeriod",
+			"$passed",
+			"getPasses",
+			"resfreshIteration",
+			"model",
+			"s{1}",
+			"Utils",
+			"Recipes",
+			"`Recipes`",
+			"'Recipes'",
+			"Recipes",
+			"$link",
+			"Recipes",
+			"tableName",
+			"table_name",
+			"table",
+			"vendor",
+			"index",
 			"parcer_id",
 			"author",
 			"parser_id",
@@ -1057,31 +1080,7 @@
 			"Command",
 			"ArrayHelper",
 			"toArray",
-			"$app->user",
-			"find",
-			"Ingredients",
-			"$item->",
-			"name",
-			"category_ids",
-			"rating-stars",
-			"card-title",
-			"user",
-			"$app->request",
-			"one(",
-			"sum(",
-			".recipes .recipe-content",
-			".recipe-content",
-			"image",
-			"categories",
-			"recipe",
-			"column-one",
-			"description",
-			"@media",
-			".recipe-item img",
-			"media",
-			".recipe-content",
-			"column",
-			".recipe-item img"
+			"$app->user"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1089,6 +1088,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"`recipes`",
+			"'recipes'",
+			"recipes",
 			"li",
 			"\\\"",
 			"','",
@@ -1205,7 +1207,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -1214,15 +1216,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3960,
+						"buffer_size": 4288,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1898,
-								1898
+								3016,
+								3025
 							]
 						],
 						"settings":
@@ -1232,72 +1234,157 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 969.0,
+						"translation.y": 1115.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "common/models/Parser.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9939,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5079,
+								5085
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2451.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "frontend/views/recipes/_item.php",
+					"buffer": 2,
+					"file": "backend/controllers/CronController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2009,
+						"buffer_size": 980,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1503,
-								1503
+								972,
+								972
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 171.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "common/models/schemes/gk-items.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 385,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "frontend/views/recipes/Recipe.php",
+					"buffer": 4,
+					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4612,
+						"buffer_size": 649,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4008,
-								4002
+								628,
+								628
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1355.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
+					"file": "backend/views/parser/append.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 625,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								550,
+								550
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "frontend/messages/ru/app.php",
 					"semi_transient": false,
 					"settings":
@@ -1322,24 +1409,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "common/models/Recipes.php",
+					"buffer": 7,
+					"file": "common/models/Units.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8488,
+						"buffer_size": 3340,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3005,
+								3005
 							]
 						],
 						"settings":
@@ -1349,14 +1436,72 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1140.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 8,
+					"file": "common/models/schemes/gk-paginator.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 347,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								338,
+								338
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "common/helpers/Utils.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3512,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3494,
+								3494
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1438.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
 					"file": "frontend/controllers/RecipesController.php",
 					"semi_transient": false,
 					"settings":
@@ -1368,8 +1513,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								3136,
+								3136
 							]
 						],
 						"settings":
@@ -1379,14 +1524,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 855.0,
+						"translation.y": 1596.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 11,
 					"file": "common/models/Stages.php",
 					"semi_transient": false,
 					"settings":
@@ -1412,11 +1557,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 12,
 					"file": "common/models/RecipesCats.php",
 					"semi_transient": false,
 					"settings":
@@ -1442,11 +1587,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 13,
 					"file": "common/models/Ingredients.php",
 					"semi_transient": false,
 					"settings":
@@ -1469,125 +1614,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 449.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1821,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1566,
-								1566
-							]
-						],
-						"settings":
-						{
-							"auto_name": "[{\"name\":\"Грибной суп с тмином\",\"image\":\"https:\\/\\",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 430.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "backend/views/parser/append.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 566,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								547,
-								547
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "common/models/Parser.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9433,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								917,
-								917
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 285.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "common/helpers/Utils.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2413,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								259,
-								266
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
 					"type": "text"
 				}
 			]

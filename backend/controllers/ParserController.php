@@ -76,7 +76,7 @@ class ParserController extends Controller
                         $new->description   = $recipe->description;
                         $new->image         = $fileName;
                         $new->cook_time     = Utils::timeParseRUS($recipe->cook_time);
-                        $new->portion       = $recipe->portion;
+                        $new->portion       = is_array($recipe->portion) ? implode(',', $recipe->portion) : $recipe->portion;
                         $new->category_ids  = $cats;
                         $new->parser_id     = $item->pid;
 //                        print_r($ingredients);
