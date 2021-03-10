@@ -13,6 +13,35 @@ class RecipesCats extends ActiveRecord
         return 'recipes_cats';
     }
 
+    public static function refreshTree($tree) {
+        $parent = false;
+        foreach ($tree as $parentName=>$childs) {
+            if (!$parent || ($parent->name != $parentName)) {
+                if (!($parent = RecipesCats::find()->where("name LIKE ('".$parentName."')")->one())) {
+                    $parent = new RecipesCats();
+                    $parent->name = $parentName;
+                    $parent->save();
+                }
+            }
+
+            $child = false;
+            foreach ($childs as $childName) {
+
+                if (!$child || ($child->name != $childName)) {
+                    if (!($child = RecipesCats::find()->where("name LIKE ('".$childName."')")->one())) {
+                        $child = new RecipesCats();
+                        $child->name = $childName;
+                        $child->parent_id = $parent->id;
+                        $child->save();
+                    } else if ($child->parent_id != $parent->id) {
+                        $child->parent_id = $parent->id;
+                        $child->save();
+                    }
+                }
+            }
+        }
+    }
+
     public static function getAllTree() {
     	return RecipesCats::find()->where(["active"=>1])->orderBy('sort')->all();
     }

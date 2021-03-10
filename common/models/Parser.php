@@ -3,6 +3,7 @@ namespace common\models;
 
 use yii\base\Model;
 use common\helpers\Utils;
+use common\models\RecipesCats;
 use Goutte\Client;
 use Symfony\Component\DomCrawler\Crawler;
 use yii\db\ActiveRecord;
@@ -76,10 +77,28 @@ class Parser extends ActiveRecord
         return Parser::$passed;
     }
 
-    public static function parseBegin($url, $scheme) {
+    public static function parseBegin($url, $scheme, $refreshRequire = false) {
         Parser::$resfreshIteration = 0;
         Parser::$passed = [];
-        return Parser::parseNext($url, $scheme);
+        return Parser::parseNext($url, $scheme, $refreshRequire);
+    }
+
+    private static function ParseCatTree($data) {
+        $group = [];
+        $cur_group = '';
+        foreach ($data['value'] as $item) {
+            $a = [];
+            preg_match_all("/([\w-]{3,})\//", $item[0], $a);
+            $r = $a[1];
+            if (count($r) == 2) {
+                $cur_group = $item[1];
+            } else if (count($r) == 3) {
+                if (!isset($group[$cur_group])) $group[$cur_group] = [];
+                $group[$cur_group][] = $item[1];
+            }
+        }
+
+        RecipesCats::refreshTree($group);
     }
 
     private static function ParseLinks($data) {
@@ -128,7 +147,7 @@ class Parser extends ActiveRecord
         }
     }
 
-    private static function parseNext($url, $scheme) {
+    private static function parseNext($url, $scheme, $refreshRequire = false) {
         if ($schemeData = Parser::getScheme($scheme)) {
             //echo "Parse $url, $scheme\n";
             $id = md5($url.$scheme.$schemeData->version);
@@ -149,20 +168,28 @@ class Parser extends ActiveRecord
                     }
                 } else return $model;
             } else {
-                $result = json_decode($model->result, true);
-                /* Пока не обновлять существующие записи
-                if ($model->state == 'active') {
-                    if ($now <= strtotime($model->last) + Parser::$refreshPeriod)
-                        $result = json_decode($model->result, true);
-                    else if (Parser::$resfreshIteration < Parser::$maxRefreshCount) {
-                        Parser::$resfreshIteration++;
-                        if ($result = $model->parse()) {
-                            $model->save();
-                            Parser::$passed[] = $model->pid;
-                        }
-                    } else return $model;
+                if ($refreshRequire) {
+                    Parser::$resfreshIteration++;
+                    if ($result = $model->parse()) {
+                        $model->save();
+                        Parser::$passed[] = $model->pid;
+                    }
+                } else  {
+                    $result = json_decode($model->result, true);
+                    /* Пока не обновлять существующие записи
+                    if ($model->state == 'active') {
+                        if ($now <= strtotime($model->last) + Parser::$refreshPeriod)
+                            $result = json_decode($model->result, true);
+                        else if (Parser::$resfreshIteration < Parser::$maxRefreshCount) {
+                            Parser::$resfreshIteration++;
+                            if ($result = $model->parse()) {
+                                $model->save();
+                                Parser::$passed[] = $model->pid;
+                            }
+                        } else return $model;
+                    }
+                    */
                 }
-                */
             }
 
             if ($result) {
@@ -190,9 +217,14 @@ class Parser extends ActiveRecord
         if (is_object($item)) {
             if (isset($item->attr)) 
                 return $data->attr($item->attr);
-            else if (isset($item->items)) { 
+            else if (isset($item->items))
                 return $this->parseNode($data, $item); 
-            } else return [0=>$data->text()];
+            else if (isset($item->eval)) {
+                $cmd = '$result = '.$item->eval.';';
+                eval($cmd);
+                return $result; 
+            }
+            else return [0=>$data->text()];
         } else return $data->text();
     }
 

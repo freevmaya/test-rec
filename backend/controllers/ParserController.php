@@ -36,7 +36,7 @@ class ParserController extends Controller
     	$model = new Parser();
 
         if ($post = Yii::$app->request->post('Parser')) {
-            $model = Parser::parseBegin($post['url'], $post['scheme']);
+            $model = Parser::parseBegin($post['url'], $post['scheme'], Yii::$app->request->get('refresh-required'));
         }
 
         return $this->render('index', [
