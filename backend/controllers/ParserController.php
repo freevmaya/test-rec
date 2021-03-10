@@ -44,12 +44,13 @@ class ParserController extends Controller
         ]);
     }
 
-    public function actionAppendjson($scheme, $count_limit = 1, $author_id = 2) {
+    public function actionAppendjson($scheme, $count_limit = 1, $author_id = 2, $pid=0) {
         $passList = [];
 
         if ($scheme) {
 
-            $list = Parser::find()->where(['scheme'=>$scheme, 'state'=>'active'])->all();
+            if ($pid > 0) $list = Parser::find()->where(['pid'=>$pid])->all();
+            else $list = Parser::find()->where(['scheme'=>$scheme, 'state'=>'active'])->all();
             $count = 0;
             foreach ($list as $item) {
                 $recipe = json_decode($item->result)[0];
@@ -113,7 +114,10 @@ class ParserController extends Controller
         $countLimit = 1;
 
         if ($post = Yii::$app->request->post('Parser')) {
-            $list = $this->actionAppendjson($post['scheme']);
+            $list = $this->actionAppendjson($post['scheme'], 
+                    $post['count_limit'] ? $post['count_limit'] : 1,
+                    $post['author_id'] ? $post['author_id'] : \Yii::$app->user->id,
+                    Yii::$app->request->get('pid'));
             $model->scheme = $post['scheme'];
         }
 

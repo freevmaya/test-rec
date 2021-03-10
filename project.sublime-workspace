@@ -523,7 +523,7 @@
 			"file": "backend/controllers/ParserController.php",
 			"settings":
 			{
-				"buffer_size": 4288,
+				"buffer_size": 4350,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -677,6 +677,7 @@
 	},
 	"expanded_folders":
 	[
+		"/E/OpenServer/domains/recipes-dev.com/yii-application"
 	],
 	"file_history":
 	[
@@ -1207,7 +1208,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -1216,15 +1217,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4288,
+						"buffer_size": 4350,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3016,
-								3025
+								2828,
+								2828
 							]
 						],
 						"settings":
@@ -1234,10 +1235,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1115.0,
+						"translation.y": 1096.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1253,8 +1254,8 @@
 						"selection":
 						[
 							[
-								5079,
-								5085
+								4717,
+								4717
 							]
 						],
 						"settings":
@@ -1264,10 +1265,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2451.0,
+						"translation.y": 2090.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1295,7 +1296,7 @@
 						"translation.y": 171.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
