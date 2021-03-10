@@ -37,6 +37,8 @@ class Ingredients extends ActiveRecord
 
     public static function check($list, $checkUnit = 'checkDefault') {
         $result = ['values'=>[], 'units'=>[]];
+        if (is_string($list)) $list = [$list];
+        
         foreach ($list as $checkFull) {
             $checkName = '';
             $count = 0;
