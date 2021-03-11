@@ -66,7 +66,7 @@ class Utils
 				?>
 				<div class="item">
 					<div class="head">
-						<a class="btn <?=($cat_id == $item->id)?'btn-primary':'btn-light'?>" type="button" href="<?=\yii\helpers\Url::toRoute(['/recipes', 'cat_id'=>$item->id])?>"><?=$item->name?> <?=count($item->recipes)?></a>
+						<a class="btn <?=($cat_id == $item->id)?'btn-primary':'btn-light'?>" type="button" href="<?=\yii\helpers\Url::toRoute(['/recipes', 'cat_id'=>$item->id])?>"><?=$item->name?></a>
 					</div>
 					<?
 						if ($level < 1)

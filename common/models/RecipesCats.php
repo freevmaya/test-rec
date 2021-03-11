@@ -17,13 +17,16 @@ class RecipesCats extends ActiveRecord
     public function relations()
     {
        return array(
-            'recipes'=>array(self::HAS_MANY, 'RecipesToCats', 'recipe_cat_id')
+            'recipes'=>array(self::STAT, 'RecipesToCats', 'count(recipe_cat_id)')
         );
     }
 
-    public function getRecipes()
-    {
+    public function getRecipes() {
         return $this->hasMany(RecipesToCats::className(), ['recipe_cat_id'=>'id']);
+    }
+
+    public function getRecipeCount() {
+        return RecipesToCats::count($this->id);
     }
 
     public static function refreshTree($tree) {
@@ -57,7 +60,7 @@ class RecipesCats extends ActiveRecord
 
     public static function getAllTree() {
 
-    	return RecipesCats::find()->with('recipes')->where(["active"=>1])->orderBy('sort')->all();
+    	return RecipesCats::find()->innerJoinWith('recipes')->where(["active"=>1])->orderBy('sort')->all();
     }
 
     public static function groupTree() {
