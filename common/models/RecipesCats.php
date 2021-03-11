@@ -59,7 +59,20 @@ class RecipesCats extends ActiveRecord
     }
 
     public static function getAllTree() {
-    	return RecipesCats::find()->where(["active"=>1])->orderBy('sort')->all();
+
+        $key = "getAllTree";
+        $cache = Yii::$app->cache;
+        if ($data = $cache->get($key)) 
+            return $data;
+
+        $data = RecipesCats::find()
+            ->innerJoinWith('recipes')
+            ->where(["active"=>1])
+            ->orderBy('sort')->all();
+
+        $cache->set($key, $data);
+
+    	return $data;
     }
 
     public static function groupTree() {

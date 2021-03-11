@@ -38,6 +38,9 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'cache' => [
+            'class' => 'yii\caching\MemCache'
+        ]
         /*
         'view' => [
             'theme' => 'app\themes\recipes',
