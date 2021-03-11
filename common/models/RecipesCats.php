@@ -59,8 +59,7 @@ class RecipesCats extends ActiveRecord
     }
 
     public static function getAllTree() {
-
-    	return RecipesCats::find()->innerJoinWith('recipes')->where(["active"=>1])->orderBy('sort')->all();
+    	return RecipesCats::find()->cache(60 * 60, null, 3)->innerJoinWith('recipes')->where(["active"=>1])->orderBy('sort')->all();
     }
 
     public static function groupTree() {
