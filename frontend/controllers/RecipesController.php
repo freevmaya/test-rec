@@ -40,6 +40,7 @@ class RecipesController extends Controller {
 
         $query = $query->select('`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates');
 
+        $query->orderBy('id DESC');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

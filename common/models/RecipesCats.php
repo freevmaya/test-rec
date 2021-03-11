@@ -3,6 +3,7 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
+use common\models\RecipesToCats;
 use yii\db\ActiveRecord;
 
 class RecipesCats extends ActiveRecord
@@ -11,6 +12,18 @@ class RecipesCats extends ActiveRecord
     public static function tableName()
     {
         return 'recipes_cats';
+    }
+
+    public function relations()
+    {
+       return array(
+            'recipes'=>array(self::HAS_MANY, 'RecipesToCats', 'recipe_cat_id')
+        );
+    }
+
+    public function getRecipes()
+    {
+        return $this->hasMany(RecipesToCats::className(), ['recipe_cat_id'=>'id']);
     }
 
     public static function refreshTree($tree) {
@@ -43,7 +56,8 @@ class RecipesCats extends ActiveRecord
     }
 
     public static function getAllTree() {
-    	return RecipesCats::find()->where(["active"=>1])->orderBy('sort')->all();
+
+    	return RecipesCats::find()->with('recipes')->where(["active"=>1])->orderBy('sort')->all();
     }
 
     public static function groupTree() {
