@@ -6,6 +6,7 @@ use common\helpers\Utils;
 
 class Units extends ActiveRecord
 {
+    private static $replacechars = "/[\(\)\{\}\&\-\+\?\>\<]+/";
 
     public static function tableName()
     {
@@ -31,6 +32,7 @@ class Units extends ActiveRecord
 
     public static function findUnitStr($text, $unitStr) {
         $matches = [];
+        $unitStr = preg_replace(Units::$replacechars, "", $unitStr);
         preg_match("/^[\s]?{$unitStr}[\s]+/", $text, $matches);
         if (count($matches))
             return $matches[0];
@@ -67,9 +69,10 @@ class Units extends ActiveRecord
         preg_match("/[\S]+[\.]+([\s]+[\S]+[\.]+)?/", $text, $matches);
         if (count($matches) > 0) {
 
-            if (!($unit = Units::findByShort($matches[0]))) {
+            $unit_name = preg_replace(Units::$replacechars, "", $matches[0]);
+            if (!($unit = Units::findByShort($unit_name))) {
                 $unit = new Units();
-                $unit->name = $unit->short = $unitStr = $matches[0];
+                $unit->name = $unit->short = $unitStr = $unit_name;
                 $unit->lang_id = Utils::getLang();
                 $unit->save();
 
