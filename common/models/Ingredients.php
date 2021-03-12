@@ -6,6 +6,7 @@ use yii\base\Model;
 use yii\db\ActiveRecord;
 use common\helpers\Utils;
 use common\models\Units;
+use yii\helpers\StringHelper;
 
 class Ingredients extends ActiveRecord
 {
@@ -45,7 +46,10 @@ class Ingredients extends ActiveRecord
             $unit = Units::$checkUnit($checkFull, $checkName, $count);
             //echo $checkFull."\n";
             //print_r($unit);
+
+            $checkName = StringHelper::truncate($checkName, 170, '...');
             if ($checkName && $unit) {
+                $checkName = 
                 if (!($ingre = Ingredients::find()->where(['name'=>$checkName])->one())) {
                     $ingre = new Ingredients();
                     $ingre->name = $checkName;

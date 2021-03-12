@@ -471,6 +471,11 @@ a:hover {
 .search-group button {
     outline: none !important;
 }
-.navbar-inverse .btn-link {
-    color: white;
+
+.navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu button:hover {
+    color: black !important;
 }

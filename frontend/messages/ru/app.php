@@ -7,6 +7,7 @@ return [
 	'search'=>'Искать',
 	'Signup'=>'Регистрация',
 	'Login'=>'Вход',
+	'Logout'=>'Выйти',
 	'delete'=>'удаление',
 	'edit'=>'изменить',
 	'return'=>'вернуться',
@@ -42,6 +43,7 @@ return [
 	'reset it'=>'сбросить его',
 	'Resend'=>'Отправить',
 	'source'=>'Источник',
+	'Cabinet'=>'Кабинет',
 	'LoginForm'=>[
 		'username'=>'Имя пользователя',
 		'password'=>'Пароль',
