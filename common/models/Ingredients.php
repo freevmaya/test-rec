@@ -47,9 +47,8 @@ class Ingredients extends ActiveRecord
             //echo $checkFull."\n";
             //print_r($unit);
 
-            $checkName = StringHelper::truncate($checkName, 170, '...');
             if ($checkName && $unit) {
-                $checkName = 
+                $checkName = StringHelper::truncate($checkName, 170, '...');
                 if (!($ingre = Ingredients::find()->where(['name'=>$checkName])->one())) {
                     $ingre = new Ingredients();
                     $ingre->name = $checkName;
