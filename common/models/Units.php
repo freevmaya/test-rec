@@ -126,6 +126,8 @@ class Units extends ActiveRecord
             case 'natual':
                 return round($value);
         }
+
+        return $value;
     }
 }
 
