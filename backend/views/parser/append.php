@@ -10,6 +10,7 @@ $this->title = 'Parser';
 	<?php $form = ActiveForm::begin(['id' => 'parser-form']); ?>
 		<div class="form-group">
 		<?= $form->field($model, 'scheme')->textInput(); ?>
+		<?= $form->field($model, 'pid')->textInput(); ?>
     	</div>
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>

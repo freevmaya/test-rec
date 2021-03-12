@@ -59,7 +59,6 @@ class ParserController extends Controller
                     $cats = RecipesCats::check($recipe->subcats);
                     $ingredients = $recipe->ingredients ? Ingredients::check($recipe->ingredients) : false;
 
-
                     $imageBody = false;
                     $fileName = md5($file['filename']).'.'.$file['extension'];
                     $filePath = \Yii::$app->params['recipeImagesPath'].'/'.$fileName;
@@ -69,28 +68,31 @@ class ParserController extends Controller
                     } else $imageBody = true;
 
                     if ($imageBody) {
-                        $new = new Recipes();
-                        $new->created       = date('Y-m-d h:i:s');
-                        $new->lang          = Utils::getLang();
-                        $new->author_id     = $author_id;
-                        $new->name          = $recipe->name;
-                        $new->description   = $recipe->description;
-                        $new->image         = $fileName;
-                        $new->cook_time     = Utils::timeParseRUS($recipe->cook_time);
-                        $new->portion       = is_array($recipe->portion) ? implode(',', $recipe->portion) : $recipe->portion;
-                        $new->category_ids  = $cats;
-                        $new->parser_id     = $item->pid;
+
+                        if (!$rec = Recipes::find()->where(['parser_id'=>$item->pid])->one()) {
+                            $rec = new Recipes();
+                            $rec->created       = date('Y-m-d h:i:s');
+                        }
+                        $rec->lang          = Utils::getLang();
+                        $rec->author_id     = $author_id;
+                        $rec->name          = $recipe->name;
+                        $rec->description   = $recipe->description;
+                        $rec->image         = $fileName;
+                        $rec->cook_time     = Utils::timeParseRUS($recipe->cook_time);
+                        $rec->portion       = is_array($recipe->portion) ? implode(',', $recipe->portion) : $recipe->portion;
+                        $rec->category_ids  = $cats;
+                        $rec->parser_id     = $item->pid;
 //                        print_r($ingredients);
-                        if ($new->save()) {
+                        if ($rec->save()) {
                             $item->state = 'processed';
                             $item->save();
 
-                            if ($ingredients) $new->saveIngredients($ingredients['values'], $ingredients['units']);
-                            if ($recipe->stages) $new->saveStages($recipe->stages);
+                            if ($ingredients) $rec->saveIngredients($ingredients['values'], $ingredients['units']);
+                            if ($recipe->stages) $rec->saveStages($recipe->stages);
 
                             $passList[] = $item->pid;
                         } else {
-                            \Yii::error($new->getErrors());
+                            \Yii::error($rec->getErrors());
                             //$item->state = 'deferred';
                             //$item->save();
                         }
@@ -117,8 +119,8 @@ class ParserController extends Controller
             $list = $this->actionAppendjson($post['scheme'], 
                     $post['count_limit'] ? $post['count_limit'] : 1,
                     $post['author_id'] ? $post['author_id'] : \Yii::$app->user->id,
-                    Yii::$app->request->get('pid'));
-            $model->scheme = $post['scheme'];
+                    $post['pid']);
+            $model->attributes = $post;
         }
 
         return $this->render('append', [

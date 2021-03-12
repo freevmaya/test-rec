@@ -66,7 +66,7 @@ class Units extends ActiveRecord
 
         $unit = null;
         $matches = [];
-        preg_match("/[\S]+[\.]+([\s]+[\S]+[\.]+)?/", $text, $matches);
+        preg_match("/^[\S]+[\.]+([\s]+[\S]+[\.]+)?/", $text, $matches);
         if (count($matches) > 0) {
 
             $unit_name = preg_replace(Units::$replacechars, "", $matches[0]);
@@ -87,6 +87,7 @@ class Units extends ActiveRecord
     public static function checkDefault($ingreFull, &$ingreName, &$count) {
         $matches = [];
         preg_match("/[\d,\.\/]{1,}/", $ingreFull, $matches);
+
         if (count($matches) > 0) {
             $ingreFull = trim(str_replace($matches[0], "", $ingreFull));
 
@@ -101,7 +102,8 @@ class Units extends ActiveRecord
 
             $unitStr = false;
             if ($unit = Units::findCheckExt($ingreFull, $unitStr)) {
-                $ingreName = trim(str_replace($unitStr, '', $ingreFull));
+                if ($unitStr) $ingreName = trim(str_replace($unitStr, '', $ingreFull));
+                else $ingreName = $ingreFull;                
                 return $unit;
             };
         }
