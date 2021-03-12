@@ -43,14 +43,29 @@ AppAsset::register($this);
         $menuItems[] = ['label' => \Yii::t('app', 'Signup'), 'url' => ['/site/signup']];
         $menuItems[] = ['label' => \Yii::t('app', 'Login'), 'url' => ['/site/login']];
     } else {
-        $menuItems[] = '<li>'
+        $menuItems[] = ['label' => \Yii::t('app', Yii::$app->user->identity->username),
+            'items'=>[
+                '<li>'
+                .Html::beginForm(['/site/logout'], 'post')
+                . Html::submitButton(\Yii::t('app', 'Logout'),
+                    ['class' => 'btn btn-link logout']
+                )
+                . Html::endForm()
+                .'</li>',
+                ['label' => \Yii::t('app', 'Cabinet'), 'url' => ['/site/cabinet']]
+            ]
+        ];
+
+/*
+        $menuItems[] = '<li class="dropdown">'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
             )
             . Html::endForm()
-            . '</li>';
+            . '<ul class="dropdown-menu"><li><a href="#">'.\Yii::t('app', 'Cabinet').'</a></li></ul>'
+            . '</li>';*/
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
