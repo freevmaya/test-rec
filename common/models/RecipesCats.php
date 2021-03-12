@@ -70,7 +70,7 @@ class RecipesCats extends ActiveRecord
             ->where(["active"=>1])
             ->orderBy('sort DESC')->all();
 
-        $cache->set($key, $data);
+        $cache->set($key, $data, 60 * 60);
 
     	return $data;
     }

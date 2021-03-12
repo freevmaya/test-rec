@@ -47,17 +47,17 @@ class Ingredients extends ActiveRecord
             //echo $checkFull."\n";
             //print_r($unit);
 
-            if ($checkName && $unit) {
+            if ($checkName) {
                 $checkName = StringHelper::truncate($checkName, 167, '...');
                 if (!($ingre = Ingredients::find()->where(['name'=>$checkName])->one())) {
                     $ingre = new Ingredients();
                     $ingre->name = $checkName;
-                    $ingre->unit_id = $unit['id'];
+                    $ingre->unit_id = $unit ? $unit['id'] : 0;
                     $ingre->author_id = Yii::$app->user->id;
                     $ingre->save();
                 }
                 $result['values'][$ingre->id] = $count;
-                $result['units'][$ingre->id] = $unit['id'];
+                $result['units'][$ingre->id] = $unit ? $unit['id'] : 0;
             }
         }
 
