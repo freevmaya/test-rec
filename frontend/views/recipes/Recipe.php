@@ -5,6 +5,7 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\StringHelper;
 use yii\base\Model;
 use common\models\Recipes;
+use common\models\Units;
 use common\helpers\Utils;
 
 use kartik\rating\StarRating;
@@ -71,7 +72,7 @@ else $addRecipeLink = Url::toRoute(['/recipes/edit', 'cat_id'=>\Yii::$app->reque
 									<ul>
 								<?
 									foreach ($model->getIngredientValues() as $item) {?>
-										<li><?=$item['name']?>: <?=$item['value']?> <?=$item['short']?></li>
+										<li><?=$item['name']?>: <?=Units::unitValue($item['value'], $item['type'])?> <?=$item['short']?></li>
 									<?}?>
 									</ul>
 									<div class="alert alert-warning units-help">

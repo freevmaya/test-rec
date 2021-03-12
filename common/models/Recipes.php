@@ -151,7 +151,7 @@ class Recipes extends BaseModelWithImage
     
     public function getIngredientValues() {
         $command = Yii::$app->db->createCommand('
-            SELECT i.id, i.name, ir.value, u.short 
+            SELECT i.id, i.name, ir.value, u.short, u.type 
             FROM ingredients_to_recipe ir 
                 INNER JOIN ingredients i ON ir.ingredient_id = i.id 
                 LEFT JOIN units u ON ir.unit_id = u.id 

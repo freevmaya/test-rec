@@ -109,6 +109,24 @@ class Units extends ActiveRecord
         }
         return false;
     }
+
+    public static function unitValue($value, $type) {
+        switch ($type) {
+            case 'div': {
+                $v = ceil($value * 100);
+                if ($v <= 2) return '1/5';
+                else if ($v <= 25) return '1/4';
+                else if ($v <= 33) return '1/3';
+                else if ($v <= 50) return '1/2';
+                else if ($v <= 66) return '2/3';
+                else if ($v <= 75) return '3/4';
+                else if ($v <= 80) return '4/5';
+                else if ($v <= 100) return '1';
+            }
+            case 'natual':
+                return round($value);
+        }
+    }
 }
 
 ?>
