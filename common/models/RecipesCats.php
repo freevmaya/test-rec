@@ -62,8 +62,8 @@ class RecipesCats extends ActiveRecord
 
         $key = "getAllTree";
         $cache = Yii::$app->cache;
-        //if ($data = $cache->get($key)) 
-            //return $data;
+        if ($data = $cache->get($key)) 
+            return $data;
 
         $data = RecipesCats::find()
             ->innerJoinWith('recipes')
