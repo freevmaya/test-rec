@@ -14,7 +14,7 @@ class Parser extends ActiveRecord
     private $_resultArray;
 
     private static $refreshPeriod = 3 * 24 * 60 * 60; // Трое суток
-    private static $maxRefreshCount = 20;
+    private static $maxRefreshCount = 5;
     private static $resfreshIteration;
     private static $passed = [];    
     private static $schemes = [];
