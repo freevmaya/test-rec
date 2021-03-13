@@ -67,7 +67,7 @@ class RecipesCats extends ActiveRecord
         }
 
         $data = RecipesCats::find()
-            ->innerJoinWith('recipes')
+            //->innerJoinWith('recipes')
             ->where(["active"=>1])
             ->orderBy('sort DESC')->all();
 
