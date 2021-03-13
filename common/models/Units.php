@@ -104,6 +104,10 @@ class Units extends ActiveRecord
             if ($unit = Units::findCheckExt($ingreFull, $unitStr)) {
                 if ($unitStr) $ingreName = trim(str_replace($unitStr, '', $ingreFull));
                 else $ingreName = $ingreFull;                
+
+                //echo $ingreFull."\n";                
+                //print_r($unit);
+
                 return $unit;
             };
         }
