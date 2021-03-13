@@ -99,8 +99,8 @@ else $addRecipeLink = Url::toRoute(['/recipes/edit', 'cat_id'=>\Yii::$app->reque
 		                	</div>
 	                	</div>
 						<?if ($model->parser_id) {?>
-						<div>
-							<a href="<?=$model->parser->url?>"><?=Yii::t('app', 'source')?></a>
+						<div class="source">
+							<a href="<?=$model->parser->url?>" target="_blank"><?=Yii::t('app', 'source')?></a>
 						</div>
 						<?}
 							if (Recipes::editable($model)) {?>

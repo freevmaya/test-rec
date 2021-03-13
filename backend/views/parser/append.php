@@ -11,6 +11,7 @@ $this->title = 'Parser';
 		<div class="form-group">
 		<?= $form->field($model, 'scheme')->textInput(); ?>
 		<?= $form->field($model, 'pid')->textInput(); ?>
+		<?= $form->field($model, 'id')->textInput(); ?>
     	</div>
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>

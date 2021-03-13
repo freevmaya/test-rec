@@ -363,6 +363,10 @@ a:hover {
     padding-right: 16px;
 }
 
+.recipe-detail .source {
+    text-align: right;
+}
+
 .ingredients .unit-select option {
 }
 

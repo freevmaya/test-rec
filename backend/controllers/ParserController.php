@@ -116,6 +116,11 @@ class ParserController extends Controller
         $countLimit = 1;
 
         if ($post = Yii::$app->request->post('Parser')) {
+            if ($post['id']) {
+                $recipe = Recipes::find()->where(['id'=>$post['id']])->one();
+                $post['pid'] = $recipe->parser_id;
+            }
+
             $list = $this->actionAppendjson($post['scheme'], 
                     $post['count_limit'] ? $post['count_limit'] : 1,
                     $post['author_id'] ? $post['author_id'] : \Yii::$app->user->id,
