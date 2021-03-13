@@ -171,6 +171,9 @@ class Parser extends ActiveRecord
                 if ($refreshRequire) {
                     Parser::$resfreshIteration++;
                     if ($result = $model->parse()) {
+                        if ($refreshRequire)
+                            $model->state = 'active';
+
                         $model->save();
                         Parser::$passed[] = $model->pid;
                     }
