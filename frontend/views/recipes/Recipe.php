@@ -18,6 +18,36 @@ $rate = $model->rates;
 if (Yii::$app->user->isGuest) $addRecipeLink = Url::toRoute(['/site/login']);
 else $addRecipeLink = Url::toRoute(['/recipes/edit', 'cat_id'=>\Yii::$app->request->get('cat_id')]);
 
+$ajaxList = [
+	'favorite'=>['glyphicon-heart in', 'glyphicon-heart-empty'],
+	'basket'=>['glyphicon-shopping-cart in', 'glyphicon-shopping-cart']
+];
+
+$this->registerJs('
+	var ajaxList = '.json_encode($ajaxList).';
+
+	$(".ajax-request").click(function (e) {
+		let a = $(e.currentTarget);
+   		let span = a.find("span");
+   		let key = a.data("type");
+        $.ajax({
+            url: a.attr("href"),
+            success: function(data){
+            	if (data) {
+            		if (span.hasClass(ajaxList[key][0])) {
+            			span.removeClass(ajaxList[key][0]);
+            			span.addClass(ajaxList[key][1]);
+            		} else {
+            			span.removeClass(ajaxList[key][1]);
+            			span.addClass(ajaxList[key][0]);
+            		}
+            	}
+            }
+        });
+        e.stopPropagation();
+        return false;
+    });
+');
 
 ?>
 <div class="recipes">
@@ -29,7 +59,15 @@ else $addRecipeLink = Url::toRoute(['/recipes/edit', 'cat_id'=>\Yii::$app->reque
 			<div class="recipe-item card-body full">
 				<h3 class="card-title"><?=$model['name']?></h3>
 				<div class="recipe-content">
-					<?php 
+					<div class="header">
+						<?foreach ($ajaxList as $key=>$item) {
+							$field = 'is'.$key;
+							?>
+						<a class="ajax-request" data-type="<?=$key?>" title="<?=Yii::t('app', 'title-'.$key)?>" href="<?=Url::toRoute(['/recipes/toggle'.$key, 'id'=>$model->id]);?>">
+							<span class="glyphicon <?=$model->$field?$item[0]:$item[1]?>"></span>
+						</a>
+						<?}?>
+					<?
 					$form_id = 'recipe-rates-form-'.$model->id;
 					$form = ActiveForm::begin(['id' => $form_id]); ?>
 					<?=$form->field($model, 'rates')->widget(StarRating::classname(), [
@@ -56,7 +94,7 @@ else $addRecipeLink = Url::toRoute(['/recipes/edit', 'cat_id'=>\Yii::$app->reque
 	        				]
 						])->label(false);?>
 					<?php ActiveForm::end(); ?>
-
+					</div>
 					<div class="image" style="background-image: url(<?=Recipes::UrlImage($model)?>)"></div>
 					<div class="recipe-detail">
 						<div class="description"><?=$model['description'];?></div>
