@@ -87,6 +87,8 @@ class Recipes extends BaseModelWithImage
 
     public function saveStages($stages) {
         if ($this->id) {
+
+            Yii::$app->db->createCommand('DELETE FROM stages WHERE recipe_id='.$this->id)->execute();
             if (is_array($stages)) {
                 foreach ($stages as $text) {
                     $name = Stages::parseName($text);
