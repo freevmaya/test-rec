@@ -29,6 +29,9 @@ $menu = [
 <div class="cabinet">
 	<div class="column-one">
 		<h1><?=Yii::t('app', $current ? $current : 'Cabinet')?></h1>
+		<?
+			if ($current) echo $this->render('cabinet/'.$current);
+		?>
 	</div>
 	<div class="column-two">
 		<div class="menu">

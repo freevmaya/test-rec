@@ -50,6 +50,8 @@ return [
 	'deliveryaddress'=>'Адрес доставки',
 	'bookmarks'=>'Закладки', 
 	'settings'=>'Настройки',
+	'addfavorite'=>'Добавить в избранное',
+	'addshoppingcart'=>'Добавить в корзину',
 	'LoginForm'=>[
 		'username'=>'Имя пользователя',
 		'password'=>'Пароль',

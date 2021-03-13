@@ -508,7 +508,6 @@ a:hover {
 
 .cabinet a.menu-item {
     display: block;
-    font-size: 1.2em;
 }
 
 .cabinet a.menu-item:hover {
@@ -522,6 +521,7 @@ a:hover {
 
 .cabinet .menu-item span.glyphicon {
     margin-right: 1em;
+    font-size: 1.2em;
 }
 
 .cabinet .current {
@@ -530,4 +530,32 @@ a:hover {
 
 .cabinet .column-one {
     padding: 1em;
+}
+
+.recipe-content .header {
+    height: 42px;
+}
+
+.recipe-content .header a {
+    font-size: 1.4em;
+    margin: 12px 3px 0px 0px;
+    display: inline-block;
+}
+
+.ajax-request span {
+    color: #6900ffb0;
+}
+
+.ajax-request span.in {
+    color: #333;
+}
+
+.recipe-content .header a:hover {
+    color: #60016D;
+}
+
+.recipe-content .header form {
+    display: inline-block;
+    float: right;
+    margin-bottom: 0px;
 }

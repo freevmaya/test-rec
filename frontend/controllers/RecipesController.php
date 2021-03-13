@@ -15,6 +15,8 @@ use common\models\RecipesCats;
 use common\models\UploadImage;
 use common\models\Ingredients;
 use common\models\Stages;
+use common\models\Favorites;
+use common\models\Basket;
 use common\helpers\Utils;
 use yii\data\ActiveDataProvider;
 use yii\db\Query;
@@ -25,34 +27,22 @@ use yii\db\Query;
 class RecipesController extends Controller {
     public function actionIndex()
     {
-	   $query = (new Query())->from('recipes');
-
-        if ($cat_id = Yii::$app->request->get('cat_id')) {
-            $cat = (new RecipesCats())->findOne(['id'=>$cat_id]);
-            $query = $query->join('INNER JOIN', '`recipes_to_cats` rtc ON rtc.recipe_id=`recipes`.id');
-
-            if ($cat->parent_id) 
-                $query = $query->where('rtc.recipe_cat_id='.$cat_id);
-            else {
-                $query = $query->where('rtc.recipe_cat_id IN (SELECT id FROM recipes_cats WHERE parent_id = '.$cat_id.')')->groupBy('id');
-            }
-        }
-
-        $query = $query->select('`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates');
-
-        $query->orderBy('id DESC');
-
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-            'pagination' => [
-                'pageSize' => 10,
-            ]
-        ]);
-
         return $this->render('index', [
             "cats"=>RecipesCats::getAllTree(),
-            "dataProvider"=>$dataProvider
+            "dataProvider"=>Recipes::dataProvider(Yii::$app->request->get('cat_id'))
         ]);
+    }
+
+    public function actionTogglefavorite($id) {
+        if(\Yii::$app->request->isAjax){
+            return Favorites::toggle($id);
+        }
+    }
+
+    public function actionTogglebasket($id) {
+        if(\Yii::$app->request->isAjax){
+            return Basket::toggle($id);
+        }
     }
 
     public function actionItem($id) {

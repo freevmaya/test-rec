@@ -9,6 +9,8 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\Query;
 use yii\data\ActiveDataProvider;
 
+use common\models\Favorites;
+use common\models\Basket;
 use common\models\Stages;
 
 class Recipes extends BaseModelWithImage
@@ -68,11 +70,13 @@ class Recipes extends BaseModelWithImage
 
     public function setRates($value)
     {
-        $rates = new Rates();
-        $rates->user_id = Yii::$app->user->id;
-        $rates->recipe_id = $this->id;
-        $rates->value = $value;
-        $rates->save();
+        if ($value) {
+            $rates = new Rates();
+            $rates->user_id = Yii::$app->user->id;
+            $rates->recipe_id = $this->id;
+            $rates->value = $value;
+            $rates->save();
+        }
     }
     
     public function getCategories() {
@@ -109,6 +113,14 @@ class Recipes extends BaseModelWithImage
                 $stage->save();
             }
         }
+    }
+
+    public function getIsfavorite() {
+        return Favorites::IsFavorite($this->id);
+    }
+
+    public function getIsbasket() {
+        return Basket::IsBasket($this->id);   
     }
     
     public function getIngredients() {
@@ -217,22 +229,9 @@ class Recipes extends BaseModelWithImage
     }
 
     public static function search($key) {
-//        return Recipes::find()->where("name LIKE :key", [':key'=>"%{$key}%"])->all();
         $query = (new Query())->from('recipes');
 
         $query->where("name LIKE :key", [':key'=>"%{$key}%"]);
-
-/*
-        if ($cat_id = Yii::$app->request->get('cat_id')) {
-            $cat = (new RecipesCats())->findOne(['id'=>$cat_id]);
-            $query = $query->join('INNER JOIN', '`recipes_to_cats` rtc ON rtc.recipe_id=`recipes`.id');
-
-            if ($cat->parent_id) 
-                $query = $query->where('rtc.recipe_cat_id='.$cat_id);
-            else {
-                $query = $query->where('rtc.recipe_cat_id IN (SELECT id FROM recipes_cats WHERE parent_id = '.$cat_id.')')->groupBy('id');
-            }
-        }*/
 
         $query = $query->select('`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates');
 
@@ -242,6 +241,32 @@ class Recipes extends BaseModelWithImage
                 'pageSize' => 10,
             ]
         ]);
+    }
+
+    public static function dataProvider($cat_id=false, $where=null, $join=null) {
+
+        $query = Recipes::find()->select('`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates');
+
+        if ($cat_id) {
+            $cat = (new RecipesCats())->findOne(['id'=>$cat_id]);
+            $query = $query->innerJoin('`recipes_to_cats` rtc ON rtc.recipe_id=`recipes`.id');
+
+            if ($cat->parent_id) 
+                $query = $query->where(['rtc.recipe_cat_id'=>$cat_id]);
+            else $query = $query->where(['rtc.recipe_cat_id IN (SELECT id FROM recipes_cats WHERE parent_id = '.$cat_id.')'])->groupBy('id');
+        }
+
+        if ($where) $query = $query->where($where);
+        if ($join) $query->join[] = $join;
+
+        $query->orderBy('id DESC');
+
+        return new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ]
+        ]);        
     }
 }
 
