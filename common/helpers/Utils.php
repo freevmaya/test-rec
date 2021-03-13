@@ -55,22 +55,23 @@ class Utils
 
 	public static function outCatItem($parent_id, $list, $level = 0) {
 		$cat_id = \Yii::$app->request->get('cat_id');
-		foreach ($list as $item) {
+		foreach ($list as $item) 
+			if ($item['count_recipe'] > 0) {
 			$as_parent = false;
-			if (!$parent_id && !$item->parent_id) {
+			if (!$parent_id && !$item['parent_id']) {
 				foreach ($list as $it)
-					if ($it->parent_id == $item->id) $as_parent = true;
+					if ($it['parent_id'] == $item['id']) $as_parent = true;
 			}
 
-			if ($as_parent || ($parent_id && ($item->parent_id == $parent_id))) {
+			if ($as_parent || ($parent_id && ($item['parent_id'] == $parent_id))) {
 				?>
 				<div class="item">
 					<div class="head">
-						<a class="btn <?=($cat_id == $item->id)?'btn-primary':'btn-light'?>" type="button" href="<?=\yii\helpers\Url::toRoute(['/recipes', 'cat_id'=>$item->id])?>"><?=$item->name?></a>
+						<a class="btn <?=($cat_id == $item['id'])?'btn-primary':'btn-light'?>" type="button" href="<?=\yii\helpers\Url::toRoute(['/recipes', 'cat_id'=>$item['id']])?>"><?=$item['name']?></a>
 					</div>
 					<?
 						if ($level < 1)
-							Utils::outCatItem($item->id, $list, $level + 1);
+							Utils::outCatItem($item['id'], $list, $level + 1);
 					?>
 				</div>
 				<?

@@ -66,10 +66,19 @@ class RecipesCats extends ActiveRecord
             return $data;
         }
 
+        /*
         $data = RecipesCats::find()
             //->innerJoinWith('recipes')
             ->where(["active"=>1])
             ->orderBy('sort DESC')->all();
+        */
+
+
+        $command = Yii::$app->db->createCommand('
+            SELECT cats.*, (SELECT COUNT(recipe_id) FROM recipes_to_cats WHERE recipe_cat_id=cats.id) AS count_recipe
+            FROM recipes_cats cats 
+            WHERE cats.active = 1');
+        $data = $command->queryAll();
 
         $cache->set($key, $data, 60 * 60);
 
