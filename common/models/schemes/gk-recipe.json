@@ -12,7 +12,8 @@
 				"portion": "span[itemprop=\"recipeYield\"]",
 				"stages": "li[itemprop=\"recipeInstructions\"]",
 				"ingredients": "li[itemprop=\"recipeIngredient\"]",
-				"subcats": "div.subcat_full a"
+				"subcats": "div.subcat_full a",
+				"ingridients_full": "span.ingridients_full a"
 			}
 		}
 	}

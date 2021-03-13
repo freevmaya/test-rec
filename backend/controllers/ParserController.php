@@ -26,8 +26,8 @@ class ParserController extends Controller
         } else return null;
     }
 
-    public function actionParser_json($url, $scheme) {
-        Parser::parseBegin($url, $scheme);
+    public function actionParser_json($url, $scheme, $refreshRequired = false) {
+        Parser::parseBegin($url, $scheme, $refreshRequired);
         return json_encode(Parser::getPassed());
     }
 
@@ -36,7 +36,7 @@ class ParserController extends Controller
     	$model = new Parser();
 
         if ($post = Yii::$app->request->post('Parser')) {
-            $model = Parser::parseBegin($post['url'], $post['scheme'], Yii::$app->request->get('refresh-required'));
+            $model = Parser::parseBegin($post['url'], $post['scheme'], Yii::$app->request->post('refresh-required'));
         }
 
         return $this->render('index', [

@@ -9,6 +9,8 @@ $this->title = 'Parser';
 		<div class="form-group">
 		<?= $form->field($model, 'url')->textInput(['autofocus' => true]); ?>
 		<?= $form->field($model, 'scheme')->textInput(); ?>
+		<label from="refresh-required">Refresh</label>
+		<input type="checkbox" name="refresh-required">
     	</div>
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
