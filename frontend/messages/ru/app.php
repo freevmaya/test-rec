@@ -44,6 +44,12 @@ return [
 	'Resend'=>'Отправить',
 	'source'=>'Источник',
 	'Cabinet'=>'Кабинет',
+	'favorites'=>'Избранное',
+	'basket'=>'Корзина',
+	'myrecipes'=>'Мои рецепты',
+	'deliveryaddress'=>'Адрес доставки',
+	'bookmarks'=>'Закладки', 
+	'settings'=>'Настройки',
 	'LoginForm'=>[
 		'username'=>'Имя пользователя',
 		'password'=>'Пароль',
