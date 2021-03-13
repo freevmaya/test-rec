@@ -101,12 +101,12 @@ class Parser extends ActiveRecord
         RecipesCats::refreshTree($group);
     }
 
-    private static function ParseLinks($data) {
+    private static function ParseLinks($data, $refreshRequire = false) {
         foreach ($data['value'] as $relativeUrl)
-            Parser::parseNext($data['parser']['baseUrl'].$relativeUrl, $data['parser']['scheme']);
+            Parser::parseNext($data['parser']['baseUrl'].$relativeUrl, $data['parser']['scheme'], $refreshRequire);
     }
 
-    private static function checkParserData($item) {
+    private static function checkParserData($item, $refreshRequire = false) {
         if (is_array($item)) {
             if (isset($item['parser'])) {
                 if (isset($item['parser']['url'])) {
@@ -115,8 +115,8 @@ class Parser extends ActiveRecord
                     if ($item_url) {
                         if (is_array($item_url)) {
                             foreach ($item_url as $url) 
-                                Parser::parseNext($url, $item['parser']['scheme']);
-                        } else Parser::parseNext($item_url, $item['parser']['scheme']);
+                                Parser::parseNext($url, $item['parser']['scheme'], $refreshRequire);
+                        } else Parser::parseNext($item_url, $item['parser']['scheme'], $refreshRequire);
                     }
                     else {
                         //print_r($item);
@@ -128,7 +128,7 @@ class Parser extends ActiveRecord
                 }
             } else {
                 foreach ($item as $data) {
-                    Parser::checkParserData($data);
+                    Parser::checkParserData($data, $refreshRequire);
                     /*
                     if (is_array($data) && (isset($data['parser']))) {
                         $comm = "\$item_url = {$data['parser']['url']};";
@@ -203,9 +203,9 @@ class Parser extends ActiveRecord
                         if (isset($item[0])) {
                             for ($i=0; $i<count($item); $i++) {
                                 if (is_array($item[$i]))
-                                    foreach ($item[$i] as $elem) Parser::checkParserData([$elem]);
+                                    foreach ($item[$i] as $elem) Parser::checkParserData([$elem], $refreshRequire);
                             }
-                        } else Parser::checkParserData($item);
+                        } else Parser::checkParserData($item, $refreshRequire);
                     }
                 }
             } else \Yii::error("Empty result url: {$url}, scheme: {$scheme}");
