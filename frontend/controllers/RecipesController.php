@@ -48,7 +48,7 @@ class RecipesController extends Controller {
     public function actionItem($id) {
     	$model = Recipes::findOne(['id'=>$id]);
     	if(\Yii::$app->request->isAjax){
-    		$model->attributes = Yii::$app->request->post('recipes');
+    		$model->attributes = Yii::$app->request->post('Recipes');
     		if ($model->validate()) {
     			$model->save();
     			return true;
