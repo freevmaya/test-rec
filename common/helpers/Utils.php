@@ -80,7 +80,7 @@ class Utils
 	}
 
 	public static function IsAdmin() {
-		return \Yii::$app->user->identity->role == 'admin';
+		return \Yii::$app->user ? \Yii::$app->user->identity->role == 'admin' : false;
 	}
 
 	public static function upload($model, $field){
