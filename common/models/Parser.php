@@ -14,7 +14,7 @@ class Parser extends ActiveRecord
     private $_resultArray;
 
     private static $refreshPeriod = 3 * 24 * 60 * 60; // Трое суток
-    private static $maxRefreshCount = 5;
+    private static $maxRefreshCount = 2;
     private static $resfreshIteration;
     private static $passed = [];    
     private static $schemes = [];
@@ -169,21 +169,27 @@ class Parser extends ActiveRecord
                 } else return $model;
             } else {
                 if ($refreshRequire) {
-                    Parser::$resfreshIteration++;
-                    if ($result = $model->parse()) {
-                        if ($refreshRequire)
-                            $model->state = 'active';
+                    if (Parser::$resfreshIteration < Parser::$maxRefreshCount) {
+                        Parser::$resfreshIteration++;
+                        if ($result = $model->parse()) {
+                            if ($refreshRequire)
+                                $model->state = 'active';
 
-                        $model->save();
-                        Parser::$passed[] = $model->pid;
+                            $model->save();
+                            Parser::$passed[] = $model->pid;
+                        }
                     }
                 } else  {
                     if ($model->version != $schemeData->version) { // Обновляем если версия структуры отличается
-                        Parser::$resfreshIteration++;
-                        if ($result = $model->parse()) {
-                            $model->state = 'active';
-                            $model->save();
-                            Parser::$passed[] = $model->pid;
+                        if (Parser::$resfreshIteration < Parser::$maxRefreshCount) {
+                            Parser::$resfreshIteration++;
+                            if ($result = $model->parse()) {
+                                $model->scheme = $scheme;
+                                $model->version = $schemeData->version;                        
+                                $model->state = 'active';
+                                $model->save();
+                                Parser::$passed[] = $model->pid;
+                            }
                         }
                     } else $result = json_decode($model->result, true);
 
