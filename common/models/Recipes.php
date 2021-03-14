@@ -264,7 +264,10 @@ class Recipes extends BaseModelWithImage
         }
 
         if ($where) $query = $query->where($where);
-        if ($join) $query->join[] = $join;
+        if ($join) {
+            if (is_string($join[0])) $join = [$join];
+            $query->join = $query->join ? array_merge($query->join, $join) : $join;
+        }
 
         $query->orderBy('id DESC');
 
