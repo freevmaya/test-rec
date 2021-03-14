@@ -150,7 +150,7 @@ class Parser extends ActiveRecord
     private static function parseNext($url, $scheme, $refreshRequire = false) {
         if ($schemeData = Parser::getScheme($scheme)) {
             //echo "Parse $url, $scheme\n";
-            $id = md5($url.$scheme.$schemeData->version);
+            $id = md5($url.$scheme.'1');
             $now = strtotime("now");
             $result = false;
 
@@ -178,7 +178,15 @@ class Parser extends ActiveRecord
                         Parser::$passed[] = $model->pid;
                     }
                 } else  {
-                    $result = json_decode($model->result, true);
+                    if ($model->version != $schemeData->version) { // Обновляем если версия структуры отличается
+                        Parser::$resfreshIteration++;
+                        if ($result = $model->parse()) {
+                            $model->state = 'active';
+                            $model->save();
+                            Parser::$passed[] = $model->pid;
+                        }
+                    } else $result = json_decode($model->result, true);
+
                     /* Пока не обновлять существующие записи
                     if ($model->state == 'active') {
                         if ($now <= strtotime($model->last) + Parser::$refreshPeriod)
