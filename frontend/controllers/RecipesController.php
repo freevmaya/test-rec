@@ -17,6 +17,7 @@ use common\models\Ingredients;
 use common\models\Stages;
 use common\models\Favorites;
 use common\models\Basket;
+use common\models\Consist;
 use common\helpers\Utils;
 use yii\data\ActiveDataProvider;
 use yii\db\Query;
@@ -27,9 +28,25 @@ use yii\db\Query;
 class RecipesController extends Controller {
     public function actionIndex()
     {
+        $cat_id = Yii::$app->request->get('cat_id');
+        $consist_id = Yii::$app->request->get('consist-id');
+        $consist = null;
+
+        if ($consist_id) {
+
+            $consist = Consist::findOne(['id'=>$consist_id]);
+            $join = [['INNER JOIN', 'consist_to_recipe', 'consist_to_recipe.recipe_id=recipes.id']];
+            $where = 'consist_to_recipe.consist_id=:consist_id';
+            $provider = Recipes::dataProvider($cat_id, $where, $join);
+            $provider->query->addParams([':consist_id'=>$consist_id]);
+
+        } else $provider = Recipes::dataProvider($cat_id);
+
         return $this->render('index', [
             "cats"=>RecipesCats::getAllTree(),
-            "dataProvider"=>Recipes::dataProvider(Yii::$app->request->get('cat_id'))
+            "cat_id"=>$cat_id,
+            "consist"=>$consist,
+            "dataProvider"=>$provider
         ]);
     }
 
