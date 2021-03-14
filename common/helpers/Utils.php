@@ -79,6 +79,10 @@ class Utils
 		}
 	}
 
+	public static function IsAdmin() {
+		return \Yii::$app->user->identity->role == 'admin';
+	}
+
 	public static function upload($model, $field){
 	    if ($image = \yii\web\UploadedFile::getInstance($model, $field)) {
 			if ($image) {

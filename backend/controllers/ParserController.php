@@ -10,6 +10,7 @@ use common\models\Parser;
 use common\models\Recipes;
 use common\models\RecipesCats;
 use common\models\Ingredients;
+use common\models\Consist;
 use common\helpers\Utils;
 
 /**
@@ -57,6 +58,7 @@ class ParserController extends Controller
                 if (isset($recipe->image)) {
                     $file = pathinfo($recipe->image);
                     $cats = RecipesCats::check($recipe->subcats);
+                    $consist = Consist::check($recipe->ingridients_full);
                     $ingredients = $recipe->ingredients ? Ingredients::check($recipe->ingredients) : false;
 
                     $imageBody = false;
@@ -81,6 +83,7 @@ class ParserController extends Controller
                         $rec->cook_time     = Utils::timeParseRUS($recipe->cook_time);
                         $rec->portion       = is_array($recipe->portion) ? implode(',', $recipe->portion) : $recipe->portion;
                         $rec->category_ids  = $cats;
+                        $rec->consist_ids   = $consist;
                         $rec->parser_id     = $item->pid;
 //                        print_r($ingredients);
                         if ($rec->save()) {
@@ -126,6 +129,9 @@ class ParserController extends Controller
                     $post['author_id'] ? $post['author_id'] : \Yii::$app->user->id,
                     $post['pid']);
             $model->attributes = $post;
+        } else {
+            if (Yii::$app->request->get('pid')) 
+                $model->pid = Yii::$app->request->get('pid');
         }
 
         return $this->render('append', [

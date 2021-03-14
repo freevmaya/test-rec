@@ -39,7 +39,8 @@ class Recipes extends BaseModelWithImage
             [
                 'class' => \voskobovich\behaviors\ManyToManyBehavior::className(),
                 'relations' => [
-                    'category_ids' => 'categories'
+                    'category_ids' => 'categories',
+                    'consist_ids' => 'consist'
                 ]
             ]
         ];
@@ -49,10 +50,11 @@ class Recipes extends BaseModelWithImage
     {
        return array(
             'categories' => array(self::MANY_MANY, 'RecipesCats', 'recipes_to_cats(recipe_id, recipe_cat_id)'),
-            'ingredients' => array(self::MANY_MANY, 'RecipesCats', 'ingredients_to_recipe(recipe_id, ingredient_id)'),
+            'ingredients' => array(self::MANY_MANY, 'Ingredients', 'ingredients_to_recipe(recipe_id, ingredient_id)'),
             'stages'=>array(self::HAS_MANY, 'Stages', 'recipe_id'),
             'author'=>array(self::BELONGS_TO, 'User', 'author_id'),
-            'parser'=>array(self::BELONGS_TO, 'Parser', 'parser_id')/*,
+            'parser'=>array(self::BELONGS_TO, 'Parser', 'parser_id'),
+            'consist' => array(self::MANY_MANY, 'Consist', 'consist_to_recipe(recipe_id, consist_id)')/*,
             'areas' => array(self::MANY_MANY, 'Area', 'blog_to_area(blog_id, area_id)'),
             'blogs_to_area' => array(self::HAS_MANY, 'Blogs_to_area', 'blog_id'),
             'blog_to_cats' => array(self::HAS_MANY, 'blog_to_cats', 'blog_id')*/
@@ -82,6 +84,11 @@ class Recipes extends BaseModelWithImage
     public function getCategories() {
         return $this->hasMany(RecipesCats::className(), ['id' => 'recipe_cat_id'])
                 ->viaTable('recipes_to_cats', ['recipe_id' => 'id']);
+    }
+    
+    public function getConsist() {
+        return $this->hasMany(Consist::className(), ['id' => 'consist_id'])
+                ->viaTable('consist_to_recipe', ['recipe_id' => 'id']);
     }
 
     public function getStages()
