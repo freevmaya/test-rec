@@ -1,6 +1,6 @@
 {
 	"name": "gk-recipe",
-	"version": "2",
+	"version": "1",
 	"body": {
 		"items": {
 			"selector": "div[itemtype=\"http://schema.org/Recipe\"]",
