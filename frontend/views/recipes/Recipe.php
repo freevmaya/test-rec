@@ -147,7 +147,7 @@ $this->registerJs('
 		                		<?}?>
 		                	</div>
 	                	</div>
-						<?if ($model->parser_id) {?>
+						<?if ($model->parser) {?>
 						<div class="source">
 							<?if (Utils::IsAdmin()) {
 								echo '<a href="'.Yii::$app->params['adminURL'].'index.php?r=parser%2Fappend&pid='.$model->parser_id.'" target="_blank">'.$model->parser_id.'</a>';
