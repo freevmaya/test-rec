@@ -97,9 +97,20 @@ $this->registerJs('
 					</div>
 					<div class="image" style="background-image: url(<?=Recipes::UrlImage($model)?>)"></div>
 					<div class="recipe-detail">
+
 						<div class="description"><?=$model['description'];?></div>
 
 						<div class="cook_detail">
+							<?if (count($model->consist) > 0) {?>
+		                	<div class="consist-block">
+		                		<span><?=Yii::t('app', 'Consist')?></span>
+			                	<div class="consist-list">
+		                		<?foreach ($model->consist as $consist) {?>
+		                			<div><a href="<?=Url::toRoute(['/recipes/index', 'consist-id'=>$consist->id])?>"><?=$consist->name?></a></div>
+		                		<?}?>
+		                		</div>
+		                	</div>
+		                	<?}?>
 							<div class="cook_time"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'cooking time'))?>:</span> <?=Utils::cook_time($model['cook_time'])?></div>
 							<div class="cook_level"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'cooking level'))?>:</span> <?=$model->cookLevel?></div>
 							<div class="portion"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'portion'))?>:</span> <?=$model['portion']?></div>
@@ -138,6 +149,9 @@ $this->registerJs('
 	                	</div>
 						<?if ($model->parser_id) {?>
 						<div class="source">
+							<?if (Utils::IsAdmin()) {
+								echo '<a href="'.Yii::$app->params['adminURL'].'index.php?r=parser%2Fappend&pid='.$model->parser_id.'" target="_blank">'.$model->parser_id.'</a>';
+							}?>
 							<a href="<?=$model->parser->url?>" target="_blank"><?=Yii::t('app', 'source')?></a>
 						</div>
 						<?}

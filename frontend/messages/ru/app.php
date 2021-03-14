@@ -42,6 +42,7 @@ return [
 	'Please fill out the following fields to signup'=>'Пожалуйста, заполните следующие поля, чтобы зарегистрироваться',
 	'reset it'=>'сбросить его',
 	'Resend'=>'Отправить',
+	'Consist'=>'Состав',
 	'source'=>'Источник',
 	'Cabinet'=>'Кабинет',
 	'favorites'=>'Избранное',

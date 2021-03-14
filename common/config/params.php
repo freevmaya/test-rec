@@ -6,5 +6,6 @@ return [
     'senderName' => 'Example.com mailer',
     'user.passwordResetTokenExpire' => 3600,
     'user.passwordMinLength' => 8,
-    'recipeImagesPath' => dirname(dirname(__DIR__)).'/frontend/web/uploads'
+    'recipeImagesPath' => dirname(dirname(__DIR__)).'/frontend/web/uploads',
+    'adminURL'=>'http://recipes-admin.com/'
 ];
