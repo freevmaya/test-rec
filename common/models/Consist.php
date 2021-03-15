@@ -25,16 +25,18 @@ class Consist extends ActiveRecord
 
     public static function check($consist) {
         $result = [];
-        foreach ($consist as $conName) {
-            if ($con = Consist::find()->where(['name'=>$conName])->one())
-                $result[] = $con->id;
-            else {
-                $con = new Consist();
-                $con->name = $conName;
-                $con->save();
-                $result[] = $con->id;
+
+        if (is_array($consist))
+            foreach ($consist as $conName) {
+                if ($con = Consist::find()->where(['name'=>$conName])->one())
+                    $result[] = $con->id;
+                else {
+                    $con = new Consist();
+                    $con->name = $conName;
+                    $con->save();
+                    $result[] = $con->id;
+                }
             }
-        }
 
         return $result;
     }
