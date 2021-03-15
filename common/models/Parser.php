@@ -16,7 +16,6 @@ class Parser extends ActiveRecord
     private static $refreshPeriod = 3 * 24 * 60 * 60; // Трое суток
     private static $maxRefreshCount = 2;
     private static $resfreshIteration;
-    private static $passed = [];    
     private static $schemes = [];
 
     public static $States = ['active', 'processed', 'archived', 'removed', 'deferred'];
@@ -73,13 +72,8 @@ class Parser extends ActiveRecord
         } else return null;
     }
 
-    public static function getPassed() {
-        return Parser::$passed;
-    }
-
     public static function parseBegin($url, $scheme, $refreshRequire = false) {
         Parser::$resfreshIteration = 0;
-        Parser::$passed = [];
         return Parser::parseNext($url, $scheme, $refreshRequire);
     }
 
@@ -102,11 +96,17 @@ class Parser extends ActiveRecord
     }
 
     private static function ParseLinks($data, $refreshRequire = false) {
-        foreach ($data['value'] as $relativeUrl)
-            Parser::parseNext($data['parser']['baseUrl'].$relativeUrl, $data['parser']['scheme'], $refreshRequire);
+        $passed = [];
+        foreach ($data['value'] as $relativeUrl) {
+            if ($result = Parser::parseNext($data['parser']['baseUrl'].$relativeUrl, $data['parser']['scheme'], $refreshRequire)) 
+                $passed[] = $result;
+        }
+
+        return $passed;
     }
 
     private static function checkParserData($item, $refreshRequire = false) {
+        $passed = [];
         if (is_array($item)) {
             if (isset($item['parser'])) {
                 if (isset($item['parser']['url'])) {
@@ -114,9 +114,14 @@ class Parser extends ActiveRecord
                     eval($comm);
                     if ($item_url) {
                         if (is_array($item_url)) {
-                            foreach ($item_url as $url) 
-                                Parser::parseNext($url, $item['parser']['scheme'], $refreshRequire);
-                        } else Parser::parseNext($item_url, $item['parser']['scheme'], $refreshRequire);
+                            foreach ($item_url as $url) {
+                                if ($result = Parser::parseNext($url, $item['parser']['scheme'], $refreshRequire))
+                                    $passed[] = $result;
+                            }
+                        } else {
+                            if ($result = Parser::parseNext($item_url, $item['parser']['scheme'], $refreshRequire))
+                                $passed[] = $result;
+                        }
                     }
                     else {
                         //print_r($item);
@@ -124,11 +129,12 @@ class Parser extends ActiveRecord
                     }
                 } else if (isset($item['parser']['method'])) {
                     $method = $item['parser']['method'];
-                    Parser::$method($item);
+                    if ($result = Parser::$method($item))
+                        $passed[] = $result;
                 }
             } else {
                 foreach ($item as $data) {
-                    Parser::checkParserData($data, $refreshRequire);
+                    $passed = array_merge($passed, Parser::checkParserData($data, $refreshRequire));
                     /*
                     if (is_array($data) && (isset($data['parser']))) {
                         $comm = "\$item_url = {$data['parser']['url']};";
@@ -145,6 +151,8 @@ class Parser extends ActiveRecord
                 }
             }
         }
+
+        return $passed;
     }
 
     private static function parseNext($url, $scheme, $refreshRequire = false) {
@@ -153,45 +161,49 @@ class Parser extends ActiveRecord
             $id = md5($url.$scheme.'1');
             $now = strtotime("now");
             $result = false;
+            $passed = null;
 
             if (!($model = Parser::findOne(['id'=>$id]))) {
-                if (Parser::$resfreshIteration < Parser::$maxRefreshCount) {
-                    Parser::$resfreshIteration++;
+                if (Parser::$resfreshIteration <= Parser::$maxRefreshCount) {
                     $model = new Parser();
                     $model->_url = $url;
                     $model->scheme = $scheme;
                     $model->id = $id;
                     $model->version = $schemeData->version;
                     if ($result = $model->parse()) {
+                        Parser::$resfreshIteration++;
                         $model->save();
-                        Parser::$passed[] = $model->pid;
-                    }
-                } else return $model;
+                        $passed = ['new', $scheme, $model->pid];
+                    } else return;
+                } else return;
             } else {
                 if ($refreshRequire) {
-                    if (Parser::$resfreshIteration < Parser::$maxRefreshCount) {
-                        Parser::$resfreshIteration++;
+                    if (Parser::$resfreshIteration <= Parser::$maxRefreshCount) {
                         if ($result = $model->parse()) {
+                            Parser::$resfreshIteration++;
                             if ($refreshRequire)
                                 $model->state = 'active';
 
                             $model->save();
-                            Parser::$passed[] = $model->pid;
-                        }
-                    }
+                            $passed= ['user refresh', $scheme, $model->pid];
+                        } else return;
+                    } else return;
                 } else  {
                     if ($model->version != $schemeData->version) { // Обновляем если версия структуры отличается
-                        if (Parser::$resfreshIteration < Parser::$maxRefreshCount) {
-                            Parser::$resfreshIteration++;
+                        if (Parser::$resfreshIteration <= Parser::$maxRefreshCount) {
                             if ($result = $model->parse()) {
+                                Parser::$resfreshIteration++;
                                 $model->scheme = $scheme;
                                 $model->version = $schemeData->version;                        
                                 $model->state = 'active';
                                 $model->save();
-                                Parser::$passed[] = $model->pid;
-                            }
-                        }
-                    } else $result = json_decode($model->result, true);
+                                $passed = ['change version', $scheme, $model->pid];
+                            } else return;
+                        } else return;
+                    } else {
+                        $result = json_decode($model->result, true);
+                        $passed = ['pass', $scheme, $model->pid];
+                    }
 
                     /* Пока не обновлять существующие записи
                     if ($model->state == 'active') {
@@ -210,24 +222,30 @@ class Parser extends ActiveRecord
             }
 
             if ($result) {
-                $isEmpty = true;
+                $childs = [];
                 foreach ($result as $field=>$item) {
-                    $isEmpty = $isEmpty && !$item;
                     if (is_array($item)) {
                         if (isset($item[0])) {
                             for ($i=0; $i<count($item); $i++) {
                                 if (is_array($item[$i]))
-                                    foreach ($item[$i] as $elem) Parser::checkParserData([$elem], $refreshRequire);
+                                    foreach ($item[$i] as $elem) {
+                                        $childs = array_merge($childs, Parser::checkParserData([$elem], $refreshRequire));
+                                    }
                             }
-                        } else Parser::checkParserData($item, $refreshRequire);
+                        } else $childs = array_merge($childs, Parser::checkParserData($item, $refreshRequire));
                     }
                 }
-            } else \Yii::error("Empty result url: {$url}, scheme: {$scheme}");
+
+                if (count($childs) > 0) {
+                    //print_r($childs);
+                    $passed['childs'] = $childs;
+                }
+
+            } else \Yii::error("Empty result url: {$url}, scheme: {$scheme}, version: {$schemeData->version}");
 
         } else \Yii::error("schema {$scheme} not found");
 
-
-        return $model;
+        return $passed;
     }
 
     protected function getValue($data, $item) {

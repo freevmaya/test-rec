@@ -17,4 +17,10 @@ $this->title = 'Parser';
         </div>
 
     <?php ActiveForm::end(); ?>
+
+    <?if ($passed) {?>
+    	<div>
+    		<?print_r($passed);?>
+    	</div>
+    <?}?>
 </div>
