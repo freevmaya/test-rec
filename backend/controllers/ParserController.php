@@ -60,7 +60,7 @@ class ParserController extends Controller
                 if (isset($recipe->image)) {
                     $file = pathinfo($recipe->image);
                     $cats = RecipesCats::check($recipe->subcats);
-                    $consist = Consist::check($recipe->ingridients_full);
+                    $consist = isset($recipe->ingridients_full) ? Consist::check($recipe->ingridients_full) : [];
                     $ingredients = $recipe->ingredients ? Ingredients::check($recipe->ingredients) : false;
 
                     $imageBody = false;
