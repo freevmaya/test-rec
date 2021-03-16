@@ -130,7 +130,7 @@ class Parser extends ActiveRecord
                 } else if (isset($item['parser']['method'])) {
                     $method = $item['parser']['method'];
                     if ($result = Parser::$method($item))
-                        $passed[] = $result;
+                        $passed = array_merge($passed, $result);
                 }
             } else {
                 foreach ($item as $data) {
@@ -239,6 +239,7 @@ class Parser extends ActiveRecord
                 if (count($childs) > 0) {
                     //print_r($childs);
                     $passed['childs'] = $childs;
+                    return $passed;
                 }
 
             } else \Yii::error("Empty result url: {$url}, scheme: {$scheme}, version: {$schemeData->version}");
