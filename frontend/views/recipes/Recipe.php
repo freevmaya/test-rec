@@ -137,6 +137,7 @@ $this->registerJs('
 								</div>
 							</div>
 						</div>
+						<?if (count($model->stages)) {?>
 						<div class="stages">
 		                	<h3><?=Yii::t('app', 'stages')?></h3>
 		                	<div itemprop="recipeInstructions">
@@ -155,6 +156,7 @@ $this->registerJs('
 		                		<?}?>
 		                	</div>
 	                	</div>
+	                	<?}?>
 						<?if ($model->parser) {?>
 						<div class="source">
 							<?if (Utils::IsAdmin()) {
