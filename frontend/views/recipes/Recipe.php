@@ -33,15 +33,22 @@ $this->registerJs('
         $.ajax({
             url: a.attr("href"),
             success: function(data){
-            	if (data) {
-            		if (span.hasClass(ajaxList[key][0])) {
-            			span.removeClass(ajaxList[key][0]);
-            			span.addClass(ajaxList[key][1]);
-            		} else {
-            			span.removeClass(ajaxList[key][1]);
-            			span.addClass(ajaxList[key][0]);
-            		}
-            	}
+        		if (span.hasClass(ajaxList[key][0])) {
+        			span.removeClass(ajaxList[key][0]);
+        			span.addClass(ajaxList[key][1]);
+        		} else {
+        			span.removeClass(ajaxList[key][1]);
+        			span.addClass(ajaxList[key][0]);
+        		}
+
+        		let isSet = parseInt(data);
+        		let scount = $(".basket-menu-item .count");
+        		if (scount.length > 0) {
+        			let count = parseInt(scount.text());
+        			count += isSet ? 1 : -1;
+        			scount.text(count);
+        			$(".basket-menu-item").css("display", count > 0 ? "inline" : "none");
+        		}
             }
         });
         e.stopPropagation();
@@ -50,14 +57,14 @@ $this->registerJs('
 ');
 
 ?>
-<div class="recipes">
+<div class="recipes" itemscope itemtype="http://schema.org/Recipe">
 	<div class="column-one">
 		
 		<a href="<?=$addRecipeLink?>"><?=Utils::mb_ucfirst(Yii::t('app', 'add_recipe'))?></a>
 
 		<div class="card">
 			<div class="recipe-item card-body full">
-				<h3 class="card-title"><?=$model['name']?></h3>
+				<h3 class="card-title" itemprop="name"><?=$model['name']?></h3>
 				<div class="recipe-content">
 					<div class="header">
 						<?foreach ($ajaxList as $key=>$item) {
@@ -95,7 +102,7 @@ $this->registerJs('
 						])->label(false);?>
 					<?php ActiveForm::end(); ?>
 					</div>
-					<div class="image" style="background-image: url(<?=Recipes::UrlImage($model)?>)"></div>
+					<div class="image" style="background-image: url(<?=Recipes::UrlImage($model)?>)" itemprop="resultPhoto"></div>
 					<div class="recipe-detail">
 
 						<div class="description"><?=$model['description'];?></div>
@@ -111,9 +118,9 @@ $this->registerJs('
 		                		</div>
 		                	</div>
 		                	<?}?>
-							<div class="cook_time"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'cooking time'))?>:</span> <?=Utils::cook_time($model['cook_time'])?></div>
+							<div class="cook_time"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'cooking time'))?>:</span> <meta itemprop="totalTime" content="<?=date('\P\TH\Hi\Ms\S', strtotime($model['cook_time']));?>"/><?=Utils::cook_time($model['cook_time'])?></div>
 							<div class="cook_level"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'cooking level'))?>:</span> <?=$model->cookLevel?></div>
-							<div class="portion"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'portion'))?>:</span> <?=$model['portion']?></div>
+							<div class="portion"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'portion'))?>:</span> <i itemprop="recipeYield"><?=$model['portion']?></i></div>
 							<div class="author"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'author'))?>:</span> <?=$model->author->username?></div>
 							<div>
 								<div><span><?=Utils::mb_ucfirst(\Yii::t('app', 'ingredients'))?></span></div>
@@ -121,7 +128,7 @@ $this->registerJs('
 									<ul>
 								<?
 									foreach ($model->getIngredientValues() as $item) {?>
-										<li><?=$item['name']?>: <?=Units::unitValue($item['value'], $item['type'])?> <?=$item['short']?></li>
+										<li itemprop="recipeIngredient"><?=$item['name']?>: <?=Units::unitValue($item['value'], $item['type'])?> <?=$item['short']?></li>
 									<?}?>
 									</ul>
 									<div class="alert alert-warning units-help">
@@ -132,11 +139,12 @@ $this->registerJs('
 						</div>
 						<div class="stages">
 		                	<h3><?=Yii::t('app', 'stages')?></h3>
-		                	<div>
+		                	<div itemprop="recipeInstructions">
 		                		<?foreach ($model->stages as $ix=>$stage) {?>
 		                			<div class="stage">
-		                				<h4><?=$stage->name?></h4>
+		                				<?=$stage->name ? "<h4>$stage->name</h4>\n":''?>
 		                				<?if ($stage->image) {?>
+		                					<meta itemprop="image" content="<?=$stage->imageUrl()?>"/>
 		                					<div class="image" style="background-image: url(<?=$stage->imageUrl()?>)"></div>
 		                				<?}?>
 		                				<p><?=$stage->text?></p>

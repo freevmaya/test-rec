@@ -11,6 +11,7 @@ use common\models\Recipes;
 		echo ListView::widget([
 		    'dataProvider' => Recipes::dataProvider(null, ['basket.user_id'=>\Yii::$app->user->id], ['INNER JOIN', 'basket', 'basket.recipe_id=recipes.id']),
 		    'itemView' => '../../recipes/_item',
+		    'summary' => ''
 		]);
 	?>
 	</div>
