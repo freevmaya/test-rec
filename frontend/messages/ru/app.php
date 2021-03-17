@@ -47,6 +47,7 @@ return [
 	'Cabinet'=>'Кабинет',
 	'favorites'=>'Избранное',
 	'basket'=>'Корзина',
+	'login-basket'=>'Авторизуйтесь что бы продолжить оформление заказа',
 	'myrecipes'=>'Мои рецепты',
 	'deliveryaddress'=>'Адрес доставки',
 	'bookmarks'=>'Закладки', 

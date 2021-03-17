@@ -17,7 +17,7 @@ if ($current)
 
 $menu = [
 	['favorites', 'heart-empty'],
-	['bookmarks', 'paperclip'],
+	//['bookmarks', 'paperclip'],
 	['basket', 'shopping-cart'],
 	['myrecipes', 'briefcase'],
 	['deliveryaddress', 'plane'],

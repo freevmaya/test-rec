@@ -155,6 +155,55 @@ class Parser extends ActiveRecord
         return $passed;
     }
 
+    private static function parseChilds($result, $refreshRequire) {
+        $childs = [];
+        foreach ($result as $field=>$item) {
+            if (is_array($item)) {
+                if (isset($item[0])) {
+                    for ($i=0; $i<count($item); $i++) {
+                        if (is_array($item[$i]))
+                            foreach ($item[$i] as $elem) {
+                                $childs = array_merge($childs, Parser::checkParserData([$elem], $refreshRequire));
+                            }
+                    }
+                } else $childs = array_merge($childs, Parser::checkParserData($item, $refreshRequire));
+            }
+        }
+
+        if (count($childs) > 0) return $childs;
+        return null;
+    }
+
+    public static function parseRefresh($scheme, $limit = 5) {
+        $passed = [];
+
+        Parser::$resfreshIteration = 0;
+        Parser::$maxRefreshCount = $limit;
+
+        if ($schemeData = Parser::getScheme($scheme)) {
+            $list = Parser::find()->where("scheme = '{$scheme}' AND version != {$schemeData->version}")->all();
+
+            foreach ($list as $parser) {
+                if (Parser::$resfreshIteration <= Parser::$maxRefreshCount) {
+                    if ($result = $parser->parse()) {
+                        Parser::$resfreshIteration++;
+
+                        $parser->state = 'active';
+                        $parser->save();
+
+                        $passed_item = ['refresh', $scheme, $parser->pid];                        
+                        if ($childs = Parser::parseChilds($result, true))
+                            $passed_item['childs'] = $childs;
+
+                        $passed[] = $passed_item;
+                    }
+                } else break;
+            }
+        }
+
+        return $passed;
+    }
+
     private static function parseNext($url, $scheme, $refreshRequire = false) {
         if ($schemeData = Parser::getScheme($scheme)) {
             //echo "Parse $url, $scheme\n";
@@ -222,6 +271,8 @@ class Parser extends ActiveRecord
             }
 
             if ($result) {
+
+                //Заменить на parseChilds!!!!!!!!!!!!
                 $childs = [];
                 foreach ($result as $field=>$item) {
                     if (is_array($item)) {

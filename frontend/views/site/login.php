@@ -11,6 +11,12 @@ $this->title = \Yii::t('app', 'Login');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
+    <?
+        if (\Yii::$app->request->get('referer') == 'basket') {
+            $message = \Yii::t('app', 'login-basket');
+    ?>
+    <div class="alert alert-success" role="alert"><?=$message?></div>
+    <?}?>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p><?=\Yii::t('app', 'Please fill out the following fields to login')?>:</p>

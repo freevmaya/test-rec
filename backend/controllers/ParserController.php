@@ -31,6 +31,10 @@ class ParserController extends Controller
         return json_encode(Parser::parseBegin($url, $scheme, $refreshRequired));
     }
 
+    public function actionRefresh_json($scheme) {
+        return json_encode(Parser::parseRefresh($scheme));
+    }
+
     public function actionIndex()
     {
     	$model = new Parser();
