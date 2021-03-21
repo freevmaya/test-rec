@@ -5,6 +5,7 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\StringHelper;
 use common\models\LoginForm;
 use common\models\Parser;
 use common\models\Recipes;
@@ -87,7 +88,7 @@ class ParserController extends Controller
                         $rec->description   = $recipe->description;
                         $rec->image         = $fileName;
                         $rec->cook_time     = Utils::timeParseRUS($recipe->cook_time);
-                        $rec->portion       = is_array($recipe->portion) ? implode(',', $recipe->portion) : $recipe->portion;
+                        $rec->portion       = StringHelper::truncate(is_array($recipe->portion) ? implode(',', $recipe->portion) : $recipe->portion, 29, '...');
                         $rec->category_ids  = $cats;
                         $rec->consist_ids   = $consist;
                         $rec->parser_id     = $item->pid;
