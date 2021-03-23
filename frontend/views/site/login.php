@@ -6,6 +6,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use common\models\Basket;
 
 $this->title = \Yii::t('app', 'Login');
 $this->params['breadcrumbs'][] = $this->title;
@@ -40,6 +41,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form-group">
                     <?= Html::submitButton(Yii::t('app', 'Login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
+
+                <?if ($basket = Basket::sessionBasket()) {?>
+                    <input type="hidden" name="basket" value="<?=addslashes(json_encode($basket));?>">
+                <?}?>
 
             <?php ActiveForm::end(); ?>
         </div>

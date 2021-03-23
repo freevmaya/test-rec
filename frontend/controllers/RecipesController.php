@@ -17,6 +17,7 @@ use common\models\Ingredients;
 use common\models\Stages;
 use common\models\Favorites;
 use common\models\Basket;
+use common\models\Mainmenu;
 use common\models\Consist;
 use common\helpers\Utils;
 use yii\data\ActiveDataProvider;
@@ -56,9 +57,15 @@ class RecipesController extends Controller {
         }
     }
 
+    public function actionTogglemainmenu($id) {
+        if(\Yii::$app->request->isAjax){
+            return Mainmenu::toggle($id);
+        }
+    }
+
     public function actionTogglebasket($id) {
         if(\Yii::$app->request->isAjax){
-            return Basket::toggle($id);
+            return Basket::toggle(intval($id));
         }
     }
 

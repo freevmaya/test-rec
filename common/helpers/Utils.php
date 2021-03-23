@@ -35,14 +35,33 @@ class Utils
 		return $result;
 	}
 
-	public static function val_desc($val, $descs) {
-		if (!is_array($descs)) $descs = preg_split("/[|\/,]+/", $descs);
+	public static function val_desc($num, $words) {
 
+		if (!is_array($words)) $words = preg_split("/[|\/,]+/", $words);
+
+		$num = $num % 100;
+	    if ($num > 19) {
+	        $num = $num % 10;
+	    }
+	    switch ($num) {
+	        case 1: {
+	            return $num.' '.$words[0];
+	        }
+	        case 2: case 3: case 4: {
+	            return $num.' '.$words[1];
+	        }
+	        default: {
+	            return $num.' '.$words[2];
+	        }
+	    }
+
+	    /*
 		$av = $val % 10;
 		if ($av == 1) return $val.' '.$descs[0];
 		else if ($av == 5) return $val.' '.$descs[1];
 
 		return $val.' '.$descs[2];
+		*/
 	}
 
 	public static function mb_ucfirst($string, $encoding = 'UTF-8'){
@@ -83,11 +102,14 @@ class Utils
 		return \Yii::$app->user->identity ? \Yii::$app->user->identity->role == 'admin' : false;
 	}
 
-	public static function upload($model, $field){
+	public static function upload($model, $field, $changeName=true){
 	    if ($image = \yii\web\UploadedFile::getInstance($model, $field)) {
 			if ($image) {
-				$image->saveAs($model->imagePath."/{$image->baseName}.{$image->extension}");
-		    	return $model->$field = $image->name;
+				if ($changeName) $targetName = md5($image->name).'.'.$image->extension;
+				else $targetName = $image->name;
+
+				$image->saveAs($model->imagePath.'/'.$targetName);
+		    	return $model->$field = $targetName;
 			}
 		}
 		return false;

@@ -180,6 +180,29 @@ a:hover {
     flex: 0 0 360px;
 }
 
+.basket .image {
+    width: 160px;
+    height: 160px;
+    flex: 0 0 360px;
+}
+
+.basket .card-title {
+    text-align: left;
+}
+
+.basket input[type="number"] {
+    width: 5em;
+}
+
+.basket .actions {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.basket-footer a.btn {
+    float: right;
+}
+
 .recipe-content {
     display: flex;
 }
@@ -187,6 +210,10 @@ a:hover {
 .recipe-item .recipe-detail {
     flex: 0 1 100%;
     padding: 10px; 
+}
+
+.recipe-item .actions .glyphicon {
+    font-size: 18px;
 }
 
 .recipe-item.full .image {
@@ -507,7 +534,7 @@ a:hover {
 }
 
 .ajax-request span.in {
-    color: #333;
+    color: #009406;
 }
 
 .recipe-content .header a:hover {
@@ -541,6 +568,103 @@ a:hover {
 
 .basket-menu-item .count {
     margin-left: 10px;
+}
+
+input[type="file"].form-control::-webkit-file-upload-button {
+    display: none;
+}
+
+input[type="file"].form-control:hover::before {
+    border-color: none;
+}
+
+.image-control {
+    text-align: center;
+}
+
+.image-control button {
+    position:absolute;
+    margin-left: -1em;    
+}
+
+.image-control img {
+    cursor: pointer;
+}
+
+.partner-item {
+    display: flex;
+    padding: 1em;
+}
+
+.partner-item .image {
+    width: 160px;
+    height: 160px;
+}
+
+.partner-item .detail {
+    margin-left: 1em;
+}
+
+#user_settings-image-view {
+    max-width: 282px;
+    max-height: 282px;
+    margin: 1em 0px;
+}
+
+.truncate {
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -ms-line-clamp: 2;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    display: -webkit-box;
+    display: box;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+}
+
+.order {
+    padding: 1em;
+}
+
+.order-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.order-items > div {
+    margin: .5em;
+    flex: 1 0 auto;
+}
+
+.order-item .image {
+    height: 120px;
+    flex-direction: column;
+}
+
+.order-item .image > div {
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 6px black;
+    font-size: 1.2em;
+}
+
+.order-item .image > div:first-child {
+    text-decoration: overline;
+    margin-top: 40px;
+}
+
+.order-detail .card-title {
+    margin: 0.5em;
+    font-weight: bold;
+    color: #974fff;
+}
+
+.order-detail span {
+    font-weight: bold;
+    color: #b9b582;
 }
 
 

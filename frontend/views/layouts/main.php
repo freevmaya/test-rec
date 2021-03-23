@@ -11,6 +11,7 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use common\models\Basket;
+use common\models\User;
 
 AppAsset::register($this);
 ?>
@@ -55,7 +56,7 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 .'</li>',
-                ['label' => \Yii::t('app', 'Cabinet'), 'url' => ['/site/cabinet']]
+                ['label' => \Yii::t('app', 'Cabinet'), 'url' => ['/cabinet/index']]
             ]
         ];
 
@@ -72,12 +73,14 @@ AppAsset::register($this);
     }
 
 
-    $basketUrl = Yii::$app->user->isGuest ? Url::toRoute(['/site/login', 'referer'=>'basket']) : Url::toRoute(['/site/cabinet', 'page'=>'basket']);
+    $basketUrl = Yii::$app->user->isGuest ? Url::toRoute(['/site/login', 'referer'=>'basket']) : Url::toRoute(['/cabinet/basket']);
 
-    $menuItems[] = '<li class="basket-menu-item" style="display:'.(Basket::totalCount() ==0 ? 'none':'inline').'">'.
-                    '<a href="'.$basketUrl.'">'.
-                    '<span class="glyphicon glyphicon-shopping-cart"></span>'.
-                    '<span class="count">'.Basket::totalCount().'</span></a></li>';
+    if (!User::isPartner()) {
+        $menuItems[] = '<li class="basket-menu-item" style="display:'.(Basket::totalCount() ==0 ? 'none':'inline').'">'.
+                        '<a href="'.$basketUrl.'">'.
+                        '<span class="glyphicon glyphicon-shopping-cart"></span>'.
+                        '<span class="count">'.Basket::totalCount().'</span></a></li>';
+    }
 
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
