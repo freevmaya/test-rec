@@ -9,7 +9,7 @@ $settings = \Yii::$app->user->identity->settings;
 
 $apiKey = 'AIzaSyBzErLfg0nBPSCmP2LcYq0Y5A-C0GIuBMM';
 
-$this->registerJsFile('https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&callback=initMap&libraries=&v=weekly&region=RU&language=ru',
+$this->registerJsFile('https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&callback=window.initMap&libraries=&v=weekly&region=RU&language=ru',
 ['async' => true]);
 
 $url = Url::toRoute(['cabinet/mygeolocation']);
