@@ -232,6 +232,6 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     public static function isPartner() {
-        return \Yii::$app->user->identity->role == 'partner';
+        return \Yii::$app->user->identity && (\Yii::$app->user->identity->role == 'partner');
     }
 }
