@@ -30,9 +30,7 @@ $user = \Yii::$app->user->identity;
 		    	'class' => 'form-control'
 			]
 		]);?>
-		<?if ($user->role == 'partner') {?>
-	    	<?=$form->field($model, 'address')->textInput();?>
-	    <?}?>
+    	<?=$form->field($model, 'address')->textInput();?>    	
     	<?=$form->field($model, 'lang')->dropDownList(ArrayHelper::map(Language::getAll(), 'id', 'name'))?>
     	<?=$form->field($model, 'phone')->widget(\yii\widgets\MaskedInput::className(), [
 		    'mask' => '+7 (999) 999-99-99',

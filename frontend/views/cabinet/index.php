@@ -22,15 +22,13 @@ if ($current)
 $menu = [['favorites', 'heart-empty']];
 
 if (User::isPartner()) {
-	$menu[] = ['mainmenu', 'list'];
 	$menu[] = ['mygeolocation', 'screenshot'];
+	$menu[] = ['mainmenu', 'list'];
 } else {
 //	if ($basketCount = Basket::totalCount()) 
-		$menu[] = ['basket', 'shopping-cart'];
+	$menu[] = ['basket', 'shopping-cart'];
+	$menu[] = ['myorders', 'list-alt'];
 }
-
-$orderCount = Orders::countAll();
-$menu[] = ['myorders', 'list-alt'];
 
 $menu = array_merge($menu, [
 	['myrecipes', 'briefcase'],
@@ -57,3 +55,7 @@ $menu = array_merge($menu, [
 		</div>
 	</div>	
 </div>
+
+<?
+    		if ($geores) echo $geores;
+    	?>

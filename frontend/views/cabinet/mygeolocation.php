@@ -97,8 +97,6 @@ $this->registerJs('
 	'.($settings->geolocation ? 'refreshMap('.$settings->geolocation.');' : '').'
 ', View::POS_READY, 'mygeolocation');
 
-//$this->registerJsFile('https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&callback=window.initMap&libraries=&v=weekly&region=RU&language=ru',['async' => true]);
-
 if (!$settings->geolocation) {
 ?>
 <button class="btn btn-primary" id="geobutton"><?=\Yii::t('app', 'begingeo');?></button>
