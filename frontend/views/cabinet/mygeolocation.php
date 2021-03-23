@@ -18,7 +18,7 @@ $this->registerJs('
 			if (pos.coords) {
 				$.ajax({
 		            url: "'.Url::toRoute(['cabinet/mygeolocation']).'",
-		            data: {coord: JSON.stringify(pos.coords)},
+		            data: {"coord": pos.coords},
 		            success: function(data) {
 		            	refreshMap(pos.coords);
 	            	}
