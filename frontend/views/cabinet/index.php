@@ -14,7 +14,7 @@ use common\helpers\Utils;
 $backLink = $backLink = Url::toRoute(['/site/cabinet']);
 $this->params['breadcrumbs'][] = ['label'=>Utils::mb_ucfirst(Yii::t('app', 'Cabinet')), 'url' => $backLink];
 
-if ($current)
+if (isset($current) && $current)
 	$this->params['breadcrumbs'][] = $this->title = Utils::mb_ucfirst(Yii::t('app', $current));
 
 $menu = [['favorites', 'heart-empty']];
