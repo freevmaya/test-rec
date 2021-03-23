@@ -98,6 +98,15 @@ class CabinetController extends Controller {
     }
 
     public function actionMygeolocation() {
+        if(\Yii::$app->request->isAjax) { 
+            $coord = Yii::$app->request->post('coord');
+            if ($user = \Yii::$app->user->identity) {
+
+                $user->settings->geolocation = $coord;
+                $user->settings->save();
+            }
+            return '';
+        }
         return $this->render('index', [
             'current'=>'mygeolocation'
         ]);
