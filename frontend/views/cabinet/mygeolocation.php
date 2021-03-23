@@ -23,6 +23,7 @@ $this->registerJs('
 		            	refreshMap(pos.coords);
 	            	}
 				});
+			}
 		});
 	});
 
