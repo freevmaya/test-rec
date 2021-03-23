@@ -22,6 +22,7 @@ $link = Url::toRoute($linkArray);
 					<div class="cook_time"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'cooking time'))?>:</span> <?=Utils::cook_time($model['cook_time'])?></div>
 					<div class="cook_level"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'cooking level'))?>:</span> <?=Recipes::$levels[$model['cook_level']]?></div>
 					<div class="portion"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'portion'))?>:</span> <?=$model['portion']?></div>
+					<div class="actions">
 					<?=StarRating::widget(['name'=>'rate', 'value' => $model['rates'], 
 					    'pluginOptions' => [
 					    	'disabled'	=>false, 
@@ -32,6 +33,8 @@ $link = Url::toRoute($linkArray);
 					    ]
 					]);
 					?>
+					<?=$this->renderFile(dirname(__FILE__).'/actionBlock.php', ['recipe'=>$model]);?>
+					</div>
 				</div>
 				<?
 					if (Recipes::editable($model)) {?>

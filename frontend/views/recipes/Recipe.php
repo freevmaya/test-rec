@@ -18,44 +18,6 @@ $rate = $model->rates;
 if (Yii::$app->user->isGuest) $addRecipeLink = Url::toRoute(['/site/login']);
 else $addRecipeLink = Url::toRoute(['/recipes/edit', 'cat_id'=>\Yii::$app->request->get('cat_id')]);
 
-$ajaxList = [
-	'favorite'=>['glyphicon-heart in', 'glyphicon-heart-empty'],
-	'basket'=>['glyphicon-shopping-cart in', 'glyphicon-shopping-cart']
-];
-
-$this->registerJs('
-	var ajaxList = '.json_encode($ajaxList).';
-
-	$(".ajax-request").click(function (e) {
-		let a = $(e.currentTarget);
-   		let span = a.find("span");
-   		let key = a.data("type");
-        $.ajax({
-            url: a.attr("href"),
-            success: function(data){
-        		if (span.hasClass(ajaxList[key][0])) {
-        			span.removeClass(ajaxList[key][0]);
-        			span.addClass(ajaxList[key][1]);
-        		} else {
-        			span.removeClass(ajaxList[key][1]);
-        			span.addClass(ajaxList[key][0]);
-        		}
-
-        		let isSet = parseInt(data);
-        		let scount = $(".basket-menu-item .count");
-        		if (scount.length > 0) {
-        			let count = parseInt(scount.text());
-        			count += isSet ? 1 : -1;
-        			scount.text(count);
-        			$(".basket-menu-item").css("display", count > 0 ? "inline" : "none");
-        		}
-            }
-        });
-        e.stopPropagation();
-        return false;
-    });
-');
-
 ?>
 <div class="recipes" itemscope itemtype="http://schema.org/Recipe">
 	<div class="column-one">
@@ -67,14 +29,8 @@ $this->registerJs('
 				<h3 class="card-title" itemprop="name"><?=$model['name']?></h3>
 				<div class="recipe-content">
 					<div class="header">
-						<?foreach ($ajaxList as $key=>$item) {
-							$field = 'is'.$key;
-							?>
-						<a class="ajax-request" data-type="<?=$key?>" title="<?=Yii::t('app', 'title-'.$key)?>" href="<?=Url::toRoute(['/recipes/toggle'.$key, 'id'=>$model->id]);?>">
-							<span class="glyphicon <?=$model->$field?$item[0]:$item[1]?>"></span>
-						</a>
-						<?}?>
-					<?
+					<?=$this->renderFile(dirname(__FILE__).'/actionBlock.php', ['recipe'=>$model]);?>
+					<?					
 					$form_id = 'recipe-rates-form-'.$model->id;
 					$form = ActiveForm::begin(['id' => $form_id]); ?>
 					<?=$form->field($model, 'rates')->widget(StarRating::classname(), [

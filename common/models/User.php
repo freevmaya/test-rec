@@ -6,6 +6,7 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use common\models\User_settings;
 
 /**
  * User model
@@ -37,6 +38,10 @@ class User extends ActiveRecord implements IdentityInterface
         return '{{%user}}';
     }
 
+    public function attributeLabels() {
+        return \Yii::t('app', 'userLabels');
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -45,6 +50,22 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             TimestampBehavior::className(),
         ];
+    }
+
+    public function relations()
+    {
+       return array(
+            'settings'=>array(self::HAS_ONE, 'User_settings', 'user_id')
+        );
+    }
+
+    public function getSettings() {
+        if (!$settings = User_settings::find()->where(['user_id'=>$this->id])->one()) {
+            $settings = new User_settings();
+            $settings->user_id = $this->id;
+        }
+
+        return $settings;
     }
 
     /**
@@ -208,5 +229,9 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public static function isPartner() {
+        return \Yii::$app->user->identity->role == 'partner';
     }
 }

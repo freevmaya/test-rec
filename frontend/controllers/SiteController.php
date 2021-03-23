@@ -11,6 +11,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\Basket;
 use common\models\Recipes;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -95,8 +96,13 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
+        $post = Yii::$app->request->post();
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        if ($model->load($post) && $model->login()) {
+            if ($post['basket']) {
+                Basket::sessionBasketClear();
+                Basket::add(json_decode($post['basket']));
+            }
             return $this->goBack();
         } else {
             $model->password = '';
@@ -263,9 +269,5 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
-    }
-
-    public function actionCabinet() {
-        return $this->render('cabinet');
     }
 }

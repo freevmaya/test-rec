@@ -11,6 +11,7 @@ use yii\data\ActiveDataProvider;
 
 use common\models\Favorites;
 use common\models\Basket;
+use common\models\Mainmenu;
 use common\models\Stages;
 
 class Recipes extends BaseModelWithImage
@@ -128,6 +129,15 @@ class Recipes extends BaseModelWithImage
 
     public function getIsbasket() {
         return Basket::IsBasket($this->id);   
+    }
+
+    public function getIsmainmenu() {
+        return Mainmenu::IsMainmenu($this->id);   
+    }
+
+    public function getBasketcount() {
+        $item = Basket::find()->where(['recipe_id'=>$this->id, 'user_id'=>\Yii::$app->user->id])->one();
+        return $item ? $item->count : 0;
     }
     
     public function getIngredients() {
@@ -250,9 +260,11 @@ class Recipes extends BaseModelWithImage
         ]);
     }
 
-    public static function dataProvider($cat_id=false, $where=null, $join=null) {
+    public static function dataProvider($cat_id=false, $where=null, $join=null, $select=null) {
 
         $query = Recipes::find()->select('`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates');
+
+        if ($select) $query->addSelect($select);
 
         if ($cat_id) {
             $cat = (new RecipesCats())->findOne(['id'=>$cat_id]);

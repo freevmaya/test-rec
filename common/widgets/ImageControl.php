@@ -30,26 +30,35 @@ class ImageControl extends \yii\bootstrap\Widget
     {
         if ($this->hasModel()) {
 
-            $method = $this->field.'Url';
+            $field = $this->field;
+            $table = $this->model->tableName();
+
+            $method = $field.'Url';
             $imageUrl = $this->model->$method();
-            $inputName = $this->model->tableName().'-'.$this->field;
-            $viewName = $inputName.'-view';
+            $inputName = ucfirst($table).'['.$field.']';
+            $viewName = "$table-$field-view";
 
             $this->getView()->registerJs("
-                var delButton = $('#{$inputName}-delete');
+                var delButton = $('#{$viewName}-delete');
                 var img = $('#{$viewName}');
-                var input = $('#{$inputName}');
+                var input = $('input[name=\"{$inputName}\"]');
+
+                img.click(()=>{
+                    input.click();
+                });
 
                 input.change((e)=>{
-                    var URL = window.webkitURL || window.URL;
-                    var url = URL.createObjectURL(e.currentTarget.files[0]);
-                    img.attr('src', url);
-                    delButton.css('visibility', 'visible');
+                    if (e.currentTarget.files.length > 0) {
+                        var URL = window.webkitURL || window.URL;
+                        var url = URL.createObjectURL(e.currentTarget.files[0]);
+                        img.attr('src', url);
+                        delButton.css('visibility', 'visible');
+                    }
                 });
 
                 delButton.click((e)=>{
                     if (confirm('".Yii::t('app', 'remove-question')."')) {
-                        $('#{$viewName}').attr('src', '');
+                        img.attr('src', '');
                         delButton.css('visibility', 'hidden');
                         input.val(null);
                     }
@@ -58,11 +67,13 @@ class ImageControl extends \yii\bootstrap\Widget
                 });
             ");
 
-            $delButton = '<button type="button" style="position:absolute;margin-left:-30px;'.(!$imageUrl?'visibility:hidden;':'').'" id="'.$inputName.'-delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
+            $delButton = '<button type="button" style="'.(!$imageUrl?'visibility:hidden;':'').'" id="'.$viewName.'-delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
 
             return Html::tag('div', 
-                $this->form->field($this->model, $this->field)->fileInput().
-                '<img src="'.($imageUrl?$imageUrl:'').'" id="'.$viewName.'">'.$delButton
+                '<div class="image-control"><img src="'.($imageUrl?$imageUrl:'').'" id="'.$viewName.'">'.$delButton.'</div>'.
+                $this->form->field($this->model, $field)->fileInput(['hiddenOptions'=>[
+                    'value'=>$this->model->$field
+                ], 'class'=>'form-control'])
             , $this->options);
         }
     }
