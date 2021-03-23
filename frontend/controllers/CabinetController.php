@@ -152,19 +152,18 @@ class CabinetController extends Controller {
     protected function findGeolocation($settings) {
         if ($settings->address) {
 
-            $url = "https://maps.google.com/maps/api/geocode/json?key=AIzaSyCoKk5jGpU844xvp1--OmnPaF7CvA2XlxY&address=".$settings->address;            
+            $url = "https://maps.google.com/maps/api/geocode/json?key=AIzaSyCoKk5jGpU844xvp1--OmnPaF7CvA2XlxY&oe=utf-8&language=RU&address=".urlencode($settings->address);            
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($ch);
             curl_close($ch);
 
-            return $response;
+            \Yii::trace($response);
         }
     } 
 
     public function actionSettings() {
     	$model = \Yii::$app->user->identity->settings;
-        $geores = false;
 
     	if(Yii::$app->request->isPost){
 
@@ -179,16 +178,13 @@ class CabinetController extends Controller {
 	        	Utils::upload($model, 'image');
 	        	$model->save();
 
-                if ($model->address) {
-                    $geores = $this->findGeolocation($model);
-                }
+                if ($model->address) $this->findGeolocation($model);
 	        }
 	    }
 
         return $this->render('index', [
         	'current'=>'settings',
-        	'model'=>$model,
-            'geores'=>$geores
+        	'model'=>$model
         ]);
     }
 
