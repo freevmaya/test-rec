@@ -8,6 +8,7 @@ use yii\web\View;
 $settings = \Yii::$app->user->identity->settings;
 
 $apiKey = 'AIzaSyBzErLfg0nBPSCmP2LcYq0Y5A-C0GIuBMM';
+$apiUrl = 'https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&callback=window.initMap&libraries=&v=weekly&region=RU&language=ru';
 
 $url = Url::toRoute(['cabinet/mygeolocation']);
 
@@ -69,6 +70,15 @@ $this->registerJs('
 		});
 	}
 
+	function loadGApi() {
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		script.src = "'.$apiUrl.'";
+		script.async = true;
+
+		document.getElementsByTagName("head")[0].appendChild(script);
+	}
+
 	$("#geobutton").click((e)=>{
 		e.preventDefault();
 		navigator.geolocation.getCurrentPosition(function (pos) {
@@ -78,11 +88,12 @@ $this->registerJs('
 		});
 	});
 
+	loadGApi();
+
 	'.($settings->geolocation ? 'refreshMap('.$settings->geolocation.');' : '').'
 ', View::POS_READY, 'mygeolocation');
 
-$this->registerJsFile('https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&callback=window.initMap&libraries=&v=weekly&region=RU&language=ru',
-['async' => true]);
+//$this->registerJsFile('https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&callback=window.initMap&libraries=&v=weekly&region=RU&language=ru',['async' => true]);
 
 if (!$settings->geolocation) {
 ?>
