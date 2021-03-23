@@ -102,10 +102,9 @@ class CabinetController extends Controller {
             $coord = Yii::$app->request->post('coord');
             if ($user = \Yii::$app->user->identity) {
 
-                $user->settings->geolocation = $coord;
-                $user->settings->save();
+                $user->settings->geolocation = json_encode($coord);
+                return $user->settings->save();
             }
-            return '';
         }
         return $this->render('index', [
             'current'=>'mygeolocation'
