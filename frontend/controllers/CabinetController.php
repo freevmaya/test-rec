@@ -100,10 +100,12 @@ class CabinetController extends Controller {
     public function actionMygeolocation() {
         if(\Yii::$app->request->isAjax) { 
             $coord = Yii::$app->request->post('coord');
+
             if ($user = \Yii::$app->user->identity) {
 
-                $user->settings->geolocation = json_encode($coord);
-                return $user->settings->save();
+                $settings = User_settings::find()->where(['user_id'=>$user->id])->one();
+                $settings->geolocation = json_encode($coord);
+                return $settings->save();
             }
         }
         return $this->render('index', [

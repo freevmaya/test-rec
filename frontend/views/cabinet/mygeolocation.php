@@ -9,21 +9,24 @@ $settings = \Yii::$app->user->identity->settings;
 
 $this->registerJs('
 	function refreshMap() {
+		console.log("show position on map");
+	}
 
+	function sendGelocation(coords) {
+		$.ajax({
+            url: "'.Url::toRoute(['cabinet/mygeolocation']).'",
+            method: "POST",
+            data: {"coord": coords},
+            success: function(data) {
+            	refreshMap(coords);
+        	}
+		});
 	}
 
 	$("#geobutton").click((e)=>{
 		e.preventDefault();
 		navigator.geolocation.getCurrentPosition(function (pos) {
-			if (pos.coords) {
-				$.ajax({
-		            url: "'.Url::toRoute(['cabinet/mygeolocation']).'",
-		            data: {"coord": pos.coords},
-		            success: function(data) {
-		            	refreshMap(pos.coords);
-	            	}
-				});
-			}
+			if (pos.coords) sendGelocation(pos.coords);
 		});
 	});
 
