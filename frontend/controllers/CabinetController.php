@@ -23,6 +23,7 @@ use common\models\OrderItems;
 use common\models\User;
 use common\models\User_settings;
 use common\helpers\Utils;
+use Goutte\Client;
 
 /**
  * Site controller
@@ -148,8 +149,22 @@ class CabinetController extends Controller {
         }
     }
 
+    protected function findGeolocation($settings) {
+        if ($settings->address) {
+
+            $url = "https://maps.google.com/maps/api/geocode/json?key=AIzaSyCoKk5jGpU844xvp1--OmnPaF7CvA2XlxY&address=".$settings->address;            
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($ch);
+            curl_close($ch);
+
+            return $response;
+        }
+    } 
+
     public function actionSettings() {
     	$model = \Yii::$app->user->identity->settings;
+        $geores = false;
 
     	if(Yii::$app->request->isPost){
 
@@ -163,12 +178,17 @@ class CabinetController extends Controller {
                 //print_r($model->phone);
 	        	Utils::upload($model, 'image');
 	        	$model->save();
+
+                if ($model->address) {
+                    $geores = $this->findGeolocation($model);
+                }
 	        }
 	    }
 
         return $this->render('index', [
         	'current'=>'settings',
-        	'model'=>$model
+        	'model'=>$model,
+            'geores'=>$geores
         ]);
     }
 
