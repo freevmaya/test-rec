@@ -9,9 +9,6 @@ $settings = \Yii::$app->user->identity->settings;
 
 $apiKey = 'AIzaSyBzErLfg0nBPSCmP2LcYq0Y5A-C0GIuBMM';
 
-$this->registerJsFile('https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&callback=window.initMap&libraries=&v=weekly&region=RU&language=ru',
-['async' => true]);
-
 $url = Url::toRoute(['cabinet/mygeolocation']);
 
 $this->registerJs('
@@ -19,6 +16,7 @@ $this->registerJs('
 	var map;
 	var btn_send = $("#save-mygeolocation");
 	var pos;
+	var map_layer = $("#map-layer");
 
 	btn_send.click(()=>{
 		$.ajax({
@@ -32,12 +30,14 @@ $this->registerJs('
 	})
 
 	window.initMap = function() {
+		map_layer.css("display", "block");
 		map = new google.maps.Map($("#map")[0], {
 		    zoom: 16,
 		});
 	}
 
 	function refreshMap(coords) {
+		map_layer.css("display", "block");
 
 		if (map) {
 			pos = {lat: parseFloat(coords.latitude), lng: parseFloat(coords.longitude)};
@@ -73,7 +73,6 @@ $this->registerJs('
 		e.preventDefault();
 		navigator.geolocation.getCurrentPosition(function (pos) {
 			if (pos.coords) {
-				$("#map-layer").css("display", "block");
 				sendGelocation(pos.coords);
 			}
 		});
@@ -82,13 +81,14 @@ $this->registerJs('
 	'.($settings->geolocation ? 'refreshMap('.$settings->geolocation.');' : '').'
 ', View::POS_READY, 'mygeolocation');
 
+$this->registerJsFile('https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&callback=window.initMap&libraries=&v=weekly&region=RU&language=ru',
+['async' => true]);
+
 if (!$settings->geolocation) {
 ?>
 <button class="btn btn-primary" id="geobutton"><?=\Yii::t('app', 'begingeo');?></button>
-<div id="map-layer" style="display:none">
-<?} else {?>
-<div id="map-layer">
 <?}?>
+<div id="map-layer" style="display:none">
 	<div class="alert"><?=\Yii::t('app', 'mymarkerdesc')?></div>
 	<div id="map"></div>
 	<button class="btn btn-primary" id="save-mygeolocation"><?=\Yii::t('app', 'save');?></button>
