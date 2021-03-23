@@ -19,6 +19,7 @@ $this->registerJs('
 	var pos;
 	var map_layer = $("#map-layer");
 	var geo_btn = $("#geobutton");
+	var load_api = false;
 
 	btn_send.click(()=>{
 		$.ajax({
@@ -72,12 +73,15 @@ $this->registerJs('
 	}
 
 	function loadGApi() {
-		var script = document.createElement("script");
-		script.type = "text/javascript";
-		script.src = "'.$apiUrl.'";
-		script.async = true;
+		if (!load_api) {
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			script.src = "'.$apiUrl.'";
+			script.async = true;
 
-		document.getElementsByTagName("head")[0].appendChild(script);
+			document.getElementsByTagName("head")[0].appendChild(script);
+			load_api = true;
+		}
 	}
 
 	geo_btn.click((e)=>{
@@ -100,7 +104,7 @@ if (!$settings->geolocation) {
 <button class="btn btn-primary" id="geobutton"><?=\Yii::t('app', 'begingeo');?></button>
 <?}?>
 <div id="map-layer" style="display:none;">
-	<div class="alert"><?=\Yii::t('app', 'mymarkerdesc')?></div>
+	<div class="alert alert-warning"><?=\Yii::t('app', 'mymarkerdesc')?></div>
 	<div id="map"></div>
 	<button class="btn btn-primary" id="save-mygeolocation"><?=\Yii::t('app', 'save');?></button>
 </div>
