@@ -99,7 +99,7 @@ class SiteController extends Controller
         $post = Yii::$app->request->post();
         $model = new LoginForm();
         if ($model->load($post) && $model->login()) {
-            if ($post['basket']) {
+            if (isset($post['basket'])) {
                 Basket::sessionBasketClear();
                 Basket::add(json_decode($post['basket']));
             }
