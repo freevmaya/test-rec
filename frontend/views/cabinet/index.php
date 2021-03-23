@@ -55,7 +55,3 @@ $menu = array_merge($menu, [
 		</div>
 	</div>	
 </div>
-
-<?
-    		if ($geores) echo $geores;
-    	?>
