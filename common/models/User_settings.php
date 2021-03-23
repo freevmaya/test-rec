@@ -26,7 +26,7 @@ class User_settings extends BaseModelWithImage
     {
         return [
             [['user_id'], 'safe', 'on'=>'search'],
-            [['image', 'address', 'lang', 'birthday', 'phone'], 'string'],
+            [['image', 'address', 'lang', 'birthday', 'phone', 'geolocation'], 'string'],
             [['city_id'], 'integer']
         ];
     }
