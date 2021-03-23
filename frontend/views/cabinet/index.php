@@ -41,7 +41,7 @@ $menu = array_merge($menu, [
 	<div class="column-one">
 		<h1><?=Yii::t('app', $current ? $current : 'Cabinet')?></h1>
 		<?
-			if ($current) echo $this->render($current, ['model'=>$model]);
+			if ($current) echo $this->render($current, ['model'=>isset($model) ? $model : null]);
 		?>
 	</div>
 	<div class="column-two">
