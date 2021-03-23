@@ -18,6 +18,7 @@ $this->registerJs('
 	var btn_send = $("#save-mygeolocation");
 	var pos;
 	var map_layer = $("#map-layer");
+	var geo_btn = $("#geobutton");
 
 	btn_send.click(()=>{
 		$.ajax({
@@ -30,8 +31,18 @@ $this->registerJs('
 		});
 	})
 
+	function sendGelocation(coords) {
+		$.ajax({
+            url: "'.$url.'",
+            method: "POST",
+            data: {"coord": coords},
+            success: function(data) {
+            	refreshMap(coords);
+        	}
+		});
+	}
+
 	window.initMap = function() {
-		map_layer.css("display", "block");
 		map = new google.maps.Map($("#map")[0], {
 		    zoom: 16,
 		});
@@ -54,20 +65,10 @@ $this->registerJs('
 				pos = marker.getPosition();
 				btn_send.css("display", "block");
 			});
-		} else setTimeout(()=>{
-			refreshMap(coords);
-		}, 500);
-	}
-
-	function sendGelocation(coords) {
-		$.ajax({
-            url: "'.$url.'",
-            method: "POST",
-            data: {"coord": coords},
-            success: function(data) {
-            	refreshMap(coords);
-        	}
-		});
+		} else {
+			loadGApi();
+			setTimeout(()=>{refreshMap(coords);}, 100);
+		}
 	}
 
 	function loadGApi() {
@@ -79,16 +80,15 @@ $this->registerJs('
 		document.getElementsByTagName("head")[0].appendChild(script);
 	}
 
-	$("#geobutton").click((e)=>{
+	geo_btn.click((e)=>{
 		e.preventDefault();
 		navigator.geolocation.getCurrentPosition(function (pos) {
 			if (pos.coords) {
+				geo_btn.remove();
 				sendGelocation(pos.coords);
 			}
 		});
 	});
-
-	loadGApi();
 
 	'.($settings->geolocation ? 'refreshMap('.$settings->geolocation.');' : '').'
 ', View::POS_READY, 'mygeolocation');
@@ -99,7 +99,7 @@ if (!$settings->geolocation) {
 ?>
 <button class="btn btn-primary" id="geobutton"><?=\Yii::t('app', 'begingeo');?></button>
 <?}?>
-<div id="map-layer" style="display:none">
+<div id="map-layer" style="display:none;">
 	<div class="alert"><?=\Yii::t('app', 'mymarkerdesc')?></div>
 	<div id="map"></div>
 	<button class="btn btn-primary" id="save-mygeolocation"><?=\Yii::t('app', 'save');?></button>
