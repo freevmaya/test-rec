@@ -667,6 +667,15 @@ input[type="file"].form-control:hover::before {
     color: #b9b582;
 }
 
+#map {
+    width: 500px;
+    height: 300px;
+}
+
+#save-mygeolocation {
+    display: none;
+}
+
 
 @media screen and (max-width:1200px) {
     .recipes .recipe-content {
