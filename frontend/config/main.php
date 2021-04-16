@@ -10,7 +10,7 @@ return [
     'id' => 'app-frontend',
     'name' => 'Vmaya',
     'language' => 'ru-RU',
-    'timeZone' => 'Europe/Moskow',
+    'timeZone' => 'Europe/Moscow',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
