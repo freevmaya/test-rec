@@ -33,6 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
                 <div style="color:#999;margin:1em 0">
+                    <?= Html::a(Yii::t('app', 'Register now'), ['site/signup']) ?>
+                    <br>
                     <?=\Yii::t('app', 'If you forgot your password you can')?> <?= Html::a(Yii::t('app', 'reset it'), ['site/request-password-reset']) ?>.
                     <br>
                     <?=\Yii::t('app', 'Need new verification email?')?> <?= Html::a(Yii::t('app', 'Resend'), ['site/resend-verification-email']) ?>

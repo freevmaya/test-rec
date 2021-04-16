@@ -55,13 +55,45 @@ class User extends ActiveRecord implements IdentityInterface
     public function relations()
     {
        return array(
-            'settings'=>array(self::HAS_ONE, 'User_settings', 'user_id')
+            'settings'=>array(self::HAS_ONE, 'User_settings', 'user_id'),            
+            'partner_settings'=>array(self::HAS_ONE, 'Partner_settings', 'user_id')
         );
     }
 
     public function getSettings() {
         if (!$settings = User_settings::find()->where(['user_id'=>$this->id])->one()) {
             $settings = new User_settings();
+            $settings->user_id = $this->id;
+        }
+
+        return $settings;
+    }
+
+    public function getRates()
+    {
+        return $this->id ? UserRates::avg($this->id) : 0;
+    }
+
+    public function setRates($order_id, $value)
+    {
+        if ($value && Yii::$app->user->identity) {
+            $author_id = Yii::$app->user->identity->id;
+
+            if (!($rates = UserRates::find()->where(['user_id'=>$this->id, 'order_id'=>$order_id, 'author_id'=>$author_id])->one())) {
+                $rates = new UserRates();
+                $rates->user_id     = $this->id;
+                $rates->order_id    = $order_id;
+                $rates->author_id   = $author_id;
+            }
+
+            $rates->value = $value;
+            $rates->save();
+        }
+    }
+
+    public function getPartner_settings() {
+        if (!$settings = Partner_settings::find()->where(['user_id'=>$this->id])->one()) {
+            $settings = new Partner_settings();
             $settings->user_id = $this->id;
         }
 

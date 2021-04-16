@@ -4,6 +4,130 @@
 		"selected_items":
 		[
 			[
+				"noti",
+				"Notifications"
+			],
+			[
+				"p",
+				"params"
+			],
+			[
+				"js",
+				"json_encode"
+			],
+			[
+				"qu",
+				"question"
+			],
+			[
+				"mag",
+				"margin-right\tproperty"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"exe",
+				"exec_id"
+			],
+			[
+				"Order",
+				"Orders"
+			],
+			[
+				"jso",
+				"json_encode"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"geo",
+				"geolocation"
+			],
+			[
+				"bac",
+				"background-position\tproperty"
+			],
+			[
+				"user_",
+				"user_settings"
+			],
+			[
+				"calc",
+				"calcDistance"
+			],
+			[
+				"is_nu",
+				"is_numeric"
+			],
+			[
+				"over",
+				"overflow-y\tproperty"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"rec",
+				"Recipes"
+			],
+			[
+				"whe",
+				"where_union"
+			],
+			[
+				"order",
+				"order_id"
+			],
+			[
+				"Or",
+				"Orders"
+			],
+			[
+				"clo",
+				"closest"
+			],
+			[
+				"current",
+				"currentTarget"
+			],
+			[
+				"con",
+				"content\tproperty"
+			],
+			[
+				"g",
+				"geo"
+			],
+			[
+				"border",
+				"border-radius\tproperty"
+			],
+			[
+				"add",
+				"address"
+			],
+			[
+				"btn",
+				"btn-primary"
+			],
+			[
+				"json_",
+				"json_decode"
+			],
+			[
+				"post",
+				"post"
+			],
+			[
 				"порц",
 				"порций"
 			],
@@ -44,10 +168,6 @@
 				"Basket"
 			],
 			[
-				"Order",
-				"OrderItems"
-			],
-			[
 				"Ors",
 				"OrderItems"
 			],
@@ -58,14 +178,6 @@
 			[
 				"User",
 				"User_settings"
-			],
-			[
-				"rec",
-				"recipe_id"
-			],
-			[
-				"json_",
-				"json_encode"
 			],
 			[
 				"recip",
@@ -82,10 +194,6 @@
 			[
 				"child",
 				"childs"
-			],
-			[
-				"js",
-				"json_encode"
 			],
 			[
 				"aj",
@@ -136,10 +244,6 @@
 				"static"
 			],
 			[
-				"json",
-				"json_encode"
-			],
-			[
 				"preg",
 				"preg_match"
 			],
@@ -178,10 +282,6 @@
 			[
 				"file_get",
 				"file_get_contents"
-			],
-			[
-				"jso",
-				"json_decode"
 			],
 			[
 				"s",
@@ -224,24 +324,12 @@
 				"recipe_id"
 			],
 			[
-				"bac",
-				"background-image\tproperty"
-			],
-			[
 				"pa",
 				"padding-right\tproperty"
 			],
 			[
 				"aut",
 				"author_id"
-			],
-			[
-				"in",
-				"inline-block\tdisplay"
-			],
-			[
-				"con",
-				"align-content\tproperty"
 			],
 			[
 				"al",
@@ -268,10 +356,6 @@
 				"length"
 			],
 			[
-				"over",
-				"overflow-y\tproperty"
-			],
-			[
 				"ext",
 				"extends"
 			],
@@ -286,10 +370,6 @@
 			[
 				"col",
 				"color\tproperty"
-			],
-			[
-				"font",
-				"font-weight\tproperty"
 			],
 			[
 				"ro",
@@ -434,106 +514,89 @@
 			[
 				"Blog",
 				"BlogCats"
-			],
-			[
-				"field",
-				"fieldId"
-			],
-			[
-				"cat",
-				"cat_id"
-			],
-			[
-				"is_",
-				"is_numeric"
-			],
-			[
-				"border-co",
-				"border-color\tproperty"
-			],
-			[
-				"int",
-				"intval"
-			],
-			[
-				"fl",
-				"flex-flow\tproperty"
-			],
-			[
-				"bord",
-				"border-radius\tproperty"
-			],
-			[
-				"wr",
-				"flex-wrap\tproperty"
-			],
-			[
-				"dir",
-				"dirname"
-			],
-			[
-				"pre",
-				"preg_split"
-			],
-			[
-				"pi",
-				"pieces"
-			],
-			[
-				"sc",
-				"script"
-			],
-			[
-				"rende",
-				"renderPartial"
-			],
-			[
-				"is_nu",
-				"is_numeric"
-			],
-			[
-				"min",
-				"min-height\tproperty"
-			],
-			[
-				"w",
-				"width"
-			],
-			[
-				"t",
-				"title"
-			],
-			[
-				"qu",
-				"queryAll"
-			],
-			[
-				"type",
-				"type_id"
-			],
-			[
-				"pos",
-				"position"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "frontend/messages/ru/app.php",
+			"file": "common/models/Orders.php",
 			"settings":
 			{
-				"buffer_size": 3445,
+				"buffer_size": 6215,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "common/helpers/Utils.php",
+			"file": "common/models/UserRates.php",
 			"settings":
 			{
-				"buffer_size": 4146,
+				"buffer_size": 941,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "frontend/views/cabinet/_item_partner.php",
+			"settings":
+			{
+				"buffer_size": 1062,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "frontend/views/cabinet/_partner_item_order.php",
+			"settings":
+			{
+				"buffer_size": 3768,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "common/models/User.php",
+			"settings":
+			{
+				"buffer_size": 6676,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "common/models/Partner_settings.php",
+			"settings":
+			{
+				"buffer_size": 1516,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "frontend/views/cabinet/partner_settings.php",
+			"settings":
+			{
+				"buffer_size": 1603,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 22 files for \"checkbox\"\n\nE:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\cabinet\\_item_mymenu.php:\n   19: \t\t\t<input type=\"checkbox\">\n\nE:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\cabinet\\_item_order.php:\n   14: \t\t\t<input type=\"checkbox\">\n\nE:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\cabinet\\_partner_item_order.php:\n   18: \t\t\t<input type=\"checkbox\">\n\nE:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\cabinet\\findorder.php:\n   25: \t\t<?=$form->field($model, 'find_union')->checkbox();?>\n   26: \t\t<?=$form->field($model, 'in_method')->checkbox();?>\n\nE:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\cabinet\\partner_settings.php:\n   36:             <?=$form->field($model, 'disabled')->checkbox();?>\n\n6 matches across 5 files\n\n\nSearching 9 files for \"StarRating\"\n\nE:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\recipes\\_item.php:\n    7: use kartik\\rating\\StarRating;\n   26: \t\t\t\t\t<?=StarRating::widget(['name'=>'rate', 'value' => $model['rates'], \n\nE:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\recipes\\_item_basket.php:\n    8: use kartik\\rating\\StarRating;\n\nE:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\recipes\\Recipe.php:\n   11: use kartik\\rating\\StarRating;\n   36: \t\t\t\t\t<?=$form->field($model, 'rates')->widget(StarRating::classname(), [\n\n5 matches across 3 files\n",
+			"settings":
+			{
+				"buffer_size": 1451,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "frontend/views/recipes/Recipe.php",
+			"settings":
+			{
+				"buffer_size": 5984,
 				"line_ending": "Windows"
 			}
 		},
@@ -541,7 +604,7 @@
 			"file": "frontend/views/cabinet/_item_order.php",
 			"settings":
 			{
-				"buffer_size": 1019,
+				"buffer_size": 2139,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,112 +613,16 @@
 			"file": "frontend/web/css/site.css",
 			"settings":
 			{
-				"buffer_size": 10866,
+				"buffer_size": 14882,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "common/models/OrderItems.php",
-			"settings":
-			{
-				"buffer_size": 786,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "common/models/Orders.php",
-			"settings":
-			{
-				"buffer_size": 1664,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "common/models/Recipes.php",
-			"settings":
-			{
-				"buffer_size": 10135,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/views/cabinet/basket.php",
-			"settings":
-			{
-				"buffer_size": 989,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/views/recipes/_item_basket.php",
-			"settings":
-			{
-				"buffer_size": 2151,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/views/recipes/_item.php",
-			"settings":
-			{
-				"buffer_size": 2135,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/views/cabinet/settings.php",
-			"settings":
-			{
-				"buffer_size": 1570,
-				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "frontend/controllers/CabinetController.php",
 			"settings":
 			{
-				"buffer_size": 4523,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/controllers/SiteController.php",
-			"settings":
-			{
-				"buffer_size": 7432,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "frontend/views/cabinet/_item_partner.php",
-			"settings":
-			{
-				"buffer_size": 432,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/views/cabinet/index.php",
-			"settings":
-			{
-				"buffer_size": 1460,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/views/cabinet/myorders.php",
-			"settings":
-			{
-				"buffer_size": 350,
+				"buffer_size": 13169,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -695,66 +662,132 @@
 	[
 		"/E/OpenServer/domains/recipes-dev.com/yii-application",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers"
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet"
 	],
 	"file_history":
 	[
+		"/D/Unity/roomEditor_shd/bin/readme.txt",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_partner_item_order.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/css/site.css",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/ActiveQuery.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/web/User.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/settings.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/BaseUrl.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/messages/ru-RU/app.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers/Utils.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/layouts/edit-toolbar.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/myorders.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/partner_orders.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/CabinetController.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/User.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/components/Notify.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/messages/ru-RU/mail/Orders.toPartner.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/SiteController.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Mainmenu.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/order.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/messages/ru-RU/mail/Orders.afterSave.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/config/params.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/index.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_item_mymenu.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Recipes.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/BaseActiveRecord.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/addRecipe.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/mainmenu.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Orders.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/messages/ru-RU/notify.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/config/main.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/voskobovich/yii2-many-many-behavior/src/ManyToManyBehavior.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/BaseModelWithImage.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Ingredients.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/Component.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/components/NotityTypes/Orders.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/BaseObject.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/Configurable.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/components/Notification.php",
+		"/D/documents/numbers.js",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/widgets/IngredientList.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/messages/ru/notify.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/RecipesController.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Notify.php",
+		"/D/Unity/CRYPTO_VIRT/Assets/Animation/user_request.anim",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/messages/ru/app.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/composer.json",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/findorder.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_item_order.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_orders_js.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/mygeolocation.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/User_settings.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers/Html.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/basket.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_item_partner.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/partner_settings.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/basketselectPartner.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/near_partners.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/error.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Partner_settings.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/models/VerifyEmailForm.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/runtime/mail/20210331-171819-1552-9469.eml",
+		"/D/documents/УЧТЕХПрофи Кирилл Домбровский/Криптография/Тексты алгоритмов/RSA.txt",
+		"/D/Unity/CRYPTO_VIRT/Assets/Scripts/Curves/CurveSections.cs",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/City.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/login.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/config/main.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/web/Session.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/index.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/Recipe.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Distances.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/StringHelper.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/BaseStringHelper.php",
+		"/C/WebServers/home/dev.rabota7.local/www/protected/config/auth.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/widgets/Alert.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/Widget.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-bootstrap/src/Modal.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-jui/Widget.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-bootstrap/src/Widget.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers/Dialogs.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/index.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/orders.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Basket.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/ArrayHelper.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/Command.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/OrderItems.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/_item_basket.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/RecipesCats.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/widgets/ActiveField.php",
+		"/D/documents/УЧТЕХПрофи Кирилл Домбровский/Криптография/Тексты алгоритмов/Требуются.txt",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/fabpot/goutte/Goutte/Client.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/symfony/browser-kit/Client.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Parser.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/symfony/dom-crawler/Crawler.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/guzzlehttp/guzzle/src/Client.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/guzzlehttp/guzzle/src/functions.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/_item.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/voskobovich/yii2-many-many-behavior/tests/_data/dump.sql",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/web/Controller.php",
 		"/C/WebServers/home/dev.oformi-foto.ru/www/ss/ss.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Basket.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/voskobovich/yii2-many-many-behavior/src/ManyToManyBehavior.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/bower-asset/bootstrap/docs/assets/js/vendor/autoprefixer.js",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/User.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Mainmenu.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/mainmenu.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/User_settings.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers/Utils.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/basket.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/basketselectPartner.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/CabinetController.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_item_partner.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/css/site.css",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Orders.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/OrderItems.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/controllers/CronController.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Parser.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/City.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/widgets/ImageControl.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/controllers/ParserController.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/RecipesController.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/settings.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Language.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Recipes.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/actionBlock.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/index.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/layouts/main.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/widgets/ActiveField.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/_item.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/_item_basket.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/changetypeaccount.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/assets/c9d0ad24/jquery.js",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/Widget.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/BaseHtml.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/BaseModelWithImage.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/codeception/codeception/src/Codeception/Lib/Console/ReplHistory.php",
-		"/D/documents/numbers.js",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/login.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/favorites.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Ingredients.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/cabinet.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/cabinet/settings.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/SiteController.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/myrecipes.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/parser/index.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/UploadImage.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/Command.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/cabinet/basket.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/index.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/cabinet/myrecipes.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/ActiveQuery.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/Recipe.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/Query.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/data/ActiveDataProvider.php",
 		"/C/Users/vmaya/Downloads/UIWindowBase (1).cs",
@@ -762,73 +795,7 @@
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Consist.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/data/BaseDataProvider.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/data/DataProviderInterface.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/messages/ru/app.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/config/params.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/schemes/gk-recipe.json",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/cabinet/bookmarks.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Units.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Rates.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/ConsistToRecipe.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/cabinet/deliveryaddress.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/RecipesCats.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Favorites.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/BaseActiveRecord.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/web/assets/c9d0ad24/jquery.js",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/parser/append.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/config/main.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/RecipesToCats.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/BaseStringHelper.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/StringHelper.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/schemes/gk-cats-tree.json",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/schemes/gk-paginator.json",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Stages.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/.gitignore",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/schemes/gk-items.json",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/config/params-local.php",
-		"/C/Users/vmaya/Desktop/Admin command LINUX.txt",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/ActiveRecord.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/config/main.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/config/params.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/layouts/main.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/schemes/gk-cats.json",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/site/index.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/site/parse.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/controllers/schemes/gk-paginator.json",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/controllers/SiteController.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/fabpot/goutte/Goutte/Client.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/symfony/dom-crawler/Crawler.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/config/main.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/site/login.php",
-		"/C/Users/vmaya/AppData/LocalLow/DefaultCompany/CRYPTO_VIRT/Player.log",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/composer.json",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/Component.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/layouts/search-block.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/index.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/foundList.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/signup.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/Html.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/LoginForm.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/addRecipe.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/Editstage.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-bootstrap/src/NavBar.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/web/View.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-bootstrap/src/ActiveForm.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/widgets/IngredientList.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/widgets/ActiveForm.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/Module.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/web/UploadedFile.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/codeception/codeception/package/bin",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/codeception/codeception/codecept",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/Yii.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/BaseYii.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-bootstrap/src/Html.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/deleteRecipe.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/ArrayHelper.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-jui/InputWidget.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2-jui/AutoComplete.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/kartik-v/yii2-krajee-base/src/InputWidget.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/IngredientsToRecipe.php"
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/config/params.php"
 	],
 	"find":
 	{
@@ -839,6 +806,38 @@
 		"height": 107.0,
 		"where_history":
 		[
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\recipes",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\cabinet",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\common",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\controllers",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\controllers",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\vendor",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\common\\models",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\config",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\recipes",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\common\\models",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\cabinet",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\site",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\common\\models",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views\\cabinet",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\common",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\controllers",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\common\\models",
+			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\views",
 			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\common\\models",
 			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\frontend\\controllers",
 			"E:\\OpenServer\\domains\\recipes-dev.com\\yii-application\\common\\models",
@@ -934,39 +933,7 @@
 			"C:\\WebServers\\home\\dev.rabota7.local\\www\\webroot\\css",
 			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
 			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\components",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\components",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\config",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\blog",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\vacancies",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\webroot\\js",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\controllers",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\vacancies",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\blog",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\vacancies",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\models",
-			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views\\layouts"
+			"C:\\WebServers\\home\\dev.rabota7.local\\www\\protected\\views"
 		]
 	},
 	"find_state":
@@ -974,134 +941,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"login",
-			"redir",
-			"redirect",
-			"Удалить",
-			"val",
-			"portion",
-			"portions",
-			"scalar",
-			"Sendbasket",
-			"sendbasket",
-			"relation",
-			".in",
-			"Basket",
-			"isBasket",
-			"attributeLabels",
-			"lebel",
-			"дуиуд",
-			"form-control",
-			"hasDatepicker",
-			"input",
-			"image",
-			"addRecipe",
-			"::t",
-			"imageUrl",
-			"getImage",
-			"imageUrl",
-			"imageURL",
-			"getImage",
-			"Cabinet",
-			"actionCabinet",
-			"indent",
-			"check",
-			"setCount",
-			"Basket",
-			"ajax",
-			"isBasket",
-			"inBasket",
-			"count",
-			"recipe-item",
-			"ключа",
-			"rates",
-			"basketCount",
-			"basket",
+			"data-state",
+			".orders-list [data-state=\"12\"], .mainmenu [data-state=\"12\"]",
+			".pshow .partner-detail > div",
+			"Event",
+			"afterSave",
+			"data-state",
+			"myorders",
+			"data-state",
+			"data-id",
+			"data-id=\"15\"",
+			"myorders",
+			"exec_id",
+			"StarRating",
+			"$app->user->",
+			"checkbox",
+			"data-state",
+			"items",
+			"myorders",
+			"partner_orders",
+			"myorders",
+			"Cancel selected orders?",
+			"id",
+			"data-state",
+			"price",
+			"mainmenu",
+			"recipe_id",
+			"mainmenu",
+			"btn btn-primary",
+			"settings",
+			"OrderNotification",
+			"$event->sender",
+			"$currency",
+			"executer",
+			"exec",
+			"executor",
+			"->request",
+			"trace",
+			"\\Yii::trace",
+			"EVENT_AFTER_UPDATE",
+			"behaviors",
+			"afterSave",
+			"preload",
+			"as ",
+			"as",
+			"behaviorName",
+			"EVENT_ORDER_SAVE",
+			"afterSave",
+			"translations",
+			"fileMap",
+			"user_",
+			"User1",
+			"SertfStar",
+			"followA",
+			"SertfStar",
+			"afterSave",
 			"author",
-			"detail",
-			"model",
-			"Basket",
-			"login",
-			"toggle",
+			"state",
+			"recipe-detail",
 			"portion",
-			"last",
-			"ngridients_full",
-			"parseNext",
-			"checkParserData",
-			"$passed",
-			"parseNext",
-			"maxRefreshCount",
-			"Empty result url",
-			"passed",
-			"param",
-			"params",
-			"index",
-			".recipe-detail span",
-			"consist-block",
-			"h3",
-			"consist-list",
-			"params",
-			"param",
-			"params",
-			"role",
-			"@media",
-			"767px",
-			"max-width: 767px",
-			"@media (max-width: 767px)",
-			"@media (max-width: 767px)\n.recipes .column-two",
-			"join",
-			"$this->join[]",
-			"$this->join",
-			"setRate",
-			"rates",
-			"json",
-			"recipe-content",
-			"field-recipes-rates",
-			"maxRefreshCount",
-			"resfreshIteration",
-			"ParseLinks",
-			"parseNext",
-			"checkParserData",
-			"$it->",
-			"getAll",
-			"$new",
-			"echo",
-			"truncate",
-			"btn-link",
-			"logout",
-			"btn btn-link logout",
-			".navbar-inverse .btn-link",
-			"Logout",
-			"cache",
-			"inner",
-			"recipeCount",
-			"(ст",
-			"print_r",
-			"attr",
-			"parseNext",
-			"parseBegin",
-			"attr",
-			"method",
-			"ParseLinks",
-			"user->id",
-			"parse(",
-			"processed",
-			"deferred",
+			"new_ingredient",
+			"recipes",
+			"recipes-category_ids",
+			"default",
+			"шт",
+			"default",
+			"source",
+			"IngredientList",
+			"->id",
+			"addRecipe",
+			"Utils::upload",
+			"autor_id",
+			"add",
+			"stages",
+			"data-key",
+			"state",
+			".remove",
+			"innerJoin",
+			"getMenu",
+			"data-state",
+			".recipe-item",
+			"enabled",
+			"mainmenu",
+			"enabled",
+			"checked",
+			"data-state",
+			"Deny",
+			"where",
+			"Accept",
+			"$setscc",
+			"doChangeSelect",
+			"request",
+			"state-",
+			"state",
+			"disabled",
+			"card-title",
+			"order-detail",
+			"findorder",
+			"questionAccept",
+			"process",
+			"createCommand",
+			"partner_orders",
+			"_orders_js",
+			"order_id",
+			"author",
+			"getMenu",
 			"active",
-			"ParseLinks",
-			"checkDefault",
-			"check",
-			"refreshPeriod",
-			"$passed",
-			"getPasses",
-			"resfreshIteration",
-			"model",
-			"s{1}",
-			"Utils",
-			"Recipes",
-			"`Recipes`",
-			"'Recipes'",
-			"Recipes"
+			"select-toggle",
+			"item-selector",
+			".recipe-item",
+			"mainmenu",
+			"mymenu",
+			"tool-bar",
+			"mainmenu",
+			"mymenu",
+			"mainmenu",
+			"recipe",
+			".recipe-item h3",
+			".recipe-item .recipe-detail",
+			".image",
+			"mainmenu",
+			"mainMenu",
+			"mygeolocation",
+			"partner_orders",
+			"Basket",
+			"Backet",
+			"sendBacket",
+			"В ожидании",
+			"states"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1109,6 +1076,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"$order",
+			"\"",
+			"\\\"",
 			"Mainmenu",
 			"$rec",
 			"`recipes`",
@@ -1230,30 +1200,61 @@
 	"groups":
 	[
 		{
-			"selected": 11,
+			"selected": 10,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "frontend/messages/ru/app.php",
+					"file": "common/models/Orders.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3445,
+						"buffer_size": 6215,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1092,
-								1107
+								3681,
+								3696
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1995.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "common/models/UserRates.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 941,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								73,
+								73
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1263,188 +1264,12 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "common/helpers/Utils.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4146,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1046,
-								1046
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 620.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
 					"buffer": 2,
-					"file": "frontend/views/cabinet/_item_order.php",
+					"file": "frontend/views/cabinet/_item_partner.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1019,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								894,
-								894
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "frontend/web/css/site.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10866,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9490,
-								9490
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 11862.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "common/models/OrderItems.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 786,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								522,
-								522
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "common/models/Orders.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1664,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								182,
-								182
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 209.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "common/models/Recipes.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10135,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4317,
-								4337
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 380.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "frontend/views/cabinet/basket.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 989,
+						"buffer_size": 1062,
 						"regions":
 						{
 						},
@@ -1452,181 +1277,7 @@
 						[
 							[
 								580,
-								580
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "frontend/views/recipes/_item_basket.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2151,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1206,
-								1206
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "frontend/views/recipes/_item.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2135,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								950,
-								950
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 228.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "frontend/views/cabinet/settings.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1570,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								49,
-								71
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "frontend/controllers/CabinetController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4523,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2848,
-								2848
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1285.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "frontend/controllers/SiteController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7432,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3094,
-								3094
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4478.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "frontend/views/cabinet/_item_partner.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 432,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								731
 							]
 						],
 						"settings":
@@ -1642,20 +1293,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
-					"file": "frontend/views/cabinet/index.php",
+					"buffer": 3,
+					"file": "frontend/views/cabinet/_partner_item_order.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1460,
+						"buffer_size": 3768,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								632,
-								632
+								1846,
+								1846
 							]
 						],
 						"settings":
@@ -1664,38 +1315,304 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 342.0,
+						"translation.y": 285.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
-					"file": "frontend/views/cabinet/myorders.php",
+					"buffer": 4,
+					"file": "common/models/User.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 350,
+						"buffer_size": 6676,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								197,
-								197
+								2201,
+								2201
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 278.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "common/models/Partner_settings.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1516,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								743,
+								751
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 95.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "frontend/views/cabinet/partner_settings.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1603,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1323,
+								1323
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 218.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1451,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										153,
+										161
+									],
+									[
+										282,
+										290
+									],
+									[
+										419,
+										427
+									],
+									[
+										571,
+										579
+									],
+									[
+										632,
+										640
+									],
+									[
+										802,
+										810
+									],
+									[
+										993,
+										1003
+									],
+									[
+										1020,
+										1030
+									],
+									[
+										1206,
+										1216
+									],
+									[
+										1333,
+										1343
+									],
+									[
+										1398,
+										1408
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								1402,
+								1402
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 400.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "frontend/views/recipes/Recipe.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5984,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1642,
+								2061
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 411.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "frontend/views/cabinet/_item_order.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2139,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1130,
+								1227
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 228.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "frontend/web/css/site.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14882,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10908,
+								10918
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 13579.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "frontend/controllers/CabinetController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13169,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3962,
+								3962
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1685.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
 					"type": "text"
 				}
 			]

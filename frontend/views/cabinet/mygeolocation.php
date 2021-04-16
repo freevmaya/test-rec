@@ -7,10 +7,13 @@ use yii\web\View;
 
 $settings = \Yii::$app->user->identity->settings;
 
-$apiKey = 'AIzaSyBzErLfg0nBPSCmP2LcYq0Y5A-C0GIuBMM';
-$apiUrl = 'https://maps.googleapis.com/maps/api/js?key='.$apiKey.'&callback=window.initMap&libraries=&v=weekly&region=RU&language=ru';
+$apiUrl = 'https://maps.googleapis.com/maps/api/js?key='.\Yii::$app->params['mapApiKey'].'&callback=window.initMap&libraries=&v=weekly&region=RU&language=ru';
 
 $url = Url::toRoute(['cabinet/mygeolocation']);
+
+if ($settings->lat && $settings->lon)
+	$geolocation = ["latitude"=>$settings->lat, "longitude"=>$settings->lon];
+else $geolocation = null;
 
 $this->registerJs('
 
@@ -94,10 +97,10 @@ $this->registerJs('
 		});
 	});
 
-	'.($settings->geolocation ? 'refreshMap('.$settings->geolocation.');' : '').'
+	'.($geolocation ? 'refreshMap('.json_encode($geolocation).');' : '').'
 ', View::POS_READY, 'mygeolocation');
 
-if (!$settings->geolocation) {
+if (!$geolocation) {
 ?>
 <button class="btn btn-primary" id="geobutton"><?=\Yii::t('app', 'begingeo');?></button>
 <?}?>

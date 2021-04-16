@@ -14,6 +14,7 @@ use common\models\RecipesCats;
 use common\models\Ingredients;
 use common\widgets\IngredientList;
 use common\widgets\ImageControl;
+use common\helpers\Utils;
 use yii\web\View;
 use yii\jui\AutoComplete;
 
@@ -59,7 +60,7 @@ $this->registerJs("
 	                <?= $form->field($model, 'cook_time')->widget(\yii\widgets\MaskedInput::className(), [
 					    'mask' => '99:99:99',
 					])?>
-	                <?= $form->field($model, 'portion')->textInput(['type' => 'number']) ?>
+	                <?= $form->field($model, 'portion')->textInput();?>
 	                <?= $form->field($model, 'cook_level')->dropDownList(Recipes::$levels)?>
 	                <?/*= $form->field($model, 'category_ids')->dropDownList(
 	                	$cats,
@@ -104,6 +105,7 @@ $this->registerJs("
                 	</div>
 
                 	<div class="stages">
+	                	<?if ($model->id) {?>
 	                	<label class="control-label" for="ingredients"><?=Yii::t('app', 'stages')?></label>
 	                	<a type="button" class="btn" id="new_stages_button" href="<?=Url::toRoute(['/recipes/editstage', 'id'=>'new', 'recipe_id'=>$model->id, 'cat_id'=>$cat_id]);?>">+</a>
 	                	<div>
@@ -122,10 +124,16 @@ $this->registerJs("
 	                			<?}?>
 	                		<?}?>
 	                	</div>
+	                	<?} else {?>
+	                	<p class="alert alert-warning"><?=Utils::t('You can add crafting steps after saving the recipe.')?></p>
+	                	<?}?>
                 	</div>
                 </div>
             	<div class="form-group">
-                <?= Html::submitButton(Yii::t('app', 'submit'), ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+            		<?if ($model->id) {?>
+            		<input type="hidden" name="Recipes[id]" value="<?=$model->id?>">
+            		<?}?>
+                	<?=Html::submitButton(Yii::t('app', 'submit'), ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
             	</div>
 	        </div>
             <?php ActiveForm::end(); ?>

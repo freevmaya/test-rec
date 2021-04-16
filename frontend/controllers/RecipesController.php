@@ -110,9 +110,12 @@ class RecipesController extends Controller {
     	if ($id) $model = Recipes::findOne(['id'=>$id]); 
     	else $model = new Recipes();
 
-	    if(Yii::$app->request->isPost){
+	    if (Yii::$app->request->isPost) {
 
-	        $post = Yii::$app->request->post('recipes');
+	        $post = Yii::$app->request->post('Recipes');
+
+            if (isset($post['id']) && $model->isNewRecord) 
+                $model = Recipes::findOne(['id'=>$post['id']]); 
 
         	$model->attributes = $post;
 
@@ -120,7 +123,7 @@ class RecipesController extends Controller {
 
 	        	if ($model->isNewRecord) {
 	        		$model->created = date("Y-m-d H:i:s");
-	        		$model->autor_id = Yii::$app->user->id;
+	        		$model->author_id = Yii::$app->user->id;
 	        	}
 
 	        	Utils::upload($model, 'image');

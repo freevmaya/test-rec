@@ -3,16 +3,19 @@
 	use common\helpers\Utils;
 	use common\models\Orders;
 	use common\models\OrderItems;
+	use kartik\rating\StarRating;
 
-	$states = Yii::t('app', 'orderstatuslist');
+	$states = Utils::t('orderstatuslist');
 	$items = $model->items;
+
 ?>
 <div class="card">
-	<div class="order card-body">	
+	<div class="order card-body" data-id="<?=$model->id?>" data-state="<?=$model->state?>">
 		<div class="order-detail">
-			<span class="card-title"><?=date(\Yii::t('app', 'dateformat'), strtotime($model->date))?></span>
-			<span><?=\Yii::t('app', 'status')?>: </span><?=$states[$model->state]?>, 
-			<span><?=\Yii::t('app', 'totalItemCount')?>: </span><?=count($items)?>
+			<input type="checkbox">
+			<span class="card-title"><?=$model->OrderDate?></span>
+			<span class="varname"><?=\Yii::t('app', 'status')?></span><i class="state"><?=$states[$model->state]?></i>, 
+			<span class="varname"><?=\Yii::t('app', 'totalItemCount')?></span><?=count($items)?>
 		</div>
 		<div class="order-items">
 			<?
@@ -28,5 +31,34 @@
 			</div>
 			<?}?>
 		</div>
+		<?
+		if (($model->state == Orders::STATE_FINISH) || ($model->state == Orders::STATE_PARTNER_FINISH)) {
+		?>
+		<div class="order-rate">
+			<span class="varname"><?=Utils::t("Rate the execution of your order")?></span>
+			<?=StarRating::widget(['name'=>'rate', 'value' => $model->executerRate, 
+					    'pluginOptions' => [
+					    	'disabled'	=>false, 
+					    	'showClear'	=>false, 
+					    	'showClear' => false, 
+					    	'showCaption' => false,					    
+        					'step' => 1
+					    ],
+        				"pluginEvents" => [
+        					"change" => "function() {
+						        $.ajax({
+						            url: '".Url::toRoute(['cabinet/myorders'])."',
+						            type: 'POST',
+						            data: {action: 'setrate', value: $(this).val(), user_id: ".$model->exec_id.", order_id: ".$model->id."},
+						            success: function(res){
+						                console.log(res);
+						            }
+						        });
+        					}"
+        				]
+					]);
+					?>			
+		</div>
+		<?}?>
 	</div>
 </div>

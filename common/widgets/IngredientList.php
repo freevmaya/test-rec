@@ -39,7 +39,7 @@ class IngredientList extends \yii\bootstrap\Widget
                                       <span aria-hidden=\"true\">&times;</span>
                                     </button></td></tr>";
 
-            $this->source;
+//            $this->source;
 
             $this->getView()->registerJs("
                 $.fn.btnRemoveIngred = function() {
@@ -104,7 +104,7 @@ class IngredientList extends \yii\bootstrap\Widget
                                       '<span aria-hidden=\"true\">&times;</span>' + 
                                         '</button></td></tr>');
                                 } else {
-                                    tr = $('<tr class=\"ningre\"><td class=\"name\">' + name + '</td><td><input type=\"number\" value=\"0\" name=\"Ingr[' + name + ']\"></td><td><input type=\"text\" class=\"unit-input\" name=\"Unit[' + name + ']\" value=\"г\"></td><td><button type=\"button\" class=\"close\" aria-label=\"Close\">' + 
+                                    tr = $('<tr class=\"ningre\"><td class=\"name\">' + name + '</td><td><input type=\"number\" value=\"0\" name=\"Ingr[' + name + ']\"></td><td><input type=\"text\" class=\"unit-input\" name=\"Unit[' + name + ']\" value=\"".Units::default()->short."\"></td><td><button type=\"button\" class=\"close\" aria-label=\"Close\">' + 
                                       '<span aria-hidden=\"true\">&times;</span>' + 
                                         '</button></td></tr>');
                                     $('#".$id."-alert').css('display', 'block');
