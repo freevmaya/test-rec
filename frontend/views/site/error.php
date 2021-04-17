@@ -6,6 +6,7 @@
 /* @var $exception Exception */
 
 use yii\helpers\Html;
+use common\helpers\Utils;
 
 $this->title = $name;
 ?>
@@ -18,10 +19,10 @@ $this->title = $name;
     </div>
 
     <p>
-        The above error occurred while the Web server was processing your request.
+        <?=Utils::t('The above error occurred while the Web server was processing your request.')?>
     </p>
     <p>
-        Please contact us if you think this is a server error. Thank you.
+        <?=Utils::t('Please contact us if you think this is a server error. Thank you.')?>
     </p>
 
 </div>

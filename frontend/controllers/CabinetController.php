@@ -21,7 +21,10 @@ use common\models\Recipes;
 use common\models\Orders;
 use common\models\OrderItems;
 use common\models\User;
+use common\models\Mainmenu;
+use common\models\City;
 use common\models\User_settings;
+use common\models\UserRates;
 use common\helpers\Utils;
 use Goutte\Client;
 
@@ -30,7 +33,29 @@ use Goutte\Client;
  */
 class CabinetController extends Controller {
 
-    const COUNTPERPAGE = 10;
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['findorder', 'index', 'mainmenu', 'mygeolocation', 'addinmenu', 'myrecipes', 'settings', 
+                            'partner_settings', 'partner_orders', 'favorites', 'basket'],
+                'rules' => [
+                    [
+                        'actions' => ['findorder', 'mainmenu', 'addinmenu', 'partner_settings', 'partner_orders'],
+                        'allow' => true,
+                        'matchCallback' => function ($rule, $action) {
+                            return \Yii::$app->user->identity->role == 'partner';
+                        }
+                    ],[
+                        'allow' => true,
+                        'actions' => ['index', 'myrecipes', 'favorites', 'basket', 'settings', 'mygeolocation', 'order'],
+                        'roles' => ['@'],
+                    ]
+                ]
+            ]
+        ];
+    }
 
     protected function basketAjax() {
         $recipe_id = Yii::$app->request->get('recipe-id');
@@ -44,10 +69,12 @@ class CabinetController extends Controller {
             return $this->basketAjax();
 
         return $this->render('index', [
-        	'current'=>'basket'
+        	'current'=>'basket',
+            'model'=>new Orders()
         ]);
     }
 
+    /*
     protected function selectPartner() {
         $query = User_settings::find()->where(
             [
@@ -60,22 +87,55 @@ class CabinetController extends Controller {
             'model'=>new ActiveDataProvider([
                         'query' => $query,
                         'pagination' => [
-                            'pageSize' => self::COUNTPERPAGE,
+                            'pageSize' => \Yii::$app->params['countPerPage']
                         ]
                     ])
         ]);
+    }*/
+
+    public function actionOrder() {
+
+        if ($id = Yii::$app->request->get('id')) {
+            $model = Orders::find()->where(['id'=>$id])->one();
+
+            return $this->render('index', [
+                'current' =>'order',
+                'model' => $model
+            ]);
+        }
     }
 
     public function actionMyorders() {
+        
+        if (\Yii::$app->request->isAjax) {
 
-        $query = Orders::find()->where(['user_id'=>\Yii::$app->user->id]);
+            $action = \Yii::$app->request->post('action');
+
+            if ($action == 'setrate') {
+                if ($user = User::find()->where(['id'=>\Yii::$app->request->post('user_id')])->one()) {
+                    $user->setRates(\Yii::$app->request->post('order_id'), \Yii::$app->request->post('value'));
+                    return 1;
+                }
+                return 0;
+            }
+
+            $state = \Yii::$app->request->post('state');
+            $ids = \Yii::$app->request->post('ids');
+
+            if ($action == 'changestate') 
+                return json_encode(Orders::setStates($ids, $state));
+
+            return 0;
+        }
+
+        $query = Orders::find()->where(['user_id'=>\Yii::$app->user->id])->orderBy('state DESC, date DESC, id DESC');
 
         return $this->render('index', [
             'current'=>'myorders',
             'model'=>new ActiveDataProvider([
                         'query' => $query,
                         'pagination' => [
-                            'pageSize' => self::COUNTPERPAGE,
+                            'pageSize' => \Yii::$app->params['countPerPage'],
                         ]
                     ])
         ]);
@@ -85,16 +145,31 @@ class CabinetController extends Controller {
         if (Yii::$app->request->isPost) {
 
             $order = new Orders();
+
+            $post = Yii::$app->request->post('Orders');
+            $order->attributes = $post;
+
+            if (isset($post['execMethod']) && $post['execMethod'])
+                $order->execMethod = implode(',', $post['execMethod']);
+
             $order->user_id = \Yii::$app->user->id;
             $order->date = date('Y-m-d');
             $order->time = date('H:i:s');
-            if ($order->save()) {
-                $order->assignBasket();
-            }
+            $order->exec_id = $post['exec_id'];
+            $order->state = Orders::STATE_USER_REQUEST;
 
-            $this->redirect(["cabinet/myorders"]);
-        } else return $this->render('index', [
-            'current'=>'basket'
+            if ($order->validate())  {
+                if ($order->save())
+                    $order->assignBasket();
+
+                $this->redirect(["cabinet/myorders"]);
+                return;
+            }
+        } 
+
+        return $this->render('index', [
+            'current'=>'basket',
+            'model'=> new Orders()
         ]);
     }
 
@@ -105,7 +180,8 @@ class CabinetController extends Controller {
             if ($user = \Yii::$app->user->identity) {
 
                 $settings = User_settings::find()->where(['user_id'=>$user->id])->one();
-                $settings->geolocation = json_encode($coord);
+                $settings->setLocation($coord);
+
                 return $settings->save();
             }
         }
@@ -121,6 +197,17 @@ class CabinetController extends Controller {
     }
 
     public function actionMainmenu() {
+        if (\Yii::$app->request->isAjax) {
+            $action = \Yii::$app->request->post('action');
+
+            if ($action == 'changestate') 
+                return json_encode(Mainmenu::setStates(\Yii::$app->request->post('ids'), \Yii::$app->request->post('state')));
+            else if ($action == 'setprice') 
+                return json_encode(Mainmenu::setPrice(\Yii::$app->request->post('recipe_id'), \Yii::$app->request->post('price')));
+
+            return 0;
+        }
+
         return $this->render('index', [
             'current'=>'mainmenu'
         ]);
@@ -129,6 +216,87 @@ class CabinetController extends Controller {
     public function actionFavorites() {
         return $this->render('index', [
         	'current'=>'favorites'
+        ]);
+    }
+
+    public function actionAddinmenu() {
+        if (\Yii::$app->request->isAjax) {
+            $order_id = Yii::$app->request->post('order_id');
+
+            if ($order = Orders::find()->where(['id'=>$order_id])->one()) {
+                $prices = Yii::$app->request->post('prices');
+                foreach ($order->items as $item) {
+                    $price = isset($prices[$item->recipe_id]) ? $prices[$item->recipe_id] : 0;
+                    Mainmenu::add($item->recipe_id, $price);
+                }
+                return 1;
+            }
+            return 0;
+        }
+    }
+
+    public function actionFindorder() {
+        /*
+        if (\Yii::$app->request->isAjax) {
+            $order_id = Yii::$app->request->post('order_id');
+
+            if ($order = Orders::find()->where(['id'=>$order_id])->one()) {
+                $order->state = Orders::STATE_PROCESS;
+                $order->exec_id = \Yii::$app->user->id;
+                return $order->save();
+            }
+            return 0;
+        }*/
+
+        $model = \Yii::$app->user->identity->partner_settings;
+        $items = [];
+
+        if (Yii::$app->request->isPost) {
+            $model->attributes = Yii::$app->request->post('Partner_settings');
+            $model->save();
+        }
+
+        if (\Yii::$app->user->identity->settings->finddistance) {
+            $items = new ActiveDataProvider([
+                'query' => Orders::findOrdersQuery(\Yii::$app->user->identity),
+                'pagination' => [
+                    'pageSize' => 10,
+                ]
+            ]);
+        }
+
+        return $this->render('index', [
+            'current'=>'findorder',
+            'model'=>$model,
+            'items'=>$items
+        ]);
+    }
+
+    public function actionPartner_orders() {
+
+        if (\Yii::$app->request->isAjax) {
+            $state = \Yii::$app->request->post('state');
+            $ids = \Yii::$app->request->post('ids');
+            $action = \Yii::$app->request->post('action');
+
+            if ($action == 'changestate') 
+                return json_encode(Orders::setStates($ids, $state));
+
+            return 0;
+        }
+
+        $model = \Yii::$app->user->identity->partner_settings;
+        $items = new ActiveDataProvider([
+            'query' => Orders::find()->where(['exec_id'=>\Yii::$app->user->id])->orderBy("state DESC, date DESC"),
+            'pagination' => [
+                'pageSize' => 10,
+            ]
+        ]);
+
+        return $this->render('index', [
+            'current'=>'partner_orders',
+            'model'=>$model,
+            'items'=>$items
         ]);
     }
 
@@ -149,18 +317,48 @@ class CabinetController extends Controller {
         }
     }
 
-    protected function findGeolocation($settings) {
-        if ($settings->address) {
+    public function actionPartner_settings() {
 
-            $url = "https://maps.google.com/maps/api/geocode/json?key=AIzaSyCoKk5jGpU844xvp1--OmnPaF7CvA2XlxY&oe=utf-8&language=RU&address=".urlencode($settings->address);            
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $response = curl_exec($ch);
-            curl_close($ch);
+        if (User::isPartner()) {
+            $model = \Yii::$app->user->identity->partner_settings;
 
-            \Yii::trace($response);
+            if (Yii::$app->request->isPost) {
+                $post = Yii::$app->request->post('Partner_settings');
+                $post['execMethods'] = implode(',', $post['execMethodsArray']);
+                $model->attributes = $post;
+                if ($model->validate()) {
+
+                    Utils::upload($model, 'image');
+                    $model->save();
+
+                    if ($model->address) {
+
+                        $uset = \Yii::$app->user->identity->settings;
+
+                        if ($uset->city_id) {
+                            $city = City::byId($uset->city_id);
+                            $address = $city->name.', '.$model->address;
+                        } else $address = $model->address;
+
+                        if ($geo = Utils::findGeolocation($address)) {
+                            $uset->geoaddress = $geo;
+                            $geo = json_decode($geo, true);
+
+                            if (isset($geo['results'][0]['geometry']['location'])) {
+                                $uset->setLocation($geo['results'][0]['geometry']['location']);
+                                $uset->save();
+                            }
+                        }
+                    }
+                }
+            }
+
+            return $this->render('index', [
+                'current'=>'partner_settings',
+                'model'=>$model
+            ]);
         }
-    } 
+    }
 
     public function actionSettings() {
     	$model = \Yii::$app->user->identity->settings;
@@ -175,12 +373,30 @@ class CabinetController extends Controller {
 	        if ( $model->validate() ) {
 
                 //print_r($model->phone);
+
+                if ($model->address) {
+
+                    if ($model->city_id) {
+                        $city = City::byId($model->city_id);
+                        $address = $city->name.', '.$model->address;
+                    } else $address = $model->address;
+
+                    if ($geo = Utils::findGeolocation($address)) {
+                        $model->geoaddress = $geo;
+                        $geo = json_decode($geo, true);
+
+                        if (isset($geo['results'][0]['geometry']['location'])) {
+                            $model->setLocation($geo['results'][0]['geometry']['location']);
+                        }
+                    }
+                }
+
 	        	Utils::upload($model, 'image');
 	        	$model->save();
-
-                if ($model->address) $this->findGeolocation($model);
 	        }
-	    }
+	    } else {
+            if (!$model->finddistance) $model->finddistance = 100;
+        }
 
         return $this->render('index', [
         	'current'=>'settings',

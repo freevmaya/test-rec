@@ -35,33 +35,18 @@ class Utils
 		return $result;
 	}
 
-	public static function val_desc($num, $words) {
+	public static function val_desc($val, $words) {
 
 		if (!is_array($words)) $words = preg_split("/[|\/,]+/", $words);
 
-		$num = $num % 100;
-	    if ($num > 19) {
-	        $num = $num % 10;
-	    }
+		$num = $val % 100;
+	    if ($num > 19) $num = $num % 10;
+
 	    switch ($num) {
-	        case 1: {
-	            return $num.' '.$words[0];
-	        }
-	        case 2: case 3: case 4: {
-	            return $num.' '.$words[1];
-	        }
-	        default: {
-	            return $num.' '.$words[2];
-	        }
+	        case 1: return $val.' '.$words[0];
+	        case 2: case 3: case 4: return $val.' '.$words[1];
+	        default: return $val.' '.$words[2];
 	    }
-
-	    /*
-		$av = $val % 10;
-		if ($av == 1) return $val.' '.$descs[0];
-		else if ($av == 5) return $val.' '.$descs[1];
-
-		return $val.' '.$descs[2];
-		*/
 	}
 
 	public static function mb_ucfirst($string, $encoding = 'UTF-8'){
@@ -143,5 +128,33 @@ class Utils
         		Utils::taformat($seconds);
         return $result;
     }
+
+    public static function findGeolocation($address) {
+        if ($address) {
+
+            $url = "https://maps.google.com/maps/api/geocode/json?key=".\Yii::$app->params['geocodingKey']."&oe=utf-8&language=RU&address=".urlencode($address);            
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($ch);
+            curl_close($ch);
+
+            return $response;
+        }
+    } 
+
+	public static function t($varname, $data = null) {
+		return \Yii::t('app', $varname, $data);
+	}
+
+	public static function n($template, $data = null) {
+		return \Yii::t('notify', $template, $data);
+	}
+
+	public static function dateToUserTimeZone($datetimeStr) {
+
+		$dt = new \DateTime($datetimeStr, new \DateTimeZone(\Yii::$app->timeZone));
+		$dt->setTimeZone(new \DateTimeZone(timezone_identifiers_list()[\Yii::$app->user->identity->settings->timezone]));
+		return $dt->format(\Yii::t('app', 'datetimeformat'));
+	}
 }
 ?>

@@ -13,6 +13,7 @@ use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\Basket;
 use common\models\Recipes;
+use common\models\Orders;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -167,7 +168,7 @@ class SiteController extends Controller
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
+            Yii::$app->session->setFlash('success', Utils::t('Thank you for registration. Please check your inbox for verification email.'));
             return $this->goHome();
         }
 
@@ -241,12 +242,12 @@ class SiteController extends Controller
         }
         if ($user = $model->verifyEmail()) {
             if (Yii::$app->user->login($user)) {
-                Yii::$app->session->setFlash('success', 'Your email has been confirmed!');
+                Yii::$app->session->setFlash('success', Utils::t('Your email has been confirmed!'));
                 return $this->goHome();
             }
         }
 
-        Yii::$app->session->setFlash('error', 'Sorry, we are unable to verify your account with provided token.');
+        Yii::$app->session->setFlash('error', Utils::t('Sorry, we are unable to verify your account with provided token.'));
         return $this->goHome();
     }
 
@@ -269,5 +270,15 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+
+    public function actionOrder() {
+        if ($id = Yii::$app->request->get('id')) {
+            $model = Orders::find()->where(['id'=>$id])->one();
+
+            return $this->render('../cabinet/order', [
+                'model' => $model
+            ]);
+        }
     }
 }

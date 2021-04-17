@@ -10,13 +10,21 @@ return [
     'id' => 'app-frontend',
     'name' => 'Vmaya',
     'language' => 'ru-RU',
+    'timeZone' => 'Europe/Moskow',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'on beforeRequest' => function () {\Yii::$app->notify->initListeners();},
+    'modules' => [
+        'debug' => 'yii\debug\Module'
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
-        ],
+        ],/*
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+        ],*/
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -40,6 +48,24 @@ return [
         ],
         'cache' => [
             'class' => 'yii\caching\MemCache'
+        ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@common/messages',
+                    'fileMap' => [
+                        'app' => 'app.php'
+                    ]
+                ],
+                'notify*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@common/messages'
+                ]
+            ],
+        ],
+        'notify' => [
+            'class' => 'common\components\Notify'
         ]
         /*
         'view' => [

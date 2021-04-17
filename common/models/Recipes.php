@@ -28,8 +28,9 @@ class Recipes extends BaseModelWithImage
         return  [
         	[['name', 'description', 'cook_time'/*, 'categories'*/], 'required'],
             [['category_ids'], 'each', 'rule' => ['integer']],
-            [['rates'], 'number'],
+            [['rates', 'price'], 'number'],
         	[['cook_level', 'parser_id'], 'integer'],
+            [['portion'], 'string', 'max' => 32],
         	[['id', 'author_id', 'parser_id', 'active'], 'safe', 'on'=>'search']
         ];
 	}
@@ -55,10 +56,7 @@ class Recipes extends BaseModelWithImage
             'stages'=>array(self::HAS_MANY, 'Stages', 'recipe_id'),
             'author'=>array(self::BELONGS_TO, 'User', 'author_id'),
             'parser'=>array(self::BELONGS_TO, 'Parser', 'parser_id'),
-            'consist' => array(self::MANY_MANY, 'Consist', 'consist_to_recipe(recipe_id, consist_id)')/*,
-            'areas' => array(self::MANY_MANY, 'Area', 'blog_to_area(blog_id, area_id)'),
-            'blogs_to_area' => array(self::HAS_MANY, 'Blogs_to_area', 'blog_id'),
-            'blog_to_cats' => array(self::HAS_MANY, 'blog_to_cats', 'blog_id')*/
+            'consist' => array(self::MANY_MANY, 'Consist', 'consist_to_recipe(recipe_id, consist_id)')
         );
     }
 
@@ -95,6 +93,11 @@ class Recipes extends BaseModelWithImage
     public function getStages()
     {
         return $this->hasMany(Stages::className(), ['recipe_id'=>'id']);
+    }
+
+    public function getPrice()
+    {
+        return $this->hasOne(Mainmenu::className(), ['recipe_id'=>'id']);
     }
 
     public function saveStages($stages) {
@@ -164,11 +167,13 @@ class Recipes extends BaseModelWithImage
                         $result[] = "({$this->id}, {$id}, {$unit_id}, {$value})";
                     }
                     else {
-                        $item = new Ingredients();
-                        $item->author_id = Yii::$app->user->id;
-                        $item->unit_id = $unit_id;
-                        $item->name = $id;
-                        $item->save();
+                        if (!$item = Ingredients::find()->where(['name'=>$id])->one()) {
+                            $item = new Ingredients();
+                            $item->author_id = Yii::$app->user->id;
+                            $item->unit_id = $unit_id;
+                            $item->name = $id;
+                            $item->save();
+                        }
                         $result[] = "({$this->id}, {$item->id}, {$unit_id}, {$value})";
                     }
                 }
@@ -260,8 +265,7 @@ class Recipes extends BaseModelWithImage
         ]);
     }
 
-    public static function dataProvider($cat_id=false, $where=null, $join=null, $select=null) {
-
+    public static function query($cat_id=false, $where=null, $join=null, $select=null) {
         $query = Recipes::find()->select('`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates');
 
         if ($select) $query->addSelect($select);
@@ -272,7 +276,7 @@ class Recipes extends BaseModelWithImage
 
             if ($cat->parent_id) 
                 $query = $query->where(['rtc.recipe_cat_id'=>$cat_id]);
-            else $query = $query->where(['rtc.recipe_cat_id IN (SELECT id FROM recipes_cats WHERE parent_id = '.$cat_id.')'])->groupBy('id');
+            else $query = $query->where('rtc.recipe_cat_id IN (SELECT id FROM recipes_cats WHERE parent_id = '.$cat_id.')')->groupBy('id');
         }
 
         if ($where) $query = $query->where($where);
@@ -281,6 +285,12 @@ class Recipes extends BaseModelWithImage
             $query->join = $query->join ? array_merge($query->join, $join) : $join;
         }
 
+        return $query;
+    }
+
+    public static function dataProvider($cat_id=false, $where=null, $join=null, $select=null) {
+
+        $query = self::query($cat_id, $where, $join, $select);
         $query->orderBy('id DESC');
 
         return new ActiveDataProvider([

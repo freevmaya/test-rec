@@ -20,6 +20,10 @@ class City extends ActiveRecord
         ];
     }
 
+    public static function byId($id) {
+        return City::find()->where(['id'=>$id])->one();
+    }
+
     public static function getAll() {
         return City::find()->where(['publish'=>1])->all();
     }

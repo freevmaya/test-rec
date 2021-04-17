@@ -8,14 +8,15 @@ use common\helpers\Utils;
 use common\models\Recipes;
 use common\models\City;
 use common\models\Language;
+use common\models\User;
 use common\widgets\ImageControl;
 
-$user = \Yii::$app->user->identity;
+$user = Yii::$app->user->identity;
 
 ?>
 <div class="settings">
+    <?$form = ActiveForm::begin(['id' => 'settings-form', 'options' => ['enctype' => 'multipart/form-data']]);?>
     <div class="col-lg-5">
-        <?$form = ActiveForm::begin(['id' => 'settings-form', 'options' => ['enctype' => 'multipart/form-data']]);?>
 
     	<div class="form-group">
 	    <?= ImageControl::widget(['form'=>$form, 'model'=>$model, 'field'=>'image']);?>
@@ -35,13 +36,15 @@ $user = \Yii::$app->user->identity;
     	<?=$form->field($model, 'phone')->widget(\yii\widgets\MaskedInput::className(), [
 		    'mask' => '+7 (999) 999-99-99',
 		])?>
+
+        <?=$form->field($model, 'timezone')->dropDownList(timezone_identifiers_list());?>
+        <?=$form->field($model, 'finddistance')->textInput(['type' => 'number', 'class' => 'form-control number']);?>
     		
     	</div>
 	    <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'submit'), ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
     	</div>
-
-        <?ActiveForm::end();?>
 		<a href="<?=Url::toRoute(['cabinet/changetypeaccount'])?>" style="btn btn-primary"><?=\Yii::t('app', 'change-type-account')?></a>
     </div>
+    <?ActiveForm::end();?>
 </div>

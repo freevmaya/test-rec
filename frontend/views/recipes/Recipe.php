@@ -77,7 +77,9 @@ else $addRecipeLink = Url::toRoute(['/recipes/edit', 'cat_id'=>\Yii::$app->reque
 							<div class="cook_time"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'cooking time'))?>:</span> <meta itemprop="totalTime" content="<?=date('\P\TH\Hi\Ms\S', strtotime($model['cook_time']));?>"/><?=Utils::cook_time($model['cook_time'])?></div>
 							<div class="cook_level"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'cooking level'))?>:</span> <?=$model->cookLevel?></div>
 							<div class="portion"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'portion'))?>:</span> <i itemprop="recipeYield"><?=$model['portion']?></i></div>
+							<?if (!$model->parser) {?>
 							<div class="author"><span><?=Utils::mb_ucfirst(\Yii::t('app', 'author'))?>:</span> <?=$model->author->username?></div>
+							<?}?>
 							<div>
 								<div><span><?=Utils::mb_ucfirst(\Yii::t('app', 'ingredients'))?></span></div>
 								<div class="ingredients">
