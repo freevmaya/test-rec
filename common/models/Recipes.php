@@ -253,11 +253,18 @@ class Recipes extends BaseModelWithImage
     public static function search($key) {
         $query = (new Query())->from('recipes');
 
-        $query->where("name LIKE :key", [':key'=>"%{$key}%"])
-              ->join('LEFT JOIN', 'favorites', 'favorites.recipe_id = `recipes`.id')
-              ->join('LEFT JOIN', 'mainmenu', 'mainmenu.recipe_id = `recipes`.id');
+        $query->where("name LIKE :key", [':key'=>"%{$key}%"]);
 
-        $query = $query->select('`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates, favorites.time AS isfavorite, mainmenu.state AS ismainmenu');
+        $select = '`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates';
+
+        if (!Yii::$app->user->isGuest) {
+            $query->join('LEFT JOIN', 'favorites', 'favorites.recipe_id = `recipes`.id AND favorites.user_id = '.Yii::$app->user->id);
+            $query->join('LEFT JOIN', 'mainmenu', 'mainmenu.recipe_id = `recipes`.id AND favorites.user_id = '.Yii::$app->user->id);
+
+            $select .= ', favorites.time AS isfavorite, mainmenu.state AS ismainmenu';
+        }
+
+        $query = $query->select($select);
 
         return new ActiveDataProvider([
             'query' => $query,
