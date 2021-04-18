@@ -13,14 +13,14 @@ class Notify extends Component {
 
 
     public function initListeners() {
-    	Yii::$app->on('Orders.beforeSave', [$this, 'ordersBeforeSave']);
+    	Yii::$app->on('Orders.afterSave', [$this, 'ordersAfterSave']);
     }
 
     protected static function renderTemplate($notify_type, $eventName, $params) {
     	return Yii::$app->view->renderFile('@common/messages/'.\Yii::$app->language.'/'.$notify_type.'/'.$eventName.'.php', $params);
     }
 
-    protected function ordersBeforeSave($event) {
+    protected function ordersAfterSave($event) {
     	$order = $event->sender;
 
     	if ($order->state == Orders::STATE_USER_REQUEST) {
@@ -35,7 +35,7 @@ class Notify extends Component {
 		    $message->setFrom(Yii::$app->params['adminEmail']);
 			$message->setTo($order->executer->partner_settings->email)
 			    ->setSubject(Utils::t('NewOrderNotification'))
-			    ->setTextBody($messageBody)
+			    ->setHtmlBody($messageBody)
 			    ->send();
 
     	} else {
@@ -49,7 +49,7 @@ class Notify extends Component {
 		    $message->setFrom(Yii::$app->params['adminEmail']);
 			$message->setTo($order->user->email)
 			    ->setSubject(Utils::t('OrderNotification'))
-			    ->setTextBody($messageBody)
+			    ->setHtmlBody($messageBody)
 			    ->send();
 		}
     }
