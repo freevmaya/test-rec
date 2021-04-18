@@ -16,12 +16,16 @@
 		$mymenu = \Yii::$app->db->createCommand(
         	'SELECT recipe_id, price FROM '.Mainmenu::tableName().' WHERE user_id='.$model->exec_id
     	)->queryAll();
-	} else $mymenu = [];
+	    $partner_settings = $model->executer->partner_settings;
+	} else {
+		$mymenu = [];
+		$partner_settings = null;
+	}
 
     $mm_recipes = ArrayHelper::getColumn($mymenu, 'recipe_id');
     $mm_prices 	= ArrayHelper::getColumn($mymenu, 'price');
+
     $currency = $model->executer->settings->language->currency;
-    $partner_settings = $model->executer->partner_settings;
 
     echo $this->render('_orders_js');
 ?>
@@ -50,9 +54,11 @@
 							<?=$states[$model->state]?>
 						</td>
 					</tr>
+					<?if ($partner_settings) {?>
 					<tr>
 						<td class="varname"><?=Utils::t('Executer')?></td><td><a href="<?=Url::toRoute('site/executer')?>"><?=$partner_settings->name?></a> <a href="tel:<?=$partner_settings->phone?>"><?=$partner_settings->phone?></a></td>
 					</tr>
+					<?}?>
 					<tr>
 						<td class="varname"><?=Utils::t('totalItemCount')?></td><td><?=count($items)?> <a href="#" class="totalItemCount"><?=Utils::t("show")?></a></td>
 					</tr>
