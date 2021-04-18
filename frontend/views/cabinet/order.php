@@ -17,20 +17,21 @@
         	'SELECT recipe_id, price FROM '.Mainmenu::tableName().' WHERE user_id='.$model->exec_id
     	)->queryAll();
 	    $partner_settings = $model->executer->partner_settings;
+	    $currency = $model->executer->settings->language->currency;
 	} else {
 		$mymenu = [];
 		$partner_settings = null;
+	    $currency = $model->user->settings->language->currency;
 	}
 
     $mm_recipes = ArrayHelper::getColumn($mymenu, 'recipe_id');
     $mm_prices 	= ArrayHelper::getColumn($mymenu, 'price');
 
-    $currency = $model->executer->settings->language->currency;
-
     echo $this->render('_orders_js');
 ?>
 <div class="card partner">
 	<div class="order card-body" data-id="<?=$model->id?>" data-state="<?=$model->state?>">
+		<h1><?=Utils::t('Stateorder');?></h1>
 		<div class="order-detail">
 			<span class="card-title"><?=date(\Yii::t('app', 'dateformat'), strtotime($model->date))?></span>
 		</div>
