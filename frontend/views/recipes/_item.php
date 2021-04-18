@@ -33,7 +33,8 @@ $link = Url::toRoute($linkArray);
 					    ]
 					]);
 					?>
-					<?=$this->renderFile(dirname(__FILE__).'/actionBlock.php', ['recipe'=>$model]);?>
+					<?if (!Yii::$app->user->isGuest) 
+						echo $this->renderFile(dirname(__FILE__).'/actionBlock.php', ['recipe'=>$model]);?>
 					</div>
 				</div>
 				<?
