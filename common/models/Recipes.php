@@ -254,9 +254,10 @@ class Recipes extends BaseModelWithImage
         $query = (new Query())->from('recipes');
 
         $query->where("name LIKE :key", [':key'=>"%{$key}%"])
-              ->join('LEFT JOIN', 'favorites', 'favorites.recipe_id = `recipes`.id');
+              ->join('LEFT JOIN', 'favorites', 'favorites.recipe_id = `recipes`.id')
+              ->join('LEFT JOIN', 'mainmenu', 'mainmenu.recipe_id = `recipes`.id');
 
-        $query = $query->select('`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates, favorites.time AS isfavorite');
+        $query = $query->select('`recipes`.*, (SELECT SUM(rr.value)/COUNT(rr.value) FROM `recipes_rates` `rr` WHERE `rr`.recipe_id=`recipes`.id) AS rates, favorites.time AS isfavorite, mainmenu.state AS ismainmenu');
 
         return new ActiveDataProvider([
             'query' => $query,
