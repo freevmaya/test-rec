@@ -114,9 +114,9 @@ class Orders extends ActiveRecord
         return $date;
     }
 
-    public function beforeSave ($insert) {
-        $result = parent::beforeSave($insert);
-        if ($result) \Yii::$app->trigger('Orders.beforeSave', new Event(['sender' => $this]));
+    public function afterSave($insert, $changedAttributes) {
+        $result = parent::afterSave($insert, $changedAttributes);
+        Yii::$app->trigger('Orders.afterSave', new Event(['sender' => $this]));
         return $result;
     }
 
