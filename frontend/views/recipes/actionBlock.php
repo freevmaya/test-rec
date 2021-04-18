@@ -47,6 +47,6 @@ $this->registerJs('
 foreach ($ajaxList as $key=>$item) {
 	$field = 'is'.$key;?>
 <a class="ajax-request" data-type="<?=$key?>" title="<?=Yii::t('app', 'title-'.$key)?>" href="<?=Url::toRoute(['/recipes/toggle'.$key, 'id'=>$recipe['id']]);?>">
-	<span class="glyphicon <?=$recipe->$field?$item[0]:$item[1]?>"></span>
+	<span class="glyphicon <?=$recipe[$field]?$item[0]:$item[1]?>"></span>
 </a>
 <?}?>
