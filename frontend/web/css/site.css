@@ -945,6 +945,50 @@ form .detail {
     display: none;
 }
 
+.card-deck {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    display: flex;
+}
+
+.mb-3 {
+    justify-content: space-between;
+}
+
+.mb-3 > div {
+    box-shadow: 0px 0px 1em #00000024;
+    width: 30%;
+    display: flex;
+    align-content: end;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mb-3 .card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.mb-3 .card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;   
+    display: flex;
+    padding: 1.5rem; 
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mb-3 .card-body-text {
+    min-height: 150px;
+    margin: 1rem; 
+}
 
 @media screen and (max-width:1200px) {
     .recipes-list .recipe-content {
@@ -1011,4 +1055,5 @@ form .detail {
         margin: 0px 0 10px 0px;
         display: block;
     }
+
 }
