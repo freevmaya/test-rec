@@ -10,17 +10,18 @@
 	$states = Utils::t('orderstatuslist');
 	$items = $model->items;
 	$settings = $model->user->settings;
+    $is_executer = $model->exec_id == \Yii::$app->user->id;
 
-	$mymenu = \Yii::$app->db->createCommand(
-        'SELECT recipe_id, price FROM '.Mainmenu::tableName().' WHERE user_id='.$model->exec_id
-    )->queryAll();
+	if ($model->exec_id) {
+		$mymenu = \Yii::$app->db->createCommand(
+        	'SELECT recipe_id, price FROM '.Mainmenu::tableName().' WHERE user_id='.$model->exec_id
+    	)->queryAll();
+	} else $mymenu = [];
 
     $mm_recipes = ArrayHelper::getColumn($mymenu, 'recipe_id');
     $mm_prices 	= ArrayHelper::getColumn($mymenu, 'price');
     $currency = $model->executer->settings->language->currency;
     $partner_settings = $model->executer->partner_settings;
-
-    $is_executer = $model->executer->id == \Yii::$app->user->id;
 
     echo $this->render('_orders_js');
 ?>
@@ -93,6 +94,7 @@
 		</div>
 		<div class="order-footer<?=$mmfull ? '' : ' noinmm'?>">
 			<div>
+				<?if ($model->exec_id) {?>
 				<div class="order-info">
 					<span class="id-order">ID:<?=$model->id?></span>
 					<?if (!$mmfull && $is_executer) {?>
@@ -103,6 +105,7 @@
 						<span class="varname"><?=Utils::t('totalPrice')?></span><?=$totalPrice?> <?=$currency?>, 
 					<?}?>
 				</div>
+				<?}?>
 				<div>
 					<span class="varname"><?=Utils::t('requireExecMethods')?></span><?=implode(', ', $model->execMethodList)?></span>
 				</div>

@@ -13,14 +13,14 @@ class Notify extends Component {
 
 
     public function initListeners() {
-    	Yii::$app->on('Orders.afterSave', [$this, 'ordersAfterSave']);
+    	Yii::$app->on('Orders.beforeSave', [$this, 'ordersBeforeSave']);
     }
 
     protected static function renderTemplate($notify_type, $eventName, $params) {
     	return Yii::$app->view->renderFile('@common/messages/'.\Yii::$app->language.'/'.$notify_type.'/'.$eventName.'.php', $params);
     }
 
-    protected function ordersAfterSave($event) {
+    protected function ordersBeforeSave($event) {
     	$order = $event->sender;
 
     	if ($order->state == Orders::STATE_USER_REQUEST) {
