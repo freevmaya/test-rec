@@ -7,8 +7,11 @@ $this->title = \Yii::t('app', 'app-name');
 ?>
 <div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Рецепты</h1>
+    <div class="header">
+        <div class="blur">
+            
+        <h1>Вкуснятки</h1>
+        </div>
     </div>
 
     <div class="body-content">
@@ -21,8 +24,6 @@ $this->title = \Yii::t('app', 'app-name');
     ?>
 
         <div class="container">
-            <h3>Портал еды.</h3>
-                <p>Здесь вы можете найти много различных рецептов приготовления. Для домашнего приготовления а также заказа и питания в ближайших заведениях общественного питания.</p>
             <h3>Это для тех:</h3>
             <div class="card-deck mb-3 text-center">
                 <div class="card mb-4 box-shadow">
