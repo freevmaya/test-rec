@@ -21,14 +21,37 @@ body {
     padding-top: 20px;
 }
 
-.jumbotron {
+.site-index .header {
     text-align: center;
     background-color: transparent;
+    background-image: url(images/head.jpg);
+    background-position: center;
+    height: 197px;
 }
 
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+.site-index .header h1 {
+    height: 197px;
+    line-height: 197px;
+    font-size: 5em;
+    color: #974fff;    
+    text-shadow: 0px 0px 6px white;
+    transition: color 0.5s, text-shadow 0.5s;
+}
+
+.site-index .header h1:hover {
+    color: #FFFFFF00;
+    text-shadow: 0px 0px 10px white;
+}
+
+.blur {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px);
+    height: 197px;
+    transition: backdrop-filter 0.5s;
+}
+
+.blur:hover {
+    backdrop-filter: blur(0px);
 }
 
 .not-set {
