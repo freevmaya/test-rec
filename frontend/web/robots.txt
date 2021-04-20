@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /
+Disallow: /css/
+Disallow: /assets/
+Disallow: /index.php?r=cabinet
