@@ -32,9 +32,9 @@ else $addArticleLink = Url::toRoute(['/articles/edit', 'cat_id'=>$cat_id]);
 		</div>
 	</div>
 	<div class="column-two">
-			<div class="admin-block">
-				<a href="<?=Url::toRoute(['/articles/editcat', 'id'=>$model['id']])?>"><?=Utils::t('add_cat')?></a>
-			</div>
+		<div class="admin-block">
+			<a href="<?=Url::toRoute(['/articles/editcat'])?>"><?=Utils::t('add_cat')?></a>
+		</div>
 		<?Utils::outCatItem(null, $cats, 0, ['/articles']);
 		if (Utils::isAdmin()) {?>
 		<?}?>
