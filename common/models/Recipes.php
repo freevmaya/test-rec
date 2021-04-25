@@ -73,7 +73,7 @@ class Recipes extends BaseModelWithImage
     {
         if ($value) {
             $rates = new Rates();
-            $rates->user_id = Yii::$app->user->id;
+            $rates->user_id = Yii::$app->user->isGuest ? 0 : Yii::$app->user->id;
             $rates->recipe_id = $this->id;
             $rates->value = $value;
             $rates->save();

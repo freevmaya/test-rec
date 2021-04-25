@@ -11,8 +11,8 @@ use common\helpers\Utils;
 use kartik\rating\StarRating;
 
 $backLink = $backLink = Url::toRoute(['/recipes/index', 'cat_id'=>\Yii::$app->request->get('cat_id')]);
-$this->params['breadcrumbs'][] = ['label'=>Utils::mb_ucfirst(Yii::t('app', 'recipes')), 'url' => $backLink];
-$this->params['breadcrumbs'][] = $this->title = Utils::mb_ucfirst(Yii::t('app', 'recipe'));
+$this->params['breadcrumbs'][] = ['label'=>Utils::t('recipes'), 'url' => $backLink];
+$this->params['breadcrumbs'][] = $this->title = Utils::t('Recipe').' '.$model['name'];
 $rate = $model->rates;
 
 if (Yii::$app->user->isGuest) $addRecipeLink = Url::toRoute(['/site/login']);
