@@ -182,9 +182,6 @@ a:hover {
     display: flex;
 }
 
-.recipes > div {
-}
-
 .recipes .column-one {
     flex: 0 2 100%;
     margin-right: 1em;
@@ -954,6 +951,10 @@ form .detail {
 
 .unpossible {
     color: #808080b0;
+}
+
+.admin-block {
+    margin-top: 10px;
 }
 
 #findorder-form {

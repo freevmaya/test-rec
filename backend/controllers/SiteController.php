@@ -7,6 +7,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\Parser;
+use common\models\SitemapForm;
 
 /**
  * Site controller
@@ -27,7 +28,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'parse'],
+                        'actions' => ['logout', 'index', 'parse', 'sitemap'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -87,6 +88,14 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionSitemap() {
+        if ($post = Yii::$app->request->post('Sitemap')) {
+            SitemapForm::create($post);
+        }
+        return $this->render('sitemap', [
+        ]);
     }
 
     /**

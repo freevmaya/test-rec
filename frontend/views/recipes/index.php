@@ -3,8 +3,13 @@
 use yii\helpers\Url;
 use yii\widgets\ListView;
 use common\helpers\Utils;
+use common\Models\RecipesCats;
 
 $this->params['breadcrumbs'][] = $this->title = Utils::mb_ucfirst(Yii::t('app', 'recipes'));
+if ($cat_id = \Yii::$app->request->get('cat_id')) {
+	$cat = RecipesCats::find()->where(['id'=>$cat_id])->one();
+	$this->params['breadcrumbs'][] = $cat->name;
+}
 if (Yii::$app->user->isGuest) $addRecipeLink = Url::toRoute(['/site/login']);
 else $addRecipeLink = Url::toRoute(['/recipes/edit', 'cat_id'=>$cat_id]);
 ?>

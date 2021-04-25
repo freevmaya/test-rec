@@ -1,9 +1,13 @@
 <?
 return [
 	'app-name'=>'Рецепты для вас', 
+	'articles'=>'статьи',
+	'article'=>'статья',
 	'recipes'=>'рецепты',
 	'recipe'=>'рецепт',
 	'remove'=>'удалить',
+	'add'=>'добавить',
+	'add_cat'=>'добавить категорию',
 	'search'=>'Искать',
 	'Signup'=>'Регистрация',
 	'warning'=>'Внимание!',
@@ -28,6 +32,9 @@ return [
 	'cook_level'=>'Cложность',
 	'categories'=>'Категории',
 	'add_recipe'=>'Добавить рецепт',
+	'add_article'=>'Добавить статью',
+	'new_cat'=>'новая категория',
+	'cat'=>'категория',
 	'submit'=>'Отправить',
 	'save'=>'Сохранить',
 	'price'=>'цена',
@@ -108,6 +115,10 @@ return [
 	'acceptOrderDesc'=>'Вы действительно хотите принять заказ?',
 	'acceptOrdersInMenu'=>'Принять все рецепты из этого заказа в \"Мое меню\"?<br>(Требуется задать цены на новые блюда!)',
 	'notfullmainmenu'=>'Не все заказанные блюда входят в ваше меню',
+	'removearticleask'=>'Вы действительно хотите удалить статью {article}?',
+	'this username has already been taken.'=>'это имя пользователя уже занято.',
+	'this email address has already been taken.'=>'этот адрес электронной почты уже занят.',
+	'incorrect username or password.'=>'неверное имя пользователя или пароль.',
 	'show'=>'Показать',
 	'changePrice'=>'Установить новую цену',
 	'totalPrice'=>'Общая стоимость заказа',
@@ -146,6 +157,18 @@ return [
 		'name'=>'Имя',
 		'role'=>'Роль',
 		'email'=>'Почта'
+	],
+	'articlesLabels'=>[
+		'name'=>'Название',
+		'description'=>'Текст',
+        'categories'=>'Категории',
+        'category_ids'=>'Категории',
+        'image'=>'Изображение'
+	],
+	'articlesCatsLabels'=>[
+		'name'=>'Название',
+        'parent_id'=>'Родитель',
+        'image'=>'Изображение'
 	],
 	'settingsLabels'=>[
 		'image'=>'Аватар',

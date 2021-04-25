@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"bac",
+				"background-position\tproperty"
+			],
+			[
 				"di",
 				"display\tproperty"
 			],
@@ -50,10 +54,6 @@
 			[
 				"geo",
 				"geolocation"
-			],
-			[
-				"bac",
-				"background-position\tproperty"
 			],
 			[
 				"user_",
@@ -520,81 +520,37 @@
 	"buffers":
 	[
 		{
-			"file": "frontend/views/cabinet/partner_settings.php",
+			"file": "backend/views/layouts/main.php",
 			"settings":
 			{
-				"buffer_size": 1603,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/controllers/SiteController.php",
-			"settings":
-			{
-				"buffer_size": 7795,
+				"buffer_size": 2304,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "common/models/Recipes.php",
+			"file": "common/models/ArticlesToCats.php",
 			"settings":
 			{
-				"buffer_size": 10809,
+				"buffer_size": 394,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "frontend/views/recipes/_item.php",
+			"file": "frontend/controllers/ArticlesController.php",
 			"settings":
 			{
-				"buffer_size": 2177,
+				"buffer_size": 4224,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "frontend/views/cabinet/order.php",
+			"file": "frontend/views/articles/editCat.php",
 			"settings":
 			{
-				"buffer_size": 4371,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/config/main-local.php",
-			"settings":
-			{
-				"buffer_size": 602,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "common/models/Orders.php",
-			"settings":
-			{
-				"buffer_size": 6214,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/views/recipes/Recipe.php",
-			"settings":
-			{
-				"buffer_size": 5984,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/views/cabinet/_item_order.php",
-			"settings":
-			{
-				"buffer_size": 2139,
+				"buffer_size": 0,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -604,6 +560,41 @@
 			"settings":
 			{
 				"buffer_size": 13169,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "common/models/ArticlesCats.php",
+			"settings":
+			{
+				"buffer_size": 3432,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "frontend/views/articles/deleteArticle.php",
+			"settings":
+			{
+				"buffer_size": 787,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "frontend/views/articles/index.php",
+			"settings":
+			{
+				"buffer_size": 978,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "common/helpers/Utils.php",
+			"settings":
+			{
+				"buffer_size": 5077,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -612,71 +603,16 @@
 			"file": "common/messages/ru-RU/app.php",
 			"settings":
 			{
-				"buffer_size": 7887,
+				"buffer_size": 8163,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "frontend/views/site/index.php",
+			"file": "frontend/views/articles/addArticle.php",
 			"settings":
 			{
-				"buffer_size": 2915,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "frontend/web/css/site.css",
-			"settings":
-			{
-				"buffer_size": 15746,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "frontend/models/ContactForm.php",
-			"settings":
-			{
-				"buffer_size": 1433,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "frontend/config/params.php",
-			"settings":
-			{
-				"buffer_size": 303,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "-- phpMyAdmin SQL Dump\n-- version 5.0.4\n-- https://www.phpmyadmin.net/\n--\n-- Хост: 127.0.0.1:3306\n-- Время создания: Апр 17 2021 г., 01:25\n-- Версия сервера: 10.4.12-MariaDB\n-- Версия PHP: 7.1.33\n\nSET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n\n--\n-- База данных: `yii2advanced`\n--\n\n-- --------------------------------------------------------\n\n--\n-- Структура таблицы `orders`\n--\n\nDROP TABLE IF EXISTS `orders`;\nCREATE TABLE `orders` (\n  `id` bigint(20) UNSIGNED NOT NULL,\n  `user_id` bigint(20) UNSIGNED NOT NULL,\n  `exec_id` bigint(20) UNSIGNED DEFAULT NULL,\n  `execMethod` set('Pickup','Courier','Delivery','PersonalVisit') NOT NULL DEFAULT 'Pickup',\n  `state` tinyint(4) NOT NULL DEFAULT 0,\n  `date` date NOT NULL,\n  `time` time NOT NULL\n) ENGINE=InnoDB DEFAULT CHARSET=utf8;\n\n\n--\n-- Структура таблицы `order_items`\n--\n\nDROP TABLE IF EXISTS `order_items`;\nCREATE TABLE `order_items` (\n  `order_id` bigint(20) UNSIGNED NOT NULL,\n  `recipe_id` bigint(20) UNSIGNED NOT NULL,\n  `count` int(10) UNSIGNED NOT NULL\n) ENGINE=InnoDB DEFAULT CHARSET=utf8;\n\n\n--\n-- Структура таблицы `user_rates`\n--\n\nDROP TABLE IF EXISTS `user_rates`;\nCREATE TABLE `user_rates` (\n  `user_id` bigint(20) UNSIGNED NOT NULL,\n  `author_id` bigint(20) UNSIGNED NOT NULL,\n  `order_id` bigint(20) UNSIGNED NOT NULL,\n  `value` tinyint(4) NOT NULL\n) ENGINE=InnoDB DEFAULT CHARSET=utf8;\n\n--\n-- Индексы сохранённых таблиц\n--\n\n--\n-- Индексы таблицы `orders`\n--\nALTER TABLE `orders`\n  ADD PRIMARY KEY (`id`),\n  ADD KEY `user_id` (`user_id`),\n  ADD KEY `date` (`date`),\n  ADD KEY `state` (`state`),\n  ADD KEY `exec_id` (`exec_id`),\n  ADD KEY `execMethod` (`execMethod`);\n\n--\n-- Индексы таблицы `order_items`\n--\nALTER TABLE `order_items`\n  ADD PRIMARY KEY (`order_id`,`recipe_id`),\n  ADD KEY `recipe_id` (`recipe_id`);\n\n--\n-- Индексы таблицы `user_rates`\n--\nALTER TABLE `user_rates`\n  ADD PRIMARY KEY (`user_id`,`author_id`,`order_id`) USING BTREE,\n  ADD KEY `author_id` (`author_id`),\n  ADD KEY `order_id` (`order_id`);\n\n--\n-- AUTO_INCREMENT для сохранённых таблиц\n--\n\n--\n-- AUTO_INCREMENT для таблицы `orders`\n--\nALTER TABLE `orders`\n  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;\n\n--\n-- Ограничения внешнего ключа сохраненных таблиц\n--\n\n--\n-- Ограничения внешнего ключа таблицы `orders`\n--\nALTER TABLE `orders`\n  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,\n  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`exec_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;\n\n--\n-- Ограничения внешнего ключа таблицы `order_items`\n--\nALTER TABLE `order_items`\n  ADD CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,\n  ADD CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;\n\n--\n-- Ограничения внешнего ключа таблицы `user_rates`\n--\nALTER TABLE `user_rates`\n  ADD CONSTRAINT `user_rates_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,\n  ADD CONSTRAINT `user_rates_ibfk_2` FOREIGN KEY (`author_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,\n  ADD CONSTRAINT `user_rates_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;\nCOMMIT;\n",
-			"file": "/C/Users/vmaya/Downloads/user_settings.sql",
-			"file_size": 1239,
-			"file_write_time": 132630850595201258,
-			"settings":
-			{
-				"buffer_size": 3402,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "frontend/views/layouts/main.php",
-			"settings":
-			{
-				"buffer_size": 4276,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "frontend/views/recipes/actionBlock.php",
-			"settings":
-			{
-				"buffer_size": 1664,
+				"buffer_size": 1729,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -717,16 +653,52 @@
 		"/E/OpenServer/domains/recipes-dev.com/yii-application",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/messages",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/messages/ru-RU",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/articles",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/layouts",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/css"
 	],
 	"file_history":
 	[
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Articles.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/css/articles.css",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/css/site.css",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/articles/_item.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/ArticlesRates.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/layouts/main.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/articles/actionBlock.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/ArticlesCats.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/BaseModelWithImage.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/.gitignore",
+		"/C/WebServers/home/dev.rabota7.local/www/robots.txt.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/site/sitemap.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/SitemapForm.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/controllers/SiteController.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/ArticleRates.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/robots.txt",
+		"/D/documents/УЧТЕХПрофи Кирилл Домбровский/Криптография/Центр сертификации.txt",
+		"/C/Users/vmaya/Downloads/robots.txt",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/partner_settings.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/SiteController.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Recipes.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/_item.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/order.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/config/main-local.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Orders.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/Recipe.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_item_order.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/CabinetController.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/messages/ru-RU/app.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/models/ContactForm.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/config/params.php",
+		"/C/Users/vmaya/Downloads/user_settings.sql",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/actionBlock.php",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/index.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/messages/ru-RU/mail/Orders.afterSave.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/messages/ru-RU/mail/Orders.toPartner.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/components/Notify.php",
@@ -737,37 +709,26 @@
 		"/D/documents/numbers.js",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/models/ResendVerificationEmailForm.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/config/main.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Orders.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/UserRates.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_item_partner.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_partner_item_order.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/User.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Partner_settings.php",
-		"/C/Users/vmaya/Downloads/user_settings.sql",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/css/site.css",
 		"/D/Unity/roomEditor_shd/bin/readme.txt",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/ActiveQuery.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/web/User.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/settings.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/BaseUrl.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/messages/ru-RU/app.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers/Utils.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/layouts/edit-toolbar.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/myorders.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/partner_orders.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/CabinetController.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/controllers/SiteController.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Mainmenu.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/order.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/config/params.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/index.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_item_mymenu.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Recipes.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/addRecipe.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/mainmenu.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/messages/ru-RU/notify.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/voskobovich/yii2-many-many-behavior/src/ManyToManyBehavior.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/BaseModelWithImage.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Ingredients.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/Component.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/base/BaseObject.php",
@@ -781,13 +742,11 @@
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/messages/ru/app.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/composer.json",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/findorder.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_item_order.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/_orders_js.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/mygeolocation.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/User_settings.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers/Html.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/basket.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/partner_settings.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/basketselectPartner.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/near_partners.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/error.php",
@@ -800,7 +759,6 @@
 		"/C/WebServers/home/dev.rabota7.local/www/protected/config/main.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/web/Session.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/index.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/Recipe.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Distances.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/StringHelper.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/BaseStringHelper.php",
@@ -828,33 +786,13 @@
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/symfony/dom-crawler/Crawler.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/guzzlehttp/guzzle/src/Client.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/guzzlehttp/guzzle/src/functions.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/_item.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/voskobovich/yii2-many-many-behavior/tests/_data/dump.sql",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/web/Controller.php",
 		"/C/WebServers/home/dev.oformi-foto.ru/www/ss/ss.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/bower-asset/bootstrap/docs/assets/js/vendor/autoprefixer.js",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/controllers/CronController.php",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/widgets/ImageControl.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/controllers/ParserController.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/Language.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/actionBlock.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/layouts/main.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/changetypeaccount.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/web/assets/c9d0ad24/jquery.js",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/helpers/BaseHtml.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/codeception/codeception/src/Codeception/Lib/Console/ReplHistory.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/favorites.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/cabinet.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/cabinet/settings.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/cabinet/myrecipes.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/views/parser/index.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models/UploadImage.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/cabinet/basket.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/recipes/index.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend/views/site/cabinet/myrecipes.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/db/Query.php",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/vendor/yiisoft/yii2/data/ActiveDataProvider.php",
-		"/C/Users/vmaya/Downloads/UIWindowBase (1).cs"
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/backend/controllers/ParserController.php"
 	],
 	"find":
 	{
@@ -1000,6 +938,44 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"recip",
+			"cats",
+			"Recipe",
+			"recipe",
+			"delete",
+			".article-item .image",
+			"recipe",
+			"article-content",
+			"recip",
+			"image",
+			"Recipe",
+			"is",
+			"recipe",
+			"Recipe",
+			"Url",
+			"Recipe",
+			"recipe",
+			"edit",
+			"getRates",
+			"Rates",
+			"getRates",
+			"rates",
+			"getImagePath",
+			"ingredientValues",
+			"recipe",
+			"Recipe",
+			"add_",
+			"recipe",
+			"Recipe",
+			"recipe",
+			"Recipe",
+			"recipe",
+			"Recipe",
+			"Rates",
+			"recipe",
+			"recipes_to_cats",
+			"recipes_cats",
+			"jumbotron",
 			"Quest",
 			"isfavorite",
 			"Order",
@@ -1089,45 +1065,7 @@
 			"autor_id",
 			"add",
 			"stages",
-			"data-key",
-			"state",
-			".remove",
-			"innerJoin",
-			"getMenu",
-			"data-state",
-			".recipe-item",
-			"enabled",
-			"mainmenu",
-			"enabled",
-			"checked",
-			"data-state",
-			"Deny",
-			"where",
-			"Accept",
-			"$setscc",
-			"doChangeSelect",
-			"request",
-			"state-",
-			"state",
-			"disabled",
-			"card-title",
-			"order-detail",
-			"findorder",
-			"questionAccept",
-			"process",
-			"createCommand",
-			"partner_orders",
-			"_orders_js",
-			"order_id",
-			"author",
-			"getMenu",
-			"active",
-			"select-toggle",
-			"item-selector",
-			".recipe-item",
-			"mainmenu",
-			"mymenu",
-			"tool-bar"
+			"data-key"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1135,6 +1073,21 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Article",
+			"article",
+			"Article",
+			"article",
+			"Article",
+			"article",
+			"Article",
+			"article",
+			"Article",
+			"article",
+			"Article",
+			"ArticlesRates",
+			"article",
+			"articles_to_cats",
+			"articles_cats",
 			"$order",
 			"\"",
 			"\\\"",
@@ -1247,8 +1200,7 @@
 			"'",
 			"98031",
 			"t2.",
-			"t1.",
-			"t1"
+			"t1."
 		],
 		"reverse": false,
 		"show_context": false,
@@ -1264,19 +1216,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "frontend/views/cabinet/partner_settings.php",
+					"file": "backend/views/layouts/main.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1603,
+						"buffer_size": 2304,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1323,
-								1323
+								1161,
+								1168
 							]
 						],
 						"settings":
@@ -1286,322 +1238,55 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 199.0,
+						"translation.y": 437.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "frontend/controllers/SiteController.php",
+					"file": "common/models/ArticlesToCats.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7795,
+						"buffer_size": 394,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2400,
-								2430
+								259,
+								259
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1482.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "common/models/Recipes.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10809,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9259,
-								9259
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4553.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "frontend/views/recipes/_item.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2177,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1638,
-								1638
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 171.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "frontend/views/cabinet/order.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4371,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1086,
-								1096
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 228.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "frontend/config/main-local.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 602,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								271,
-								271
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "common/models/Orders.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6214,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								83,
-								112
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "frontend/views/recipes/Recipe.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5984,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1642,
-								2061
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 392.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "frontend/views/cabinet/_item_order.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2139,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1263,
-								1341
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 361.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "frontend/controllers/CabinetController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13169,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8766,
-								8786
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4744.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "common/messages/ru-RU/app.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7887,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3418,
-								3418
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 906.0,
+						"translation.y": 57.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "frontend/views/site/index.php",
+					"buffer": 2,
+					"file": "frontend/controllers/ArticlesController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2915,
+						"buffer_size": 4224,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								523,
-								523
+								3345,
+								3345
 							]
 						],
 						"settings":
@@ -1611,87 +1296,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1539.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "frontend/web/css/site.css",
+					"buffer": 3,
+					"file": "frontend/views/articles/editCat.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15746,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14623,
-								14623
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 18100.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "frontend/models/ContactForm.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1433,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1216,
-								1227
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 488.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "frontend/config/params.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 303,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								124,
-								124
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1702,52 +1327,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
-					"file": "/C/Users/vmaya/Downloads/user_settings.sql",
-					"semi_transient": false,
+					"buffer": 4,
+					"file": "frontend/controllers/CabinetController.php",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 3402,
+						"buffer_size": 13169,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								3402
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "frontend/views/layouts/main.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4276,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								753,
-								753
+								876,
+								1900
 							]
 						],
 						"settings":
@@ -1757,27 +1354,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 608.0,
+						"translation.y": 342.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
-					"file": "frontend/views/recipes/actionBlock.php",
+					"buffer": 5,
+					"file": "common/models/ArticlesCats.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1664,
+						"buffer_size": 3432,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1609,
-								1609
+								116,
+								116
 							]
 						],
 						"settings":
@@ -1791,6 +1388,148 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "frontend/views/articles/deleteArticle.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 787,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								732,
+								732
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "frontend/views/articles/index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 978,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								892,
+								892
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "common/helpers/Utils.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5077,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4428,
+								4428
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2368.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "common/messages/ru-RU/app.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8163,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								82,
+								82
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "frontend/views/articles/addArticle.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								524,
+								524
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 95.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
