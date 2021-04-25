@@ -74,7 +74,7 @@ class Articles extends BaseModelWithImage
     }
     
     public function getCategories() {
-        return $this->hasMany(articlesCats::className(), ['id' => 'article_cat_id'])
+        return $this->hasMany(ArticlesCats::className(), ['id' => 'article_cat_id'])
                 ->viaTable('articles_to_cats', ['article_id' => 'id']);
     }
 
@@ -126,7 +126,7 @@ class Articles extends BaseModelWithImage
         if ($select) $query->addSelect($select);
 
         if ($cat_id) {
-            $cat = (new articlesCats())->findOne(['id'=>$cat_id]);
+            $cat = (new ArticlesCats())->findOne(['id'=>$cat_id]);
             $query = $query->innerJoin('`articles_to_cats` rtc ON rtc.article_id=`articles`.id');
 
             if ($cat->parent_id) 
