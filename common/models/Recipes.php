@@ -28,7 +28,7 @@ class Recipes extends BaseModelWithImage
         return  [
         	[['name', 'description', 'cook_time'/*, 'categories'*/], 'required'],
             [['category_ids'], 'each', 'rule' => ['integer']],
-            [['rates', 'price'], 'number'],
+            //[['rates', 'price'], 'number'],
         	[['cook_level', 'parser_id'], 'integer'],
             [['portion'], 'string', 'max' => 32],
         	[['id', 'author_id', 'parser_id', 'active'], 'safe', 'on'=>'search']
