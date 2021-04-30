@@ -132,8 +132,8 @@ class ParserController extends Controller
             }
 
             $list = $this->actionAppendjson($post['scheme'], 
-                    $post['count_limit'] ? $post['count_limit'] : 1,
-                    $post['author_id'] ? $post['author_id'] : \Yii::$app->user->id,
+                    isset($post['count_limit']) ? $post['count_limit'] : 1,
+                    isset($post['author_id']) ? $post['author_id'] : \Yii::$app->user->id,
                     $post['pid']);
             $model->attributes = $post;
         } else {
