@@ -102,7 +102,7 @@ class ParserController extends Controller
 
                             $passList[] = $item->pid;
                         } else {
-                            \Yii::error($rec->getErrors());
+                            \Yii::error($passList[] = $rec->getErrors());
                             //$item->state = 'deferred';
                             //$item->save();
                         }
