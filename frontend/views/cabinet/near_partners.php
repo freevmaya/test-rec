@@ -16,6 +16,8 @@ use common\models\Distances;
 
 $sets = \Yii::$app->user->identity->settings;
 
+$distance = $sets->finddistance ? $sets->finddistance : Distances::DEFAULT_DISTANCE;
+
 $query = User_settings::find()->innerJoin('distances', 'distances.partner_id=user_settings.user_id')->
 					innerJoin('user', 'user.id=user_settings.user_id')->
 					where("user.role='partner' AND distances.user_id = {$sets->user_id} AND distances.distance <= {$sets->finddistance}");
