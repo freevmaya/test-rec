@@ -25,18 +25,20 @@ class Notify extends Component {
 
     	if ($order->state == Orders::STATE_USER_REQUEST) {
 
-    		$messageBody = Notify::renderTemplate('mail', 'Orders.toPartner', [
-	    		'user'=>$order->user,
-	    		'executer'=>$order->executer,
-	    		'order'=>$order
-	    	]);
+    		if ($order->executer) {
+	    		$messageBody = Notify::renderTemplate('mail', 'Orders.toPartner', [
+		    		'user'=>$order->user,
+		    		'executer'=>$order->executer,
+		    		'order'=>$order
+		    	]);
 
-	    	$message = Yii::$app->mailer->compose();
-		    $message->setFrom(Yii::$app->params['adminEmail']);
-			$message->setTo($order->executer->partner_settings->email)
-			    ->setSubject(Utils::t('NewOrderNotification'))
-			    ->setHtmlBody($messageBody)
-			    ->send();
+		    	$message = Yii::$app->mailer->compose();
+			    $message->setFrom(Yii::$app->params['adminEmail']);
+				$message->setTo($order->executer->partner_settings->email)
+				    ->setSubject(Utils::t('NewOrderNotification'))
+				    ->setHtmlBody($messageBody)
+				    ->send();
+			}
 
     	} else {
 	    	$messageBody = Notify::renderTemplate('mail', $event->name, [
