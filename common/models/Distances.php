@@ -11,6 +11,8 @@ use yii\helpers\StringHelper;
 class Distances extends ActiveRecord
 {
 
+    const DEFAULT_DISTANCE = 100;
+
     public static function tableName()
     {
         return 'distances';
