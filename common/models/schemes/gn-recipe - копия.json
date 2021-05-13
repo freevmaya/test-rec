@@ -1,0 +1,18 @@
+{
+	"name": "gn-recipe",
+	"version": "1",
+	"body": {
+		"items": {
+			"selector": "section[itemtype=\"http://schema.org/Recipe\"]",
+			"fields": {
+				"name": "h1[itemprop=\"name\"]",
+				"image": {"attr": "src", "selector": "div.main-slider__image-wrap img"},
+				"description": "div.recipe__intro p",
+				"cook_time": "div[itemprop=\"totalTime\"]",
+				"portion": "div[itemprop=\"recipeYield\"]",
+				"stages": "div[itemprop=\"recipeInstructions\"] div.recipe__step-text",
+				"ingredients": "li[itemprop=\"recipeIngredient\"]"
+			}
+		}
+	}
+}

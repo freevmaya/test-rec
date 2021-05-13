@@ -60,7 +60,9 @@ else $addArticleLink = Url::toRoute(['/articles/edit', 'cat_id'=>\Yii::$app->req
 						])->label(false);?>
 					<?php ActiveForm::end(); ?>
 					</div>
+					<?if ($model['image']) {?>
 					<div class="image" style="background-image: url(<?=Articles::UrlImage($model)?>)" itemprop="resultPhoto"></div>
+					<?}?>
 					<div class="article-detail">
 
 						<div class="description"><?=$model['description'];?></div>

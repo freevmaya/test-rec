@@ -32,7 +32,7 @@ class Articles extends BaseModelWithImage
         return  [
         	[['name', 'description'/*, 'categories'*/], 'required'],
             [['category_ids'], 'each', 'rule' => ['integer']],
-            [['rates'], 'number'],
+            [['rates', 'block_id'], 'number'],
         	[['id', 'author_id', 'active'], 'safe', 'on'=>'search']
         ];
 	}

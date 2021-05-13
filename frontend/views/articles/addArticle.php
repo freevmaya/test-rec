@@ -51,6 +51,7 @@ if ($cat_id = \Yii::$app->request->get('cat_id')) $selectedCats[$cat_id] = ['Sel
 		<div>
 	        <div class="col-lg-5">
             <?= $form->field($model, 'category_ids')->dropDownList(ArticlesCats::groupTree(), ['multiple' => true]) ?>
+            <?= $form->field($model, 'block_id')->textInput() ?>
             <?= ImageControl::widget(['form'=>$form, 'model'=>$model, 'field'=>'image']);?>
     		<?if ($model->id) {?>
     		<input type="hidden" name="Articles[id]" value="<?=$model->id?>">

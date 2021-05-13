@@ -1,6 +1,7 @@
 <?
 namespace common\models;
 
+use yii;
 use yii\base\Model;
 use common\helpers\Utils;
 use common\models\RecipesCats;
@@ -220,6 +221,8 @@ class Parser extends ActiveRecord
                     $model->id = $id;
                     $model->version = $schemeData->version;
                     if ($result = $model->parse()) {
+
+                        Yii::trace($result, 'user');
                         Parser::$resfreshIteration++;
                         $model->save();
                         $passed = ['new', $scheme, $model->pid];

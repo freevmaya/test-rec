@@ -1,0 +1,12 @@
+{
+	"name": "gn-recipe",
+	"version": "1",
+	"body": {
+		"fields": {
+			"data": {
+				"selector": "script[type=\"application/ld+json\"]",
+				"eval": "$data->text()"
+			}
+		}
+	}
+}

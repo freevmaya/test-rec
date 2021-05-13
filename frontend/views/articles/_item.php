@@ -14,10 +14,12 @@ $link = Url::toRoute($linkArray);
 	<div class="article-item card-body">
 		<h3 class="card-title"><a href="<?=$link?>"><?=$model['name']?></a></h3>
 		<div class="article-content">
+			<?if ($model['image']) {?>
 			<a href="<?=$link?>"><div class="image" style="background-image: url(<?=Articles::UrlImage($model)?>)"></div></a>
+			<?}?>
 			<div class="article-detail">
 				<div class="article-date"><?=Utils::dateToUserTimeZone($model['created'])?></div>
-				<div class="description"><?=StringHelper::truncateWords($model['description'], 50, Html::a('... (читать дальше)', $linkArray));?></div>
+				<div class="description"><?=StringHelper::truncateWords(strip_tags($model['description']), 50, Html::a('... (читать дальше)', $linkArray));?></div>
 
 				<div class="cook_detail">
 					<div class="actions">

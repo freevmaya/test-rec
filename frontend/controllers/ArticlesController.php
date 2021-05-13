@@ -52,16 +52,19 @@ class ArticlesController extends Controller {
         $cat_id = Yii::$app->request->get('cat_id');
         $consist_id = Yii::$app->request->get('consist-id');
         $consist = null;
+        $where = null;
+
+        if (!Utils::IsAdmin()) $where = 'block_id = 0';
 
         if ($consist_id) {
 
             $consist = Consist::findOne(['id'=>$consist_id]);
             $join = [['INNER JOIN', 'consist_to_article', 'consist_to_article.article_id=articles.id']];
-            $where = 'consist_to_article.consist_id=:consist_id';
+            $where = ($where ? ($where.' AND ') : '').'consist_to_article.consist_id=:consist_id';
             $provider = Articles::dataProvider($cat_id, $where, $join);
             $provider->query->addParams([':consist_id'=>$consist_id]);
 
-        } else $provider = Articles::dataProvider($cat_id);
+        } else $provider = Articles::dataProvider($cat_id, $where);
 
         return $this->render('index', [
             "cats"=>ArticlesCats::getAllTree(),
