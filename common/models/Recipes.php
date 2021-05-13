@@ -242,7 +242,7 @@ class Recipes extends BaseModelWithImage
             'categories'=>\Yii::t('app', 'categories'),
             'ingredients'=>\Yii::t('app', 'ingredients'),
             'category_ids'=>\Yii::t('app', 'categories'),
-            'image'=>\Yii::t('app', 'image')
+            'image'=>\Utils::t('image')
     	];
 	}
 

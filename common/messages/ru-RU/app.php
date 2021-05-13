@@ -167,7 +167,8 @@ return [
 		'description'=>'Текст',
         'categories'=>'Категории',
         'category_ids'=>'Категории',
-        'image'=>'Изображение'
+        'image'=>'Изображение',
+		'block_id'=>'Номер блока'
 	],
 	'articlesCatsLabels'=>[
 		'name'=>'Название',
