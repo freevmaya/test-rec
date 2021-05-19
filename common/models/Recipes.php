@@ -148,7 +148,27 @@ class Recipes extends BaseModelWithImage
         return $this->hasMany(Ingredients::className(), ['id' => 'ingredient_id'])
                 ->viaTable('ingredients_to_recipe', ['recipe_id' => 'id']);
     }
+
+    public function saveIngredients($values) {
+        if ($this->id) {
+            $result = [];
+            foreach ($values as $value) {
+                if (!$item = Ingredients::find()->where(['name'=>$value])->one()) {
+                    $item = new Ingredients();
+                    $item->author_id = Yii::$app->user->id;
+                    $item->name = $value;
+                    $item->save();
+                }
+                $result[] = "({$this->id}, {$item->id})";
+            }
+
+            Yii::$app->db->createCommand('DELETE FROM ingredients_to_recipe WHERE recipe_id='.$this->id)->execute();
+            $command = Yii::$app->db->createCommand('INSERT ingredients_to_recipe (recipe_id, ingredient_id) VALUES '.implode(",", $result));
+            return $command->execute();
+        }
+    }
     
+    /*
     public function saveIngredients($values, $units) {
         if ($this->id) {
             $result = [];
@@ -184,7 +204,7 @@ class Recipes extends BaseModelWithImage
             $command = Yii::$app->db->createCommand('INSERT ingredients_to_recipe (recipe_id, ingredient_id, unit_id, value) VALUES '.implode(",", $result));
             return $command->execute();
         }
-    }
+    }*/
     
     public function getIngredientValues() {
         $command = Yii::$app->db->createCommand('
@@ -243,7 +263,7 @@ class Recipes extends BaseModelWithImage
             'categories'=>\Yii::t('app', 'categories'),
             'ingredients'=>\Yii::t('app', 'ingredients'),
             'category_ids'=>\Yii::t('app', 'categories'),
-            'image'=>\Utils::t('image')
+            'image'=>Utils::t('image')
     	];
 	}
 

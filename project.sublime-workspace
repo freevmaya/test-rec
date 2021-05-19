@@ -541,7 +541,16 @@
 			"file": "common/models/Recipes.php",
 			"settings":
 			{
-				"buffer_size": 10837,
+				"buffer_size": 10863,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "common/helpers/Utils.php",
+			"settings":
+			{
+				"buffer_size": 5166,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -583,15 +592,6 @@
 			}
 		},
 		{
-			"contents": "Установленная в настоящем стандарте схема цифровой подписи реализована с использованием операций группы точек эллиптической кривой, определённой над конечным простым полем, а также хэш–функции.\nКриптографическая стойкость данной схемы цифровой подписи основывается на сложности решения задачи дискретного логарифмирования в группе точек эллиптической кривой, а также на стойкости используемой хэш–функции.\n\nОбщепризнанная схема цифровой подписи, стандарта ГОСТ Р 34.10-2012, охватывает следующие процессы:\n\n– <link=\"generateKeySens\">генерация ключей</link>;\n– <link=\"createSignSens\">формирование подписи</link>;\n– <link=\"checkSignSens\">проверка подписи</link>.\n\n<size=24>Математические объекты</size>\n\nДля определения схемы цифровой подписи необходимо описать базовые математические объекты, используемые в процессах ее формирования и проверки. В данном разделе установлены основные математические определения и требования, предъявляемые к параметрам схемы цифровой подписи.\n",
-			"settings":
-			{
-				"buffer_size": 975,
-				"line_ending": "Windows",
-				"name": "Установленная в настоящем стандарте схема цифровой"
-			}
-		},
-		{
 			"file": "frontend/views/site/index.php",
 			"settings":
 			{
@@ -606,14 +606,6 @@
 			{
 				"buffer_size": 1078,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontend/views/articles/index.php",
-			"settings":
-			{
-				"buffer_size": 1134,
 				"line_ending": "Windows"
 			}
 		}
@@ -652,7 +644,7 @@
 	[
 		"/E/OpenServer/domains/recipes-dev.com/yii-application",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common",
-		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/models",
+		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/helpers",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/common/widgets",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/console",
 		"/E/OpenServer/domains/recipes-dev.com/yii-application/frontend",
@@ -936,6 +928,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Utils",
 			"block_id",
 			"fields",
 			"cook_time",
@@ -1062,8 +1055,7 @@
 			"data-state",
 			"items",
 			"myorders",
-			"partner_orders",
-			"myorders"
+			"partner_orders"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1209,7 +1201,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1238,7 +1230,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1266,7 +1258,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1275,15 +1267,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10837,
+						"buffer_size": 10863,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								829,
-								829
+								8287,
+								8287
 							]
 						],
 						"settings":
@@ -1296,11 +1288,39 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
+					"file": "common/helpers/Utils.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5166,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								236,
+								241
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "common/messages/ru-RU/app.php",
 					"semi_transient": false,
 					"settings":
@@ -1325,11 +1345,11 @@
 						"translation.y": 3078.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "frontend/views/articles/_item.php",
 					"semi_transient": false,
 					"settings":
@@ -1358,7 +1378,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "common/widgets/ArticleBlock.php",
 					"semi_transient": false,
 					"settings":
@@ -1384,11 +1404,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "frontend/controllers/ArticlesController.php",
 					"semi_transient": false,
 					"settings":
@@ -1411,38 +1431,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 627.0,
+						"translation.y": 551.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 975,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								975,
-								975
-							]
-						],
-						"settings":
-						{
-							"auto_name": "Установленная в настоящем стандарте схема цифровой",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1472,7 +1464,7 @@
 						"translation.y": 44.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1490,35 +1482,6 @@
 							[
 								139,
 								139
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "frontend/views/articles/index.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1134,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								812,
-								824
 							]
 						],
 						"settings":
