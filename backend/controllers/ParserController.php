@@ -58,7 +58,7 @@ class ParserController extends Controller
         if ($scheme) {
 
             if ($pid > 0) $list = Parser::find()->where(['pid'=>$pid])->all();
-            else $list = Parser::find()->where(['scheme'=>$scheme, 'state'=>'active'])->all();
+            else $list = Parser::find()->where(['scheme'=>$scheme, 'state'=>'active'])->limit($count_limit)->all();
             $count = 0;
             foreach ($list as $item) {
                 $recipe = json_decode($item->result)[0];
