@@ -66,7 +66,7 @@ class ParserController extends Controller
                     $file = pathinfo($recipe->image);
                     $cats = RecipesCats::check($recipe->subcats);
                     $consist = isset($recipe->ingridients_full) ? Consist::check($recipe->ingridients_full) : [];
-                    $ingredients = $recipe->ingredients ? Ingredients::check($recipe->ingredients) : false;
+                    //$ingredients = $recipe->ingredients ? Ingredients::check($recipe->ingredients) : false;
 
                     $imageBody = false;
                     $fileName = md5($file['filename']).'.'.$file['extension'];
@@ -97,7 +97,7 @@ class ParserController extends Controller
                             $item->state = 'processed';
                             $item->save();
 
-                            if ($ingredients) $rec->saveIngredients($ingredients['values'], $ingredients['units']);
+                            if ($recipe->ingredients) $rec->saveIngredients($recipe->ingredients);
                             if ($recipe->stages) $rec->saveStages($recipe->stages);
 
                             $passList[] = $item->pid;

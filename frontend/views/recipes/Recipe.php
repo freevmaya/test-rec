@@ -86,7 +86,7 @@ else $addRecipeLink = Url::toRoute(['/recipes/edit', 'cat_id'=>\Yii::$app->reque
 									<ul>
 								<?
 									foreach ($model->getIngredientValues() as $item) {?>
-										<li itemprop="recipeIngredient"><?=$item['name']?>: <?=Units::unitValue($item['value'], $item['type'])?> <?=$item['short']?></li>
+										<li itemprop="recipeIngredient"><?=$item['name']?><?=$item['value'] > 0 ? (': '.Units::unitValue($item['value'], $item['type'])) : ''?> <?=$item['short']?></li>
 									<?}?>
 									</ul>
 									<div class="alert alert-warning units-help">
