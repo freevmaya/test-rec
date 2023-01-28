@@ -14,7 +14,9 @@ $this->title = \Yii::t('app', 'app-name');
             echo $this->renderFile(dirname(__FILE__).'/../'.$modelName.'/foundList.php', ['items'=>$item]);
         }
     } else {
+        ?><div class="introduction"><?
       echo ArticleBlock::widget(['block_id'=>1]);
+        ?></div><?
     }
     ?>
     </div>

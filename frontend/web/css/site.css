@@ -979,7 +979,7 @@ form .detail {
     display: flex;
 }
 
-.site-index .card-deck {
+.introduction .card-deck {
     position: absolute;
     left: 1em;
     right: 1em;
@@ -990,7 +990,7 @@ form .detail {
     align-items: center;
 }
 
-.site-index .card {
+.introduction .card {
     min-width: 200px;
     max-width: 300px;
     margin: 1em;
