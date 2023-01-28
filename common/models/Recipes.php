@@ -268,7 +268,13 @@ class Recipes extends BaseModelWithImage
 	}
 
     public static function UrlImage($item) {
-        return Url::base(true).'/uploads/'.$item['image'];
+        GLOBAL $params;
+
+        $baseUrl = Url::base(true);
+        if (isset($params['ImageBaseURL']))
+            $baseUrl = $params['ImageBaseURL'];
+
+        return $baseUrl.'/uploads/'.$item['image'];
     }
 
     public static function search($key) {

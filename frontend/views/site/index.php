@@ -7,14 +7,6 @@ use common\widgets\ArticleBlock;
 $this->title = \Yii::t('app', 'app-name');
 ?>
 <div class="site-index">
-
-    <div class="header">
-        <div class="blur">
-            
-        <h1>Вкуснятки</h1>
-        </div>
-    </div>
-
     <div class="body-content">
     <?
     if (count($foundContent) > 0) {

@@ -10,8 +10,7 @@ return [
             'class' => 'yii\caching\FileCache',
         ],*/
         'cache'         => [
-           'class'        => 'yii\caching\MemCache',
-           'useMemcached' => false,
+           'class'        => 'yii\caching\MemCache'
         ]
     ],
 ];
