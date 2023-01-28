@@ -6,22 +6,6 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'FOOHRwE8WKbbRmq-cZMHC1mr8Mgow4WO',
         ],
-	'mailer' => [
-		'class' => 'yii\swiftmailer\Mailer',
-		'useFileTransport' => false,
-		'transport' => [
-			'class' => 'Swift_SmtpTransport',
-                	'host' => 'smtp.yandex.ru',
-	                'username' => 'webmaster@dcook.site',
-        	        'password' => 'Vthkby2010',
-                	'port' => 465,
-	        	'encryption' => 'ssl',
-		],
-        ],
-        'cache' => [
-		'class' => 'yii\caching\MemCache',
-	//	'useMemcached' => true
-        ]
     ],
 ];
 
