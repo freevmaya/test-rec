@@ -1,0 +1,6 @@
+--2021-05-19 18:04:37--  https://home-cook-admin.vmaya.ru/index.php?r=parser/appendjson
+Resolving home-cook-admin.vmaya.ru (home-cook-admin.vmaya.ru)... 62.76.179.86
+Connecting to home-cook-admin.vmaya.ru (home-cook-admin.vmaya.ru)|62.76.179.86|:443... connected.
+HTTP request sent, awaiting response... 400 Bad Request
+2021-05-19 18:04:38 ERROR 400: Bad Request.
+
