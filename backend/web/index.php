@@ -9,9 +9,9 @@ require __DIR__ . '/../config/bootstrap.php';
 
 $config = yii\helpers\ArrayHelper::merge(
     require __DIR__ . '/../../common/config/main.php',
-    require __DIR__ . '/../../common/config/main-local.php',
+    require __DIR__ . '/../../common/config/main-web.php',
     require __DIR__ . '/../config/main.php',
-    require __DIR__ . '/../config/main-local.php'
+    require __DIR__ . '/../config/main-web.php'
 );
 
 (new yii\web\Application($config))->run();
