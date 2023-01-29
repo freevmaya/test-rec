@@ -30,7 +30,7 @@ class Articles extends BaseModelWithImage
 	public function rules()
 	{
         return  [
-            [['name'/*, 'categories'*/], 'string'],
+            [['name'], 'string'],
         	[['description'/*, 'categories'*/], 'required'],
             [['category_ids'], 'each', 'rule' => ['integer']],
             [['rates', 'block_id'], 'number'],
