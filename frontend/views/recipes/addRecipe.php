@@ -93,9 +93,7 @@ $this->registerJs("
                					'placeholder'=>\Yii::t('app', 'add_ingredient_placeholder')
                				],
 							'clientOptions' => [
-								'source' => Ingredients::find()->
-												select(['name as name', 'name as label', 'id as id', 'unit_id'])->with('unit')->
-											asArray()->all(),
+								'source' => "",
 								'minLength'=>'1', 
 								'autoFill'=>true],
 							     ]);
