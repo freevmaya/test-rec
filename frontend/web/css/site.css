@@ -997,6 +997,11 @@ form .detail {
     margin: 1em;
 }
 
+.introduction .card-body-text {
+    height: 180px;
+    overflow-y: clip;
+}
+
 .mb-3 {
     justify-content: space-between;
 }
@@ -1028,7 +1033,6 @@ form .detail {
 }
 
 .mb-3 .card-body-text {
-    min-height: 150px;
     margin: 1rem; 
 }
 
