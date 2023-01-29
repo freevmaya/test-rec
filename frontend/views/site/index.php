@@ -15,7 +15,7 @@ $this->title = \Yii::t('app', 'app-name');
         }
     } else {
         ?><div class="introduction"><?
-      echo ArticleBlock::widget(['block_id'=>1]);
+            echo ArticleBlock::widget(['block_id'=>1]);
         ?></div><?
     }
     ?>

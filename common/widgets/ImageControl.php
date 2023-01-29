@@ -67,10 +67,15 @@ class ImageControl extends \yii\bootstrap\Widget
                 });
             ");
 
-            $delButton = '<button type="button" style="'.(!$imageUrl?'visibility:hidden;':'').'" id="'.$viewName.'-delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
+            $imageBlock = '';
+            if ($imageUrl) {
+                $delButton = '<button type="button" id="'.$viewName.'-delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
+
+                $imageBlock = '<div class="image-control"><img src="'.$imageUrl.'" id="'.$viewName.'">'.$delButton.'</div>';
+            }
 
             return Html::tag('div', 
-                '<div class="image-control"><img src="'.($imageUrl?$imageUrl:'').'" id="'.$viewName.'">'.$delButton.'</div>'.
+                $imageBlock.
                 $this->form->field($this->model, $field)->fileInput(['hiddenOptions'=>[
                     'value'=>$this->model->$field
                 ], 'class'=>'form-control'])

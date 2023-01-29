@@ -201,7 +201,6 @@ a:hover {
 .recipes .item > .item a {
     color: gray;
     padding: 5px 8px;
-    border: 1px solid lightgray;
 }
 
 .recipes .item > .item a.btn-primary {
@@ -222,6 +221,14 @@ a:hover {
 
 .recipe-item.full .recipe-content {
     flex-direction: column;
+}
+
+.recipes .head .edit {
+    display: none !important;
+}
+
+.recipes .head:hover .edit {
+    display: inline-block !important;
 }
 
 

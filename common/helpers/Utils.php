@@ -64,10 +64,13 @@ class Utils
 			}
 
 			if ($as_parent || ($parent_id && ($item['parent_id'] == $parent_id))) {
+
+				$add = Utils::IsAdmin() ? '<a href="'.Url::toRoute([$route[0]."/editcat", 'id'=>$item['id']]).'" class="edit"><span class="glyphicon glyphicon-pencil"></span></a>' : "";
 				?>
 				<div class="item">
 					<div class="head">
 						<a class="btn <?=($cat_id == $item['id'])?'btn-primary':'btn-light'?>" type="button" href="<?=Url::toRoute(array_merge($route, ['cat_id'=>$item['id']]))?>"><?=$item['name']?></a>
+						<?=$add?>
 					</div>
 					<?
 						if ($level < 1)

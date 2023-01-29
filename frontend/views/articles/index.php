@@ -7,7 +7,7 @@ use common\models\ArticlesCats;
 
 $this->registerCssFile("css/articles.css");
 
-$this->params['breadcrumbs'][] = $this->title = Utils::t('Articles');
+$this->params['breadcrumbs'][] = ['label'=>Utils::t('Articles'), 'url' => Url::toRoute("/articles")];
 
 if ($cat_id = \Yii::$app->request->get('cat_id')) {
 	$cat = ArticlesCats::find()->where(['id'=>$cat_id])->one();

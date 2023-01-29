@@ -21,7 +21,14 @@
 .articles .item > .item a {
     color: gray;
     padding: 5px 8px;
-    border: 1px solid lightgray;
+}
+
+.articles .head > .edit {
+    display: none !important;
+}
+
+.articles .head:hover > .edit {
+    display: inline-block !important;
 }
 
 .articles .item > .item a.btn-primary {
