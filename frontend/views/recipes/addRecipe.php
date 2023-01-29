@@ -18,6 +18,8 @@ use common\helpers\Utils;
 use yii\web\View;
 use yii\jui\AutoComplete;
 
+$this->registerCssFile("css/recipes-edit.css");
+
 $this->title = 'Рецепт';
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -136,8 +138,5 @@ $this->registerJs("
 	        </div>
             <?php ActiveForm::end(); ?>
 	    </div>		
-	</div>
-	<div class="column-two">
-		
 	</div>
 </div>
